@@ -1,0 +1,61 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Free Used Cars Selling HTML Template</title>
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Owl carousel -->
+    @Styles.Render("~/bundles/owlcarousel/css")
+
+    <!-- Bootstrap -->
+    @Styles.Render("~/bundles/bootstrap/css")
+
+    <!-- Font Awesome -->
+    @Styles.Render("~/bundles/fontawesome/css")
+
+    <!-- Custom Style -->
+    @Styles.Render("~/bundles/main/css")
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+    <div class="topbar-wrap">
+        @Html.Partial("_TopbarWrap")
+    </div>
+    <div class="header">
+        @Html.Partial("_Header")
+    </div>
+    <div class="searchwrap">
+        @Html.Partial("_SearchWrap")
+    </div>
+
+    <div class="section">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        @Html.Partial("_Footer")
+    </div>
+    <!-- Bootstrap's JavaScript -->
+
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/jquery/js")
+
+    <!-- Owl carousel -->
+    @Scripts.Render("~/bundles/owlcarousel/js")
+
+    <!-- Custom js -->
+    @Scripts.Render("~/bundles/main/js")
+</body>
+</html>
