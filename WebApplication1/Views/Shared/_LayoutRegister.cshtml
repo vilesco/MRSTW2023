@@ -30,15 +30,8 @@
     <div class="header">
         @Html.Partial("_Header")
     </div>
-    <div class="searchwrap">
-        @Html.Partial("_SearchWrap")
-    </div>
 
-    <div class="section">
-        @Html.Partial("_FuturedCars")
-    </div>
-
-    <div class="section">
+    <div>
         @RenderBody()
     </div>
 
@@ -55,7 +48,6 @@
 
     <!-- Custom js -->
     @Scripts.Render("~/bundles/main/js")
-
 
 </body>
 </html>

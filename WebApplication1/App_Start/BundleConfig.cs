@@ -24,16 +24,19 @@ namespace WebApplication1.App_Start
             bundles.Add(new StyleBundle("~/bundles/main/css").Include(
                       "~/Content/css/main.css", new CssRewriteUrlTransform()));
 
+            bundles.Add(new StyleBundle("~/bundles/owlcarouseltheme/css").Include(
+                      "~/Content/owl.theme.default.min.css", new CssRewriteUrlTransform()));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
-                      "~/Scripts/jquery-3.6.3.min.js"));
+                      "~/Content/js/jquery-2.1.4.min.js"));
 
-            bundles.Add(new Bundle("~/bundles/bootstrap/js").Include(
-                      "~/Content/js/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
+                      "~/Content/js/bootstrap.min.js"));
 
-            bundles.Add(new Bundle("~/bundles/owlcarousel/js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/owlcarousel/js").Include(
                       "~/Content/js/owl.carousel.js"));
 
-            bundles.Add(new Bundle("~/bundles/main/js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/main/js").Include(
                       "~/Content/js/script.js"));
         }
     }
