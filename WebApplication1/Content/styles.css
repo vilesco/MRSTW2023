@@ -1,8 +1,22 @@
 
+@keyframes example {
+    0% {
+        right: -200px;
+    }
+
+    100% {
+        right: 200px;
+    }
+}
+
+
 #animationImg {
-    position: absolute;
-    right: 0;
+    position: fixed;
     bottom: 0;
     height: 100px;
     width: 150px;
+    animation-name: example;
+    animation-duration: 3s;
+    animation-fill-mode: none;
+    animation-fill-mode:forwards;
 }
