@@ -400,10 +400,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddPostController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
+    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ListingController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
@@ -450,6 +453,12 @@
     <Content Include="Views\Shared\_LayoutEditProfile.cshtml" />
     <Content Include="Views\ForgotPassword\ForgotPassword.cshtml" />
     <Content Include="Views\Shared\_LayoutForgotPassword.cshtml" />
+    <Content Include="Views\AddPost\AddPost.cshtml" />
+    <Content Include="Views\Shared\_LayoutAddPost.cshtml" />
+    <Content Include="Views\Listing\Listing.cshtml" />
+    <Content Include="Views\Shared\_LayoutListing.cshtml" />
+    <Content Include="Views\Detail\Detail.cshtml" />
+    <Content Include="Views\Shared\_LayoutDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
