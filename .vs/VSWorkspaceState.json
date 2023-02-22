@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WebApplication1",
+    "\\WebApplication1\\Controllers",
     "\\WebApplication1\\Views",
+    "\\WebApplication1\\Views\\Home",
     "\\WebApplication1\\Views\\Shared"
   ],
   "SelectedNode": "\\WebApplication1\\Views\\Shared\\_Header.cshtml",
