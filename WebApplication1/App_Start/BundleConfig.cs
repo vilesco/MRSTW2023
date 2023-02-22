@@ -27,6 +27,9 @@ namespace WebApplication1.App_Start
             bundles.Add(new StyleBundle("~/bundles/owlcarouseltheme/css").Include(
                       "~/Content/owl.theme.default.min.css", new CssRewriteUrlTransform()));
 
+            bundles.Add(new StyleBundle("~/bundles/animationstyle/css").Include(
+                      "~/Content/styles.css", new CssRewriteUrlTransform()));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
                       "~/Content/js/jquery-2.1.4.min.js"));
 
