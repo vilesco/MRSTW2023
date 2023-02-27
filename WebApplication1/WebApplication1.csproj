@@ -400,10 +400,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActiveAdsController.cs" />
     <Compile Include="Controllers\AddPostController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
+    <Compile Include="Controllers\contact_usController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
+    <Compile Include="Controllers\FaqsController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListingController.cs" />
@@ -459,6 +463,14 @@
     <Content Include="Views\Shared\_LayoutListing.cshtml" />
     <Content Include="Views\Detail\Detail.cshtml" />
     <Content Include="Views\Shared\_LayoutDetail.cshtml" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_LayoutDashboard.cshtml" />
+    <Content Include="Views\ActiveAds\ActiveAds.cshtml" />
+    <Content Include="Views\Shared\_LayoutActiveAds.cshtml" />
+    <Content Include="Views\contact_us\contact_us.cshtml" />
+    <Content Include="Views\Faqs\Faqs.cshtml" />
+    <Content Include="Views\Shared\_LayoutContact_us.cshtml" />
+    <Content Include="Views\Shared\_LayoutFaqs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

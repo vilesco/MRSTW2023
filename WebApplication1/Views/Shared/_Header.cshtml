@@ -26,13 +26,13 @@
                                 <li><a href="@Url.Action("Index", "Register")">Register</a></li>
                                 <li><a href="@Url.Action("ForgotPassword", "ForgotPassword")">Forgot Password</a></li>
                                 <li><a href="@Url.Action("ChangePassword", "ChangePassword")">Change Password</a></li>
-                                <li><a href="dashboard.html">Dashboard</a></li>
-                                <li><a href="active-ads.html">Active Ads</a></li>
+                                <li><a href="@Url.Action("Dashboard", "Dashboard")">Dashboard</a></li>
+                                <li><a href="@Url.Action("ActiveAds", "ActiveAds")">Active Ads</a></li>
                                 <li><a href="pending-ads.html">Pending Ads</a></li>
                                 <li><a href="@Url.Action("EditProfile", "EditProfile")">Edit Profile</a></li>
                                 <li><a href="@Url.Action("AddPost", "AddPost")">Add Post</a></li>
                                 <li><a href="packages.html">Packages</a></li>
-                                <li><a href="faqs.html">FAQs</a></li>
+                                <li><a href="@Url.Action("Faqs", "Faqs")">FAQs</a></li>
                             </ul>
                             <!-- dropdown end -->
                         </li>
@@ -47,7 +47,7 @@
                             </ul>
                             <!-- dropdown end -->
                         </li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="@Url.Action("Contact_us", "Contact_us")">Contact</a></li>
                         <li class="postad"><a href="@Url.Action("AddPost", "AddPost")">Post an Ad</a></li>
                     </ul>
                     <!-- Nav collapes end -->
