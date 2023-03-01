@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutContactUs.cshtml";
+    ViewBag.Title = "ContactUs";
+}
+
+<!-- Contact us -->
+<div class="inner-page">
+    <div class="container">
+        <div class="contact-wrap">
+
+            <div class="row">
+                <!-- Contact Info -->
+
+                <div class="contact-now">
+                    <div class="col-md-4 column">
+                        <div class="contact">
+                            <span><i class="fa fa-home"></i></span>
+                            <div class="information">
+                                <strong>Address:</strong>
+                                <p>Studenților st. 9/7<br>Chișinău, Republic of Moldova</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Info -->
+                    <div class="col-md-4 column">
+                        <div class="contact">
+                            <span><i class="fa fa-envelope"></i></span>
+                            <div class="information">
+                                <strong>Email Address:</strong>
+                                <p>office@autocar.md</p>
+                                <p>contact@autocar.md</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Info -->
+                    <div class="col-md-4 column">
+                        <div class="contact">
+                            <span><i class="fa fa-phone"></i></span>
+                            <div class="information">
+                                <strong>Phone No:</strong>
+                                <p>+373 60 111 111</p>
+                                <p>+373 79 999 999</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Info -->
+                </div>
+
+
+                <!-- Contact form -->
+                <div class="col-md-12 column">
+                    <div class="contact-form">
+                        <div id="message"></div>
+                        <form method="post" action="" name="contactform" id="contactform">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input name="name" type="text" id="name" placeholder="Full Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="phone" placeholder="Phone Number">
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="email" type="text" id="email" placeholder="Email">
+                                </div>
+                                <div class="col-md-6">
+                                    <input name="email" type="text" id="email" placeholder="Address">
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea rows="4" name="comments" id="comments" placeholder="Details"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <button title="" class="button" type="submit" id="submit">Submit Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\WebApplication1",
+    "\\WebApplication1\\Content",
+    "\\WebApplication1\\Content\\css",
     "\\WebApplication1\\Views",
     "\\WebApplication1\\Views\\ActiveAds",
     "\\WebApplication1\\Views\\Shared"
   ],
-  "SelectedNode": "\\WebApplication1\\Views\\ActiveAds\\ActiveAds.cshtml",
+  "SelectedNode": "\\WebApplication1\\Content\\css\\main.css",
   "PreviewInSolutionExplorer": false
 }

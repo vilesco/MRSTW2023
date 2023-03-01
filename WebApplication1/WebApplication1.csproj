@@ -403,7 +403,7 @@
     <Compile Include="Controllers\ActiveAdsController.cs" />
     <Compile Include="Controllers\AddPostController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
-    <Compile Include="Controllers\contact_usController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\EditProfileController.cs" />
@@ -467,9 +467,9 @@
     <Content Include="Views\Shared\_LayoutDashboard.cshtml" />
     <Content Include="Views\ActiveAds\ActiveAds.cshtml" />
     <Content Include="Views\Shared\_LayoutActiveAds.cshtml" />
-    <Content Include="Views\contact_us\contact_us.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
     <Content Include="Views\Faqs\Faqs.cshtml" />
-    <Content Include="Views\Shared\_LayoutContact_us.cshtml" />
+    <Content Include="Views\Shared\_LayoutContactUs.cshtml" />
     <Content Include="Views\Shared\_LayoutFaqs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
