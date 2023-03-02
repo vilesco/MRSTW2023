@@ -527,7 +527,7 @@ h6 {
            ==Top Search css==
 *************************************************/
 .searchwrap {
-	background: url(../images/search-bg.jpg) no-repeat;
+	background: url(/Content/images/pexels-forest-photography-12088774.jpg) no-repeat;
 	background-size: cover;
 	padding: 100px 0;
 }
@@ -961,11 +961,11 @@ a.wit-btn {
 .about-wrap .col-md-6 {
 	padding: 0;
 }
-.about-wrap .about-image {
-	background: url(../images/about-img.jpg) no-repeat left;
-	background-size: cover;
-	height: 580px;
-}
+	.about-wrap .about-image {
+		background: url(../images/pexels-jay-pizzle-4141958.jpg) no-repeat left;
+		background-size: cover;
+		height: 580px;
+	}
 .about-wrap .title {
 	margin-bottom: 30px;
 }
