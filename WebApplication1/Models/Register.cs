@@ -8,6 +8,7 @@ namespace WebApplication1.Models
     public class Register
     {
         public int ID { get; set; }
+
         public string UserType { get; set; }
 
         public string FullName { get; set; }
