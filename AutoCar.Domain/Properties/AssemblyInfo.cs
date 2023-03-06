@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AutoCar.BusinessLogic")]
+[assembly: AssemblyTitle("AutoCar.Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AutoCar.BusinessLogic")]
+[assembly: AssemblyProduct("AutoCar.Domain")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8c1d9b1e-c560-4e60-8f4f-4056ffe5a0e5")]
+[assembly: Guid("03b4f9f3-7845-4935-a2e1-d10b5bd33225")]
 
 // Version information for an assembly consists of the following four values:
 //

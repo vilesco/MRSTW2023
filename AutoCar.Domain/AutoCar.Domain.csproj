@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C1D9B1E-C560-4E60-8F4F-4056FFE5A0E5}</ProjectGuid>
+    <ProjectGuid>{03B4F9F3-7845-4935-A2E1-D10B5BD33225}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoCar.BusinessLogic</RootNamespace>
-    <AssemblyName>AutoCar.BusinessLogic</AssemblyName>
+    <RootNamespace>AutoCar.Domain</RootNamespace>
+    <AssemblyName>AutoCar.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -45,10 +45,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutoCar.Domain\AutoCar.Domain.csproj">
-      <Project>{03b4f9f3-7845-4935-a2e1-d10b5bd33225}</Project>
-      <Name>AutoCar.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AutoCar.Helpers\AutoCar.Helpers.csproj">
       <Project>{e2687bec-ad32-4aef-b8be-efc6e25ea69c}</Project>
       <Name>AutoCar.Helpers</Name>
