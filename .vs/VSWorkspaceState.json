@@ -5,9 +5,8 @@
     "\\WebApplication1\\Content",
     "\\WebApplication1\\Content\\css",
     "\\WebApplication1\\Views",
-    "\\WebApplication1\\Views\\ActiveAds",
-    "\\WebApplication1\\Views\\Shared"
+    "\\WebApplication1\\Views\\ActiveAds"
   ],
-  "SelectedNode": "\\WebApplication1\\Content\\css\\main.css",
+  "SelectedNode": "\\WebApplication1\\Content\\themes",
   "PreviewInSolutionExplorer": false
 }
