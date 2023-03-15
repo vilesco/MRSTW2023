@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-
     public class LoginController : Controller
     {
-        private readonly ISession _session;
         // GET: Login
         public ActionResult Index()
         {
