@@ -119,6 +119,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\otherstyles.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -471,6 +472,7 @@
     <Content Include="Views\Faqs\Faqs.cshtml" />
     <Content Include="Views\Shared\_LayoutContact_us.cshtml" />
     <Content Include="Views\Shared\_LayoutFaqs.cshtml" />
+    <Content Include="Views\Shared\_Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

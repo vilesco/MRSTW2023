@@ -20,6 +20,9 @@
 
     <!-- Custom Style -->
     @Styles.Render("~/bundles/main/css")
+    @Styles.Render("~/bundles/otherstyles/css")
+
+
 
 </head>
 <body>
@@ -29,13 +32,6 @@
     </div>
     <div class="header">
         @Html.Partial("_Header")
-    </div>
-    <div class="searchwrap">
-        @Html.Partial("_SearchWrap")
-    </div>
-
-    <div class="section">
-        @Html.Partial("_FuturedCars")
     </div>
 
     <div class="section">
