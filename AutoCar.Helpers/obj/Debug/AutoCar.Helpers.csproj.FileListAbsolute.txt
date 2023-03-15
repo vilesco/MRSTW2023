@@ -1,0 +1,6 @@
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.pdb
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.AssemblyReference.cache
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CoreCompileInputs.cache
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
+C:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb
