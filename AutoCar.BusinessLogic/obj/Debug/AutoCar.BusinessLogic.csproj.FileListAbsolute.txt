@@ -1,0 +1,2 @@
+C:\AutoCar\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.AssemblyReference.cache
+C:\AutoCar\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.CoreCompileInputs.cache

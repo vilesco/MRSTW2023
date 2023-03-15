@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,6 +45,12 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -133,16 +140,227 @@
     <Content Include="Content\images\blog\large-1.jpg" />
     <Content Include="Content\images\car-inspection.jpg" />
     <Content Include="Content\images\car.png" />
-    <Content Include="Content\images\cars\01.jpg" />
-    <Content Include="Content\images\cars\02.jpg" />
-    <Content Include="Content\images\cars\03.jpg" />
-    <Content Include="Content\images\cars\04.jpg" />
-    <Content Include="Content\images\cars\05.jpg" />
-    <Content Include="Content\images\cars\06.jpg" />
-    <Content Include="Content\images\cars\07.jpg" />
-    <Content Include="Content\images\cars\08.jpg" />
-    <Content Include="Content\images\cars\09.jpg" />
-    <Content Include="Content\images\cars\10.jpg" />
+    <Content Include="Content\images\CarsLogo\acura-512x512-202936.png" />
+    <Content Include="Content\images\CarsLogo\acura-512x512-202937.png" />
+    <Content Include="Content\images\CarsLogo\acura-512x512-202938.png" />
+    <Content Include="Content\images\CarsLogo\acura-512x512-202939.png" />
+    <Content Include="Content\images\CarsLogo\alfa-512x512-202940.png" />
+    <Content Include="Content\images\CarsLogo\alfa-512x512-202941.png" />
+    <Content Include="Content\images\CarsLogo\alfa-512x512-202942.png" />
+    <Content Include="Content\images\CarsLogo\alfa-512x512-202944.png" />
+    <Content Include="Content\images\CarsLogo\aston-512x512-202943.png" />
+    <Content Include="Content\images\CarsLogo\audi-512x512-202733.png" />
+    <Content Include="Content\images\CarsLogo\audi-512x512-202734.png" />
+    <Content Include="Content\images\CarsLogo\audi-512x512-202945.png" />
+    <Content Include="Content\images\CarsLogo\bentley-512x512-202732.png" />
+    <Content Include="Content\images\CarsLogo\bentley-512x512-202752.png" />
+    <Content Include="Content\images\CarsLogo\bmw-512x512-202735.png" />
+    <Content Include="Content\images\CarsLogo\bmw-512x512-202742.png" />
+    <Content Include="Content\images\CarsLogo\bmw-512x512-202743.png" />
+    <Content Include="Content\images\CarsLogo\bmw-512x512-202746.png" />
+    <Content Include="Content\images\CarsLogo\bmw-512x512-202750.png" />
+    <Content Include="Content\images\CarsLogo\castrol-512x512-202749.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202731.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202736.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202738.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202739.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202740.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202741.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202744.png" />
+    <Content Include="Content\images\CarsLogo\chevrolet-512x512-202745.png" />
+    <Content Include="Content\images\CarsLogo\chrysler-512x512-202747.png" />
+    <Content Include="Content\images\CarsLogo\chrysler-512x512-202748.png" />
+    <Content Include="Content\images\CarsLogo\classic-512x512-202756.png" />
+    <Content Include="Content\images\CarsLogo\club-512x512-202758.png" />
+    <Content Include="Content\images\CarsLogo\dacia-512x512-202754.png" />
+    <Content Include="Content\images\CarsLogo\dacia-512x512-202755.png" />
+    <Content Include="Content\images\CarsLogo\daihatsu-512x512-202751.png" />
+    <Content Include="Content\images\CarsLogo\daihatsu-512x512-202753.png" />
+    <Content Include="Content\images\CarsLogo\daihatsu-512x512-202759.png" />
+    <Content Include="Content\images\CarsLogo\daihatsu-512x512-202761.png" />
+    <Content Include="Content\images\CarsLogo\daihatsu-512x512-202763.png" />
+    <Content Include="Content\images\CarsLogo\dodge-512x512-202757.png" />
+    <Content Include="Content\images\CarsLogo\ferrari-512x512-202760.png" />
+    <Content Include="Content\images\CarsLogo\ferrari-512x512-202762.png" />
+    <Content Include="Content\images\CarsLogo\ferrari-512x512-202765.png" />
+    <Content Include="Content\images\CarsLogo\ferrari-512x512-202769.png" />
+    <Content Include="Content\images\CarsLogo\ferrari-512x512-202771.png" />
+    <Content Include="Content\images\CarsLogo\fiat-512x512-202766.png" />
+    <Content Include="Content\images\CarsLogo\fiat-512x512-202773.png" />
+    <Content Include="Content\images\CarsLogo\ford-512x512-202764.png" />
+    <Content Include="Content\images\CarsLogo\ford-512x512-202767.png" />
+    <Content Include="Content\images\CarsLogo\ford-512x512-202776.png" />
+    <Content Include="Content\images\CarsLogo\gmc-512x512-202768.png" />
+    <Content Include="Content\images\CarsLogo\gmc-512x512-202770.png" />
+    <Content Include="Content\images\CarsLogo\gmc-512x512-202777.png" />
+    <Content Include="Content\images\CarsLogo\hendrick-512x512-202772.png" />
+    <Content Include="Content\images\CarsLogo\hendrick-512x512-202774.png" />
+    <Content Include="Content\images\CarsLogo\hendrick-512x512-202783.png" />
+    <Content Include="Content\images\CarsLogo\hendrick-512x512-202787.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202775.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202778.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202779.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202780.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202781.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202782.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202784.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202785.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202786.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202788.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202789.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202790.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202791.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202792.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202794.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202797.png" />
+    <Content Include="Content\images\CarsLogo\honda-512x512-202798.png" />
+    <Content Include="Content\images\CarsLogo\hondacare-512x512-202793.png" />
+    <Content Include="Content\images\CarsLogo\hummer-512x512-202795.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202796.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202799.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202800.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202801.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202802.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202803.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202804.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202805.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202806.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202807.png" />
+    <Content Include="Content\images\CarsLogo\hyundai-512x512-202809.png" />
+    <Content Include="Content\images\CarsLogo\infiniti-512x512-202811.png" />
+    <Content Include="Content\images\CarsLogo\infiniti-512x512-202812.png" />
+    <Content Include="Content\images\CarsLogo\infiniti-512x512-202817.png" />
+    <Content Include="Content\images\CarsLogo\isuzu-512x512-202808.png" />
+    <Content Include="Content\images\CarsLogo\isuzu-512x512-202810.png" />
+    <Content Include="Content\images\CarsLogo\isuzu-512x512-202820.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202813.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202814.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202815.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202816.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202818.png" />
+    <Content Include="Content\images\CarsLogo\jaguar-512x512-202821.png" />
+    <Content Include="Content\images\CarsLogo\jeep-512x512-202819.png" />
+    <Content Include="Content\images\CarsLogo\jeep-512x512-202822.png" />
+    <Content Include="Content\images\CarsLogo\kia-512x512-202823.png" />
+    <Content Include="Content\images\CarsLogo\kia-512x512-202824.png" />
+    <Content Include="Content\images\CarsLogo\kia-512x512-202825.png" />
+    <Content Include="Content\images\CarsLogo\kia-512x512-202830.png" />
+    <Content Include="Content\images\CarsLogo\lancia-512x512-202826.png" />
+    <Content Include="Content\images\CarsLogo\land-512x512-202827.png" />
+    <Content Include="Content\images\CarsLogo\land-512x512-202834.png" />
+    <Content Include="Content\images\CarsLogo\lexus-512x512-202828.png" />
+    <Content Include="Content\images\CarsLogo\lexus-512x512-202829.png" />
+    <Content Include="Content\images\CarsLogo\lexus-512x512-202831.png" />
+    <Content Include="Content\images\CarsLogo\lincoln-512x512-202832.png" />
+    <Content Include="Content\images\CarsLogo\lincoln-512x512-202833.png" />
+    <Content Include="Content\images\CarsLogo\lincoln-512x512-202835.png" />
+    <Content Include="Content\images\CarsLogo\lincoln-512x512-202844.png" />
+    <Content Include="Content\images\CarsLogo\lotus-512x512-202845.png" />
+    <Content Include="Content\images\CarsLogo\mazda-512x512-202836.png" />
+    <Content Include="Content\images\CarsLogo\mazda-512x512-202843.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202837.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202838.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202839.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202840.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202841.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202842.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202846.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202847.png" />
+    <Content Include="Content\images\CarsLogo\mercedes-512x512-202855.png" />
+    <Content Include="Content\images\CarsLogo\mg-512x512-202848.png" />
+    <Content Include="Content\images\CarsLogo\mg-512x512-202849.png" />
+    <Content Include="Content\images\CarsLogo\mini-512x512-202737.png" />
+    <Content Include="Content\images\CarsLogo\mitsubishi-512x512-202850.png" />
+    <Content Include="Content\images\CarsLogo\mitsubishi-512x512-202851.png" />
+    <Content Include="Content\images\CarsLogo\mitsubishi-512x512-202852.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202853.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202854.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202856.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202857.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202858.png" />
+    <Content Include="Content\images\CarsLogo\nissan-512x512-202859.png" />
+    <Content Include="Content\images\CarsLogo\northside-512x512-202870.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202860.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202861.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202862.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202863.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202864.png" />
+    <Content Include="Content\images\CarsLogo\opel-512x512-202865.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202866.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202867.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202868.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202869.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202871.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202872.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202873.png" />
+    <Content Include="Content\images\CarsLogo\peugeot-512x512-202877.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202874.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202875.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202876.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202878.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202879.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202881.png" />
+    <Content Include="Content\images\CarsLogo\porsche-512x512-202887.png" />
+    <Content Include="Content\images\CarsLogo\pro-512x512-202882.png" />
+    <Content Include="Content\images\CarsLogo\proton-512x512-202880.png" />
+    <Content Include="Content\images\CarsLogo\range-512x512-202884.png" />
+    <Content Include="Content\images\CarsLogo\rcv-512x512-202883.png" />
+    <Content Include="Content\images\CarsLogo\renault-512x512-202886.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202885.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202888.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202889.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202890.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202891.png" />
+    <Content Include="Content\images\CarsLogo\rover-512x512-202893.png" />
+    <Content Include="Content\images\CarsLogo\saab-512x512-202892.png" />
+    <Content Include="Content\images\CarsLogo\saab-512x512-202894.png" />
+    <Content Include="Content\images\CarsLogo\saab-512x512-202895.png" />
+    <Content Include="Content\images\CarsLogo\saab-512x512-202896.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202897.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202898.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202899.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202900.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202901.png" />
+    <Content Include="Content\images\CarsLogo\skoda-512x512-202902.png" />
+    <Content Include="Content\images\CarsLogo\smart-512x512-202903.png" />
+    <Content Include="Content\images\CarsLogo\subaru-512x512-202904.png" />
+    <Content Include="Content\images\CarsLogo\subaru-512x512-202905.png" />
+    <Content Include="Content\images\CarsLogo\subaru-512x512-202906.png" />
+    <Content Include="Content\images\CarsLogo\subaru-512x512-202907.png" />
+    <Content Include="Content\images\CarsLogo\subaru-512x512-202908.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202909.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202910.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202911.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202912.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202916.png" />
+    <Content Include="Content\images\CarsLogo\tesla-512x512-202917.png" />
+    <Content Include="Content\images\CarsLogo\toyota-512x512-202913.png" />
+    <Content Include="Content\images\CarsLogo\toyota-512x512-202914.png" />
+    <Content Include="Content\images\CarsLogo\triumph-512x512-202915.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202918.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202919.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202920.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202921.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202922.png" />
+    <Content Include="Content\images\CarsLogo\volkswagen-512x512-202925.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202923.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202924.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202926.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202927.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202928.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202929.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202930.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202931.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202932.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202933.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202934.png" />
+    <Content Include="Content\images\CarsLogo\volvo-512x512-202935.png" />
+    <Content Include="Content\images\cars\BMW7series.jpg" />
+    <Content Include="Content\images\cars\fordMustang.jpg" />
+    <Content Include="Content\images\cars\MercedesEClass.jpg" />
+    <Content Include="Content\images\cars\NissanQashqai.jpg" />
+    <Content Include="Content\images\cars\ToyotaC-HR.jpg" />
+    <Content Include="Content\images\cars\VWGolf.jpg" />
     <Content Include="Content\images\coment-avatar-1.jpg" />
     <Content Include="Content\images\coment-avatar-2.jpg" />
     <Content Include="Content\images\coment-avatar-3.jpg" />
@@ -187,6 +405,13 @@
     <Content Include="Content\images\make\17.jpg" />
     <Content Include="Content\images\make\18.jpg" />
     <Content Include="Content\images\page-title-bg.jpg" />
+    <Content Include="Content\images\pexels-aleksandar-pasaric-4512439.jpg" />
+    <Content Include="Content\images\pexels-charles-kettor-1005162.jpg" />
+    <Content Include="Content\images\pexels-forest-photography-12088774.jpg" />
+    <Content Include="Content\images\pexels-jay-pizzle-4141958.jpg" />
+    <Content Include="Content\images\pexels-kelly-2402235.jpg" />
+    <Content Include="Content\images\pexels-omar-ramadan-5705531.jpg" />
+    <Content Include="Content\images\pexels-yazan-nash-2649193.jpg" />
     <Content Include="Content\images\search-bg.jpg" />
     <Content Include="Content\images\sell-icon.png" />
     <Content Include="Content\images\slider\banner.jpg" />
@@ -401,6 +626,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ActiveAdsController.cs" />
     <Compile Include="Controllers\AddPostController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
@@ -417,6 +643,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -472,7 +700,12 @@
     <Content Include="Views\Faqs\Faqs.cshtml" />
     <Content Include="Views\Shared\_LayoutContact_us.cshtml" />
     <Content Include="Views\Shared\_LayoutFaqs.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_Details.cshtml" />
+=======
+    <Content Include="Views\Shared\_LayoutAboutUs.cshtml" />
+    <Content Include="Views\AboutUs\AboutUs.cshtml" />
+>>>>>>> 9dfc0c9e6d9a588d24d6804b60d5adf62df56946
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -482,7 +715,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\BundleConfig\" />
   </ItemGroup>
   <ItemGroup>
@@ -490,6 +722,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoCar.BusinessLogic\AutoCar.BusinessLogic.csproj">
+      <Project>{8c1d9b1e-c560-4e60-8f4f-4056ffe5a0e5}</Project>
+      <Name>AutoCar.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCar.Domain\AutoCar.Domain.csproj">
+      <Project>{03b4f9f3-7845-4935-a2e1-d10b5bd33225}</Project>
+      <Name>AutoCar.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -522,7 +764,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
