@@ -59,6 +59,7 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -700,12 +701,9 @@
     <Content Include="Views\Faqs\Faqs.cshtml" />
     <Content Include="Views\Shared\_LayoutContact_us.cshtml" />
     <Content Include="Views\Shared\_LayoutFaqs.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Shared\_Details.cshtml" />
-=======
     <Content Include="Views\Shared\_LayoutAboutUs.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
->>>>>>> 9dfc0c9e6d9a588d24d6804b60d5adf62df56946
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AutoCar.Domain
 {
-    public class Class1
+    public class Class1 
+
     {
     }
 }
