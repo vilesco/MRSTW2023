@@ -7,3 +7,12 @@ C:\AutoCar\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CoreCompileI
 C:\AutoCar\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CopyComplete
 C:\AutoCar\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.dll
 C:\AutoCar\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.pdb
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Domain.dll
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Domain.pdb
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Helpers.dll
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Helpers.pdb
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.AssemblyReference.cache
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CoreCompileInputs.cache
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CopyComplete
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.dll
+D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.pdb
