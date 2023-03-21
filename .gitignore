@@ -1,1 +1,11 @@
 .vs/*
+*.cache
+*.dll
+*.pdb
+.vs/AutoCar/v17/.suo
+AutoCar.BusinessLogic/obj/Debug/AutoCar.BusinessLogic.csproj.AssemblyReference.cache
+AutoCar.Web/bin/WebApplication1.dll
+AutoCar.Web/obj/Debug/AutoCar.Web.csproj.AssemblyReference.cache
+AutoCar.Web/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+AutoCar.Web/obj/Debug/WebApplication1.dll
+AutoCar.Web/obj/Debug/WebApplication1.pdb
