@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace AutoCar.Domain.Entities.User
 {
-    public class ULoginData
-    {
-          public string UserName { get; set; }
-          public string Password { get; set; }
-
-    }
-
+     public class UCookieData
+     {
+          public string UserName {get;set;}  
+          public string Token { get;set;}
+     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoCar.Domain.Entities.Response;
+using AutoCar.Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace AutoCar.BusinessLogic.Interfaces
 {
-    internal class ISession
-    {
-    }
+     public interface ISession
+     {
+          CookieResponse GenCookie(UCookieData utoken);
+          ServiceResponse ValidateUserCredential(ULoginData user);
+          ServiceResponse ValidateNewPassword(UChangePasswordData password);
+
+     }
 }
