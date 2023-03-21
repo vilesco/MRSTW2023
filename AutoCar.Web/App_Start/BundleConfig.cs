@@ -14,8 +14,6 @@ namespace AutoCar.Web.App_Start
         {
             bundles.Add(new StyleBundle("~/bundles/owlcarousel/css").Include(
                       "~/Content/css/owl.carousel.css", new CssRewriteUrlTransform()));
-            bundles.Add(new StyleBundle("~/bundles/otherstyles/css").Include(
-                      "~/Content/css/otherstyles.css", new CssRewriteUrlTransform()));
 
             bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
                       "~/Content/css/bootstrap.min.css", new CssRewriteUrlTransform()));
