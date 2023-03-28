@@ -5,15 +5,9 @@ using System.Web;
 
 namespace AutoCar.Web.Models
 {
-    public class Register
+    public class RegisterData
     {
-        public int ID { get; set; }
-
-        public string UserType { get; set; }
-
         public string FullName { get; set; }
-
-        public string AdType { get; set; }
 
         public string UserName { get; set; }
 
@@ -23,6 +17,5 @@ namespace AutoCar.Web.Models
 
         public string ConfirmPassword { get; set; }
 
-        public List<Register> RegisterInfo { get; set; }
     }
 }

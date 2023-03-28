@@ -12,21 +12,20 @@ namespace AutoCar.BusinessLogic
 {
     public class SessionBL : UserApi, ISession
     {
-          public ServiceResponse ValidateUserCredential(ULoginData user)
-          {
-               return ReturnCredentialStatus(user);
-          }
+        public ServiceResponse ValidateUserCredential(ULoginData user)
+        {
+            return ReturnCredentialStatus(user);
+        }
 
-          public CookieResponse GenCookie(UCookieData utoken)
-          {
-               return ReturnSessionCookie(utoken);
-          }
+        public ServiceResponse ValidateNewPassword(UChangePasswordData password)
+        {
+            return ReturnPasswordStatus(password);
+        }
 
-          public ServiceResponse ValidateNewPassword(UChangePasswordData password)
-          {
-               return ReturnPasswordStatus(password);
-          }
-
+        public ServiceResponse ValidateUserRegister (URegisterData newUser)
+        {
+            return ReturnRegisterStatus(newUser);
+        }
 
     }
 }

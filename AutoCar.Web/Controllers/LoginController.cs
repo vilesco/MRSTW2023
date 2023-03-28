@@ -12,43 +12,46 @@ using AutoCar.Web.Models;
 namespace AutoCar.Web.Controllers
 {
 
-     public class LoginController : Controller
-     {
+    public class LoginController : Controller
+    {
 
-          private readonly ISession _session;
-          public LoginController()
-          {
-               var bl = new BusinessLogic.BusinessLogic();
-               _session = bl.GetSessionBL();
-          }
-          // GET: Login
-          public ActionResult Index()
-          {
-               var user = new ULoginData { Password = "Ecaterina", UserName = "Popa" };
+        private readonly ISession _session;
+        public LoginController()
+        {
+            var bl = new BusinessLogic.BusinessLogic();
+            _session = bl.GetSessionBL();
+        }
+        // GET: Login
+        public ActionResult Index()
+        {
+            var user = new ULoginData { Password = "Ecaterina", UserName = "catea112", LastLoginTime = DateTime.Now};
 
-               ServiceResponse UValidate = _session.ValidateUserCredential(user);
+            ServiceResponse UValidate = _session.ValidateUserCredential(user);
 
-               if (UValidate.Status)
-               {
-                    var utoken = new UCookieData { UserName = user.UserName, Token = "abcd"};
-                    CookieResponse cookie = _session.GenCookie(utoken);
+            return View();
+        }
 
 
-               }
-               return View();
-          }
+        [HttpPost]
+        public ActionResult Index(LoginData data)
+        {
+            ULoginData uLogin = new ULoginData
+            {
+                UserName = data.Username,
+                Password = data.Password,
+                LastLoginTime = DateTime.Now,
+                IP = Request.UserHostAddress
+            };
 
+            var response = _session.ValidateUserCredential(uLogin);
 
-          [HttpPost]
-          public ActionResult Index(Register e)
-          {
-               return View();
-          }
+            return View();
+        }
 
-          [HttpGet]
-          public ActionResult Wellcome(Register e)
-          {
-               return View();
-          }
-     }
+        [HttpGet]
+        public ActionResult Wellcome()
+        {
+            return View();
+        }
+    }
 }

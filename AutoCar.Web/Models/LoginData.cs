@@ -5,9 +5,8 @@ using System.Web;
 
 namespace AutoCar.Web.Models
 {
-    public class Login
+    public class LoginData
     {
-        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
 
