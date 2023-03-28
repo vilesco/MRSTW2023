@@ -17,11 +17,6 @@ namespace AutoCar.BusinessLogic
                return ReturnCredentialStatus(user);
           }
 
-          public CookieResponse GenCookie(UCookieData utoken)
-          {
-               return ReturnSessionCookie(utoken);
-          }
-
           public ServiceResponse ValidateNewPassword(UChangePasswordData password)
           {
                return ReturnPasswordStatus(password);

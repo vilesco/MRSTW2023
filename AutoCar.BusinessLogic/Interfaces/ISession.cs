@@ -10,7 +10,6 @@ namespace AutoCar.BusinessLogic.Interfaces
 {
      public interface ISession
      {
-          CookieResponse GenCookie(UCookieData utoken);
           ServiceResponse ValidateUserCredential(ULoginData user);
           ServiceResponse ValidateNewPassword(UChangePasswordData password);
 

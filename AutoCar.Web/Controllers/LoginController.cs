@@ -11,10 +11,8 @@ using AutoCar.Web.Models;
 
 namespace AutoCar.Web.Controllers
 {
-
      public class LoginController : Controller
      {
-
           private readonly ISession _session;
           public LoginController()
           {
@@ -28,13 +26,6 @@ namespace AutoCar.Web.Controllers
 
                ServiceResponse UValidate = _session.ValidateUserCredential(user);
 
-               if (UValidate.Status)
-               {
-                    var utoken = new UCookieData { UserName = user.UserName, Token = "abcd"};
-                    CookieResponse cookie = _session.GenCookie(utoken);
-
-
-               }
                return View();
           }
 
@@ -46,7 +37,7 @@ namespace AutoCar.Web.Controllers
           }
 
           [HttpGet]
-          public ActionResult Wellcome(Register e)
+          public ActionResult Welcome(Register e)
           {
                return View();
           }

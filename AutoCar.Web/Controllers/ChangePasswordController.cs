@@ -17,8 +17,7 @@ namespace AutoCar.Web.Controllers
           public ChangePasswordController()
           {
                var bl = new BusinessLogic.BusinessLogic();
-               _session = bl.GetSessionBL();
-               
+               _session = bl.GetSessionBL();             
           }
           public ActionResult ChangePassword()
           {
@@ -26,8 +25,8 @@ namespace AutoCar.Web.Controllers
                
                if (password.NewPassword == password.ConfirmedPassword)
                {
-                    var upassword = new ServiceResponse { Status = true, StatusMessage = "Password was changed succesfully!" };
-                    ServiceResponse passwordsession = _session.ValidateNewPassword(password);
+                    var upassword = new UChangePasswordData {NewPassword = password.ConfirmedPassword };
+                    ServiceResponse passwordsession = _session.ValidateNewPassword(upassword);
                }
 
                return View();

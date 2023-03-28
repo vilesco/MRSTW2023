@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoCar.BusinessLogic.DBModel
 {
-    internal class UserContext
+    public class UserContext
     {
     }
 }
