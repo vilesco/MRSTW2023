@@ -23,29 +23,10 @@ namespace AutoCar.BusinessLogic.Core
                     return new ServiceResponse { Status = false, StatusMessage = "The Username or Password is Incorrect" };
                 }
             }
-            
-            using (var db = new UserContext())
-            {
-                var newUser = new UDbModel()
-                {
-                    UserName = "costea",
-                    Password = "12345655555",
-                    Email = "costea@yandex.ru",
-                    Terms = true,
-                    FullName = "Costic",
-                    AccessLevel = Domain.Enum.URole.USER,
-                    RegisterDateTime = DateTime.Now,
-                    LoginDateTime = DateTime.Now,
-
-                };
-                db.Users.Add(newUser);
-                db.SaveChanges();
-            }
-
 
             return new ServiceResponse { Status = true, StatusMessage = string.Empty };
         }
-        
+
 
         public ServiceResponse ReturnPasswordStatus(UChangePasswordData password)
         {
@@ -54,7 +35,51 @@ namespace AutoCar.BusinessLogic.Core
 
         public ServiceResponse ReturnRegisterStatus(URegisterData newUser)
         {
-            return new ServiceResponse { Status = true, StatusMessage = "New User profile was created successfully!" };
+            var response = new ServiceResponse();
+            using (var db = new UserContext())
+            {
+                try
+                {
+                    // Check if the user already exists in the database
+
+                    var existingUser = db.Users.FirstOrDefault(u => u.Email == newUser.Email || u.UserName == newUser.UserName);
+                    if (existingUser != null)
+                    {
+                        response.StatusMessage = "User with this email already exists";
+                        response.Status = false;
+                        return response;
+                    }
+
+
+                    // If the user does not exist, create a new user object and add it to the database
+                    var user = new UDbModel
+                    {
+                        FullName = newUser.FullName,
+                        UserName = newUser.UserName,
+                        Email = newUser.Email,
+                        Password = newUser.Password,
+                        Terms = newUser.Terms,
+                        RegisterDateTime = DateTime.Now,
+                        LoginDateTime = DateTime.Now,
+                        AccessLevel = Domain.Enum.URole.USER,
+
+                    };
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
+                    response.StatusMessage = "User registered successfully";
+                    response.Status = true;
+                }
+                catch (Exception ex)
+                {
+                    response.StatusMessage = "An error occurred while registering the user";
+                    response.Status = false;
+                    //response.Exception = ex;
+                }
+            }
+
+            return response;
+            //return new ServiceResponse { Status = true, StatusMessage = "New User profile was created successfully!" };
         }
     }
 }

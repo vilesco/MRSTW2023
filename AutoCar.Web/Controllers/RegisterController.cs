@@ -27,8 +27,7 @@ namespace AutoCar.Web.Controllers
             var newUser = new URegisterData { FullName = "New User",
             UserName = "Username",
             Email = "usermail@gmail.com",
-            NewPassword = "password",
-            ConfirmedPassword = "password",
+            Password = "password",
             Terms = true,
             IP = Request.UserHostAddress,
             RegisterDateTime = DateTime.Now };
@@ -41,11 +40,31 @@ namespace AutoCar.Web.Controllers
         
 
         [HttpPost]
-        public ActionResult Index(RegisterData e)
+        public ActionResult Index(RegisterData data)
         {
-            RegisterData user = new RegisterData();
+            if (ModelState.IsValid)
+            {
+                URegisterData newUser = new URegisterData
+                {
+                    Email = data.Email,
+                    Password = data.Password,
+                    UserName = data.UserName,
+                    FullName = data.FullName,
+                    Terms = data.Terms,
+                };
+                var response = _session.ValidateUserRegister(newUser);
+                if (response.Status)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", response.StatusMessage);
+                    return View();
+                }
 
-            return View(user);
+            }
+            return View();
         }
     }
 }

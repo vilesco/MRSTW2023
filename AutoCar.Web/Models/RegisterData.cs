@@ -15,7 +15,7 @@ namespace AutoCar.Web.Models
 
         public string Password { get; set; }
 
-        public string ConfirmPassword { get; set; }
+        public bool Terms { get; set; }
 
     }
 }
