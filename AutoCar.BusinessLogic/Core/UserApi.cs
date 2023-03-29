@@ -1,8 +1,10 @@
 ﻿using AutoCar.BusinessLogic.DBModel;
+using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +15,16 @@ namespace AutoCar.BusinessLogic.Core
     {
         public ServiceResponse ReturnCredentialStatus(ULoginData user)
         {
-            using(var db = new UserContext())
+            using (var db = new UserContext())
             {
-                var userData = db.Users.FirstOrDefault(u=>u.UserName == user.UserName);
-
+                var userData = db.Users.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
+                if (userData == null)
+                {
+                    return new ServiceResponse { Status = false, StatusMessage = "The Username or Password is Incorrect" };
+                }
             }
-            using(var db = new UserContext())
+            
+            using (var db = new UserContext())
             {
                 var newUser = new UDbModel()
                 {
@@ -30,14 +36,16 @@ namespace AutoCar.BusinessLogic.Core
                     AccessLevel = Domain.Enum.URole.USER,
                     RegisterDateTime = DateTime.Now,
                     LoginDateTime = DateTime.Now,
-                   
+
                 };
                 db.Users.Add(newUser);
                 db.SaveChanges();
             }
 
+
             return new ServiceResponse { Status = true, StatusMessage = string.Empty };
         }
+        
 
         public ServiceResponse ReturnPasswordStatus(UChangePasswordData password)
         {

@@ -9,6 +9,7 @@ using AutoCar.Domain.Entities.User;
 using AutoCar.Web.Models;
 
 
+
 namespace AutoCar.Web.Controllers
 {
 
@@ -35,23 +36,34 @@ namespace AutoCar.Web.Controllers
         [HttpPost]
         public ActionResult Index(LoginData data)
         {
-            ULoginData uLogin = new ULoginData
+            if (ModelState.IsValid)
             {
-                UserName = data.Username,
-                Password = data.Password,
-                LastLoginTime = DateTime.Now,
-                IP = Request.UserHostAddress
-            };
+                ULoginData uLogin = new ULoginData
+                {
+                    UserName = data.Username,
+                    Password = data.Password,
+                    LastLoginTime = DateTime.Now,
+                    IP = Request.UserHostAddress
+                };
 
-            var response = _session.ValidateUserCredential(uLogin);
-
+                var response = _session.ValidateUserCredential(uLogin);
+                if (response.Status)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", response.StatusMessage);
+                    return View();
+                }
+            }
             return View();
         }
 
         [HttpGet]
-        public ActionResult Wellcome()
+        public ActionResult Login()
         {
-            return View();
+            return View(new LoginData());
         }
     }
 }

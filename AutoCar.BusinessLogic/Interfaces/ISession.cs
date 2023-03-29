@@ -10,8 +10,10 @@ namespace AutoCar.BusinessLogic.Interfaces
 {
     public interface ISession
     {
+
         ServiceResponse ValidateUserCredential(ULoginData user);
         ServiceResponse ValidateNewPassword(UChangePasswordData password);
         ServiceResponse ValidateUserRegister(URegisterData newUser);
-     }
+    }
+
 }
