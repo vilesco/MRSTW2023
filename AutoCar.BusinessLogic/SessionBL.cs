@@ -12,21 +12,26 @@ using System.Threading.Tasks;
 
 namespace AutoCar.BusinessLogic
 {
-    public class SessionBL : UserApi, ISession
-    {
-        public ServiceResponse ValidateUserCredential(ULoginData data)
-        {
-            return ReturnCredentialStatus(data);
-        }
-        public ServiceResponse ValidateNewPassword(UChangePasswordData password)
-        {
-            return ReturnPasswordStatus(password);
-        }
+     public class SessionBL : UserApi, ISession
+     {
+          public ServiceResponse ValidateUserCredential(ULoginData data)
+          {
+               return ReturnCredentialStatus(data);
+          }
+          public ServiceResponse ValidateNewPassword(UChangePasswordData password)
+          {
+               return ReturnPasswordStatus(password);
+          }
 
-        public ServiceResponse ValidateUserRegister(URegisterData newUser)
-        {
-            return ReturnRegisterStatus(newUser);
-        }
+          public ServiceResponse ValidateUserRegister(URegisterData newUser)
+          {
+               return ReturnRegisterStatus(newUser);
+          }
 
-    }
+          public ServiceResponse ValidateEditProfile(UEditProfileData user)
+          {
+               return ReturnEditProfile(user);
+          }
+
+     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
+using AutoCar.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace AutoCar.Web.Controllers
                _session = bl.GetSessionBL();
                
           }
-          public ActionResult ChangePassword()
+          public ActionResult Index()
           {
                var password = new UChangePasswordData { NewPassword = "NewPassword", ConfirmedPassword = "NewPassword" };
                
@@ -33,5 +34,37 @@ namespace AutoCar.Web.Controllers
                return View();
           }
 
+          [HttpPost]
+
+          public ActionResult Index(ChangePasswordData data) 
+          {
+               if (ModelState.IsValid)
+               {
+                    UChangePasswordData uChangePassword = new UChangePasswordData
+                    {
+                         NewPassword = data.NewPassword,
+                    };
+
+                    var response = _session.ValidateNewPassword(uChangePassword);
+                    if (response.Status)
+                    {
+                         return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                         ModelState.AddModelError("Passwords are not the same!", response.StatusMessage);
+                         return View();
+                    }
+
+               }
+               return View();
+          }
+          [HttpGet]
+          public ActionResult ChangePassword()
+          {
+               return View(new ChangePasswordData());
+          }
      }
+
+    
 }

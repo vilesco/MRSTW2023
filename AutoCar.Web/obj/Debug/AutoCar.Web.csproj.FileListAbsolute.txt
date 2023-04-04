@@ -58,7 +58,6 @@ D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\Antlr3.Runtime.pdb
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\EntityFramework.xml
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\EntityFramework.SqlServer.xml
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\Newtonsoft.Json.xml
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\System.Web.Optimization.xml
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\System.Web.Razor.xml
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Web\bin\System.Web.Webpages.xml

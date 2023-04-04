@@ -47,6 +47,7 @@
     <Compile Include="Entities\User\UChangePasswordData.cs" />
     <Compile Include="Entities\User\UCookieData.cs" />
     <Compile Include="Entities\User\UDbModel.cs" />
+    <Compile Include="Entities\User\UEditProfileData.cs" />
     <Compile Include="Entities\User\ULoginData.cs" />
     <Compile Include="Entities\User\URegisterData.cs" />
     <Compile Include="Enum\URole.cs" />

@@ -12,7 +12,6 @@ using AutoCar.Web.Models;
 
 namespace AutoCar.Web.Controllers
 {
-
     public class LoginController : Controller
     {
 
@@ -23,7 +22,7 @@ namespace AutoCar.Web.Controllers
             _session = bl.GetSessionBL();
         }
         // GET: Login
-        public ActionResult Index()
+        public ActionResult Indx()
         {
             var user = new ULoginData { Password = "Ecaterina", UserName = "catea112", LastLoginTime = DateTime.Now};
 
