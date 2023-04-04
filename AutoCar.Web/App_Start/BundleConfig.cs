@@ -38,6 +38,12 @@ namespace AutoCar.Web.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/main/js").Include(
                       "~/Content/js/script.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/validate/js").Include(
+                      "~/Scripts/jquery.validate.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/validateUnobtrusive/js").Include(
+                      "~/Scripts/jquery.validate.unobtrusive.min.js"));
         }
     }
 

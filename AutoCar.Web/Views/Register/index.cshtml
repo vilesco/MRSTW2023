@@ -38,22 +38,36 @@
                             <div class="formpanel tab-pane fade in active">
                                 <div class="formrow">
                                     @Html.TextBoxFor(a => a.FullName, new { @class = "form-control", placeholder = "Full Name" })
+                                    @Html.ValidationMessageFor(a => a.FullName)
                                 </div>
-
                                 <div class="formrow">
                                     @Html.TextBoxFor(a => a.UserName, new { @class = "form-control", placeholder = "Username" })
+                                    @Html.ValidationMessageFor(a => a.UserName)
                                 </div>
                                 <div class="formrow">
                                     @Html.TextBoxFor(a => a.Email, new { @class = "form-control", placeholder = "Email" })
+                                    @Html.ValidationMessageFor(a => a.Email)
                                 </div>
                                 <div class="formrow">
                                     @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
+                                    @Html.ValidationMessageFor(a => a.Password)
                                 </div>
-                                
+
                                 <div class="formrow">
                                     <input type="checkbox" value="agree text" name="agree" />
                                     I agree to the Terms of Service and Privacy Policy.
                                 </div>
+                                @if (!ViewData.ModelState.IsValid)
+                                {
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                            {
+                                                <li>@error.ErrorMessage</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
                                 <input type="submit" class="btn" value="Register">
                             </div>
                         </div>

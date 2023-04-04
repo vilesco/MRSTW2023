@@ -15,29 +15,29 @@ namespace AutoCar.Domain.Entities.User
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage ="Please enter your full name.")]
+        [StringLength(50, ErrorMessage ="Full name too long.")]
         public string FullName { get; set; }
 
-        [Required]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Email cannot ...")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail id is not valid")]
+        [Required(ErrorMessage ="Please enter an email.")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Email too long.")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Email is not valid")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please enter password!")]
+        [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 8)]
+        [StringLength(30, MinimumLength = 8, ErrorMessage ="Password too long.")]
         [RegularExpression(@"^([a-zA-Z0-9]{8,15})$", ErrorMessage = "Password must contain: " +
             "Minimum 8 characters atleast 1 UpperCase Alphabet, " +
             "1 LowerCase      Alphabet and 1 Number")]
         public string Password { get; set; }
 
-        [Required]
-        [StringLength(30, MinimumLength = 5)]
+        [Required(ErrorMessage ="Please enter a username.")]
+        [StringLength(30, MinimumLength = 5, ErrorMessage ="Username too long.")]
         public string UserName { get; set; }
         public string RegisterIP { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please agree to all terms and conditions.")]
         public bool Terms { get; set; }
 
         [DataType(DataType.Date)]

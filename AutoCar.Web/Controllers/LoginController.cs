@@ -53,7 +53,8 @@ namespace AutoCar.Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", response.StatusMessage);
+                    ViewBag.Error = "Invalid username or password.";
+                    ModelState.AddModelError("Invalid username or password.", response.StatusMessage);
                     return View();
                 }
             }

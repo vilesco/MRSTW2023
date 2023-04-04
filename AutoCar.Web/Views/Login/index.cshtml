@@ -35,12 +35,24 @@
                             <div class="formrow">
                                 @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
                             </div>
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                        {
+                                            <li>@error.ErrorMessage</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
                             <input type="submit" class="btn" value="Login">
                         </div>
                         <!-- login form  end-->
                         <!-- sign up form -->
                         <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> New User? <a href="@Url.Action("Index", "Register")">Register Here</a></div>
                         <!-- sign up form end-->
+                        
                     </div>
                 </div>
             </div>

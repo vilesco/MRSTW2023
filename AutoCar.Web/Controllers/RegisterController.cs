@@ -57,10 +57,10 @@ namespace AutoCar.Web.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
-                else
+                else 
                 {
                     ModelState.AddModelError("", response.StatusMessage);
-                    return View();
+                    return View(data);
                 }
 
             }
