@@ -24,16 +24,6 @@ namespace AutoCar.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var newUser = new URegisterData { FullName = "New User",
-            UserName = "Username",
-            Email = "usermail@gmail.com",
-            Password = "password",
-            Terms = true,
-            IP = Request.UserHostAddress,
-            RegisterDateTime = DateTime.Now };
-
-            ServiceResponse URegister = _session.ValidateUserRegister(newUser);
-
             return View();
         }
 

@@ -14,6 +14,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         ServiceResponse ValidateUserCredential(ULoginData user);
         ServiceResponse ValidateNewPassword(UChangePasswordData password);
         ServiceResponse ValidateUserRegister(URegisterData newUser);
+        CookieResponse GenCookie(string username);
     }
 
 }

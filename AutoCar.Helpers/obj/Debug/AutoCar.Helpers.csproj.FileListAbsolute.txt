@@ -10,3 +10,9 @@ D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.Ass
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CoreCompileInputs.cache
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.pdb
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.AssemblyReference.cache
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CoreCompileInputs.cache
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
+D:\AutoCar\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb

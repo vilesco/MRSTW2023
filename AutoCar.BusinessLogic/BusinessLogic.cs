@@ -13,6 +13,5 @@ namespace AutoCar.BusinessLogic
           {
                return new SessionBL();
           }
-
     }
 }

@@ -136,3 +136,5 @@ D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\AutoCar.Web.csproj.CoreCompileInputs.
 D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\AutoCar.Web.csproj.CopyComplete
 D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\WebApplication1.dll
 D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\WebApplication1.pdb
+D:\AutoCar\MRSTW2023\AutoCar.Web\bin\AutoCar.Helpers.dll
+D:\AutoCar\MRSTW2023\AutoCar.Web\bin\AutoCar.Helpers.pdb

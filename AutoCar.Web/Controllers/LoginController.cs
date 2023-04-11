@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
@@ -25,7 +26,7 @@ namespace AutoCar.Web.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            var user = new ULoginData { Password = "Ecaterina", UserName = "catea112", LastLoginTime = DateTime.Now};
+            var user = new ULoginData { Password = "Ecaterina", UserName = "catea112", LastLoginTime = DateTime.Now };
 
             ServiceResponse UValidate = _session.ValidateUserCredential(user);
 
@@ -49,7 +50,16 @@ namespace AutoCar.Web.Controllers
                 var response = _session.ValidateUserCredential(uLogin);
                 if (response.Status)
                 {
-                    return RedirectToAction("Index", "Home");
+                    var cookieResponse = _session.GenCookie(data.Username);
+                    if (cookieResponse != null)
+                    {
+                        ControllerContext.HttpContext.Response.Cookies.Add(cookieResponse.Cookie);
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
                 else
                 {

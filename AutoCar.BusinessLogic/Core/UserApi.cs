@@ -1,13 +1,18 @@
 ﻿using AutoCar.BusinessLogic.DBModel;
 using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Response;
+using AutoCar.Domain.Entities.Session;
 using AutoCar.Domain.Entities.User;
+using AutoCar.Helpers;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using static System.Collections.Specialized.BitVector32;
 
 namespace AutoCar.BusinessLogic.Core
 {
@@ -15,9 +20,10 @@ namespace AutoCar.BusinessLogic.Core
     {
         public ServiceResponse ReturnCredentialStatus(ULoginData user)
         {
+            var hPass = LoginHelper.HashGen(user.Password);
             using (var db = new UserContext())
             {
-                var userData = db.Users.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
+                var userData = db.Users.FirstOrDefault(u => u.UserName == user.UserName && u.Password == hPass);
                 if (userData == null)
                 {
                     return new ServiceResponse { Status = false, StatusMessage = "The Username or Password is Incorrect" };
@@ -57,15 +63,18 @@ namespace AutoCar.BusinessLogic.Core
                         FullName = newUser.FullName,
                         UserName = newUser.UserName,
                         Email = newUser.Email,
-                        Password = newUser.Password,
+                        Password = LoginHelper.HashGen(newUser.Password),
                         Terms = newUser.Terms,
                         RegisterDateTime = DateTime.Now,
                         LoginDateTime = DateTime.Now,
                         AccessLevel = Domain.Enum.URole.USER,
 
                     };
-                    db.Users.Add(user);
-                    db.SaveChanges();
+                    using (var db2 = new UserContext())
+                    {
+                        db2.Users.Add(user);
+                        db2.SaveChanges();
+                    }
 
                     response.StatusMessage = "User registered successfully";
                     response.Status = true;
@@ -81,5 +90,53 @@ namespace AutoCar.BusinessLogic.Core
             return response;
             //return new ServiceResponse { Status = true, StatusMessage = "New User profile was created successfully!" };
         }
+        public CookieResponse CookieGeneratorAction(string username)
+        {
+            var apiCookie = new HttpCookie("X-KEY")
+            {
+                Value = CookieGenerator.Create(username)
+            };
+
+            using (var db = new SessionContext())
+            {
+                SDbModel curent;
+                var validate = new EmailAddressAttribute();
+                if (validate.IsValid(username))
+                {
+                    curent = (from e in db.Sessions where e.Username == username select e).FirstOrDefault();
+                }
+                else
+                {
+                    curent = (from e in db.Sessions where e.Username == username select e).FirstOrDefault();
+                }
+
+                if (curent != null)
+                {
+                    curent.CookieString = apiCookie.Value;
+                    curent.ExpireTime = DateTime.Now.AddMinutes(60);
+                    using (var todo = new SessionContext())
+                    {
+                        todo.Entry(curent).State = EntityState.Modified;
+                        todo.SaveChanges();
+                    }
+                }
+                else
+                {
+                    db.Sessions.Add(new SDbModel
+                    {
+                        Username = username,
+                        CookieString = apiCookie.Value,
+                        ExpireTime = DateTime.Now.AddMinutes(60)
+                    });
+                    db.SaveChanges();
+                }
+            }
+
+            return new CookieResponse
+            {
+                Cookie = apiCookie, Data = DateTime.Now
+            };
+        }
     }
+    
 }

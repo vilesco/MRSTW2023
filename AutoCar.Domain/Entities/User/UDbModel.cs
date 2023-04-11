@@ -26,10 +26,7 @@ namespace AutoCar.Domain.Entities.User
 
         [Required(ErrorMessage = "Please enter a password.")]
         [DataType(DataType.Password)]
-        [StringLength(30, MinimumLength = 8, ErrorMessage ="Password too long.")]
-        [RegularExpression(@"^([a-zA-Z0-9]{8,15})$", ErrorMessage = "Password must contain: " +
-            "Minimum 8 characters atleast 1 UpperCase Alphabet, " +
-            "1 LowerCase      Alphabet and 1 Number")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage ="Password too long.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage ="Please enter a username.")]

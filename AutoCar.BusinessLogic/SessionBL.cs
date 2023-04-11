@@ -3,6 +3,7 @@ using AutoCar.BusinessLogic.DBModel;
 using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
+using AutoCar.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace AutoCar.BusinessLogic
         {
             return ReturnRegisterStatus(newUser);
         }
-
+        public CookieResponse GenCookie(string username)
+        {
+            return CookieGeneratorAction(username);
+        }
     }
 }
