@@ -32,5 +32,10 @@ namespace AutoCar.BusinessLogic
         {
             return CookieGeneratorAction(username);
         }
+
+        public UserMinimal GetUserByCookie(string apiCookieValue)
+        {
+            return UserCookie(apiCookieValue);
+        }
     }
 }
