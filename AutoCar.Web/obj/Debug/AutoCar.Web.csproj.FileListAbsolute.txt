@@ -138,3 +138,7 @@ D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\WebApplication1.dll
 D:\AutoCar\MRSTW2023\AutoCar.Web\obj\Debug\WebApplication1.pdb
 D:\AutoCar\MRSTW2023\AutoCar.Web\bin\AutoCar.Helpers.dll
 D:\AutoCar\MRSTW2023\AutoCar.Web\bin\AutoCar.Helpers.pdb
+D:\ProiectMRSTW\AutoCar.Web\obj\Debug\AutoCar.Web.csproj.AssemblyReference.cache
+D:\ProiectMRSTW\AutoCar.Web\obj\Debug\AutoCar.Web.csproj.CoreCompileInputs.cache
+D:\ProiectMRSTW\AutoCar.Web\obj\Debug\WebApplication1.dll
+D:\ProiectMRSTW\AutoCar.Web\obj\Debug\WebApplication1.pdb
