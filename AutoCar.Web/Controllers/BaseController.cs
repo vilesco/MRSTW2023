@@ -49,5 +49,9 @@ namespace WebApplication1.Controllers
                 System.Web.HttpContext.Current.Session["LoginStatus"] = "logout";
             }
         }
+        public const string SESSION_COOKIE_NAME = "SessionToken";
+
+        public HttpStatusCodeResult HttpNoPermission() => new HttpStatusCodeResult(403);
+
     }
 }
