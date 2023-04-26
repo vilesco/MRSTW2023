@@ -8,7 +8,6 @@ namespace AutoCar.Domain.Entities.Response
 {
     public class Service : IDisposable
     {
-        //protected BlogDbContext DbContext = new BlogDbContext();
 
         protected T Success<T>() where T : ServiceResponse, new()
         {

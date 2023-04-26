@@ -9,6 +9,7 @@ namespace AutoCar.Web.Controllers
     public class AddPostController : Controller
     {
         // GET: AddPost
+        [Authorize]
         public ActionResult AddPost()
         {
             return View();

@@ -7,11 +7,12 @@ using AutoCar.Web.Models;
 
 namespace AutoCar.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
+            string sessionID = Session.SessionID;
             return View();
         }
 

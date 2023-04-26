@@ -68,7 +68,7 @@ namespace AutoCar.Web.Controllers
                     return View();
                 }
             }
-            return View();
+            return View(data);
         }
 
         [HttpGet]

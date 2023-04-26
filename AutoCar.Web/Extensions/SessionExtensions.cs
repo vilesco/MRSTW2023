@@ -6,7 +6,7 @@ using AutoCar.Domain.Entities.Session;
 using AutoCar.Domain.Entities.User;
 using AutoCar.Domain.Enum;
 
-namespace WebApplication1.Extensions
+namespace AutoCar.Web.Extensions
 {
     public static class SessionExtensions
     {

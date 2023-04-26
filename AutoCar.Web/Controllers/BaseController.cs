@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication1.Extensions;
+using AutoCar.Web.Extensions;
 
-namespace WebApplication1.Controllers
+namespace AutoCar.Web.Controllers
 {
     public class BaseController : Controller
     {
         private readonly ISession _session;
         public BaseController()
         {
-            var bl = new BusinessLogic();
+            var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
         }
         public void SessionStatus()
