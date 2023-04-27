@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoCar.;
 
 namespace AutoCar.Domain.Entities.Response
 {
     public class Service : IDisposable
     {
-
         protected T Success<T>() where T : ServiceResponse, new()
         {
             return new T { Status = true };
