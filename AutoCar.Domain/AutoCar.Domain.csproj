@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Car\ProductAPI.cs" />
     <Compile Include="Entities\Response\CookieResponse.cs" />
     <Compile Include="Entities\Response\ServiceResponse.cs" />
     <Compile Include="Entities\Session\SDbModel.cs" />
