@@ -27,7 +27,6 @@ namespace AutoCar.BusinessLogic.Core
                return new ServiceResponse { Status = true, StatusMessage = string.Empty };
           }
 
-
           public ServiceResponse ReturnPasswordStatus(UChangePasswordData password)
           {
                return new ServiceResponse() { Status = true, StatusMessage= string.Empty };
