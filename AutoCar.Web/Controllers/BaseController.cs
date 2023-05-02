@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Extensions;
 
-namespace WebApplication1.Controllers
+namespace AutoCar.Web.Controllers
 {
     public class BaseController : Controller
     {
