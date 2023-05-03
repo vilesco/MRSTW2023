@@ -1,4 +1,5 @@
 MRSTW2023/.vs
+.vs
 *.cache
 *.dll
 *.pdb
