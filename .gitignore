@@ -1,4 +1,5 @@
-.vs/*
+.vs
+MRSTM2023/.vs
 *.cache
 *.dll
 *.pdb
