@@ -2,3 +2,5 @@ MRSTW2023/.vs
 .vs
 *.cache
 *.pdb
+bin/
+obj/
