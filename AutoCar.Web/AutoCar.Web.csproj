@@ -647,6 +647,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginData.cs" />
+    <Compile Include="Models\PostData.cs" />
     <Compile Include="Models\RegisterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
