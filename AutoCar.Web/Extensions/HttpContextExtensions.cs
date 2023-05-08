@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using AutoCar.Domain.Entities.User;
 
-namespace WebApplication1.Extensions
+namespace AutoCar.Web.Extensions
 {
     public static class HttpContextExtensions
     {
