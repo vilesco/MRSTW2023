@@ -51,8 +51,9 @@ namespace AutoCar.Domain.Entities.Post
         public string Location { get; set; } 
         public string Comment { get; set; } 
         public byte[] Image { get; set; } 
-        public DateTime ExpireDate { get; set; }
-        public int UserID { get; set; }
-        public UserMinimal Author { get; set; }
+        [Required]
+        public DateTime DateAdded { get; set; }
+        [Required]
+        public string Author { get; set; }
     }
 }
