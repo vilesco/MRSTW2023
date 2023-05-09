@@ -49,12 +49,16 @@
                                     @Html.ValidationMessageFor(a => a.Email)
                                 </div>
                                 <div class="formrow">
+                                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control", placeholder = "Phone number" })
+                                    @Html.ValidationMessageFor(a => a.PhoneNumber)
+                                </div>
+                                <div class="formrow">
                                     @Html.PasswordFor(a => a.Password, new { @class = "form-control", placeholder = "Password" })
                                     @Html.ValidationMessageFor(a => a.Password)
                                 </div>
 
                                 <div class="formrow">
-                                    <input type="checkbox" value="agree text" name="agree" />
+                                    <input type="checkbox" value="true" name="agree" />
                                     I agree to the Terms of Service and Privacy Policy.
                                 </div>
                                 @if (!ViewData.ModelState.IsValid)

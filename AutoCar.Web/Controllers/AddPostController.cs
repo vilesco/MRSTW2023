@@ -20,8 +20,8 @@ namespace AutoCar.Web.Controllers
             _session = bl.GetSessionBL();
             _post = bl.GetPostBL();
         }
-        
-        [HttpGet]
+
+        [AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
         public ActionResult AddPost(PostData postData)
         {
             SessionStatus();
@@ -36,6 +36,7 @@ namespace AutoCar.Web.Controllers
                         Type = postData.Type,
                         Make = postData.Make,
                         Year = postData.Year,
+                        Transmission = postData.Transmission,
                         Color = postData.Color,
                         EngineCapacity = postData.EngineCapacity,
                         Millage = postData.Millage,

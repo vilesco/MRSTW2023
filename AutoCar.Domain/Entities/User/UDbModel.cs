@@ -45,6 +45,6 @@ namespace AutoCar.Domain.Entities.User
         
         [Required]
         public URole AccessLevel { get; set; }
-
+        public string PhoneNumber { get; set; }
     }
 }
