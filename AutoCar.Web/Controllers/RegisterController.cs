@@ -41,6 +41,8 @@ namespace AutoCar.Web.Controllers
                     UserName = data.UserName,
                     FullName = data.FullName,
                     Terms = data.Terms,
+                    PhoneNumber = data.PhoneNumber,
+                    IP = Request.UserHostAddress
                 };
                 var response = _session.ValidateUserRegister(newUser);
                 if (response.Status)
