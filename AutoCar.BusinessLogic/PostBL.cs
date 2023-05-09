@@ -5,6 +5,7 @@ using AutoCar.Domain.Entities.Post;
 using AutoCar.Domain.Entities.Response;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,23 @@ namespace AutoCar.BusinessLogic
         public IEnumerable<PDbModel> GetAll()
         {
             return _context.Posts.ToList();
+        }
+
+        public void Update(PDbModel model)
+        {
+            _context.Entry(model).State = EntityState.Modified;
+        }
+        public void Delete(int PostID)
+        {
+            PDbModel model = _context.Posts.Find(PostID);
+            if (model != null)
+            {
+                _context.Posts.Remove(model);
+            }
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

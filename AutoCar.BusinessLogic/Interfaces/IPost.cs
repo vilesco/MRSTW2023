@@ -11,5 +11,10 @@ namespace AutoCar.BusinessLogic.Interfaces
     public interface IPost
     {
         ServiceResponse AddPostAction(PDbModel model);
+        PDbModel GetById(int PostID);
+        IEnumerable<PDbModel> GetAll();
+        void Update(PDbModel model);
+        void Delete(int PostID);
+        void Save();
     }
 }
