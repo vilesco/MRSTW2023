@@ -46,18 +46,4 @@ D:\AutoCar\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CoreCompileInputs.cach
 D:\AutoCar\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CopyComplete
 D:\AutoCar\AutoCar.Domain\obj\Debug\AutoCar.Domain.dll
 D:\AutoCar\AutoCar.Domain\obj\Debug\AutoCar.Domain.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Domain.dll.config
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Domain.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Domain.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Helpers.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\EntityFramework.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Helpers.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\AutoCar.Helpers.dll.config
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\EntityFramework.xml
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.AssemblyReference.cache
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CoreCompileInputs.cache
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.csproj.CopyComplete
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Domain\obj\Debug\AutoCar.Domain.pdb
+
