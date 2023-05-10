@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Detail";
+    @model AutoCar.Web.Models.PostData
 }
 
 <!-- Page Title start -->
@@ -8,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-6">
-                <h1 class="page-heading">Morcedas C180 Elegance 2008 Reg 2012</h1>
+                <h1 class="page-heading">@Model.Make @Model.Model @Model.Year</h1>
             </div>
             <div class="col-md-5 col-sm-6">
                 <div class="breadCrumb"><a href="#.">Home</a> / <span>Ad Name</span></div>
@@ -100,18 +101,18 @@
                                         <div class="row">
                                             <div class="col-md-8 col-sm-7">
                                                 <h3><a href="#.">Sue gate F 1.0 for Sale</a></h3>
-                                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>2014</span></div>
-                                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>38,000 km</span></div>
-                                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>
+                                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@Model.Year</span></div>
+                                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@Model.Millage</span></div>
+                                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@Model.Location</span></div>
                                                 <div class="clearfix"></div>
-                                                <div class="vinfo"><span>Petrol</span></div>
-                                                <div class="vinfo"><span>1300 cc</span></div>
-                                                <div class="vinfo"><span>Automatic</span></div>
+                                                <div class="vinfo"><span>@Model.Fuel</span></div>
+                                                <div class="vinfo"><span>@Model.EngineCapacity</span></div>
+                                                <div class="vinfo"><span>@Model.Transmission</span></div>
                                                 <div class="clearfix"></div>
                                                 <div class="date">Last Updated: 1 day ago</div>
                                             </div>
                                             <div class="col-md-4 col-sm-5 text-right">
-                                                <div class="adprice">$456.00</div>
+                                                <div class="adprice">$@Model.Price</div>
                                                 <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
                                             </div>
                                         </div>
@@ -190,7 +191,7 @@
             <div class="col-md-4">
                 <!-- Ad Header start -->
                 <div class="jbside">
-                    <div class="adsalary">Price <strong>$9000.00</strong></div>
+                    <div class="adsalary">Price <strong>$@Model.Price</strong></div>
                     <div class="ptext"><i class="fa fa-clock-o" aria-hidden="true"></i> 7 Jan, 16 10:10 pm</div>
                     <div class="ptext"><i class="fa fa-map-marker" aria-hidden="true"></i> New York, USA</div>
                     <div class="clearfix"></div>
@@ -203,47 +204,41 @@
                     <ul class="jbdetail">
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Registered City</div>
-                            <div class="col-md-6 col-xs-6"><span>New York</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Location</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Color</div>
-                            <div class="col-md-6 col-xs-6"><span>Pearl White</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Color</span></div>
                         </li>
-                        <li class="row">
-                            <div class="col-md-6 col-xs-6">Assembly</div>
-                            <div class="col-md-6 col-xs-6"><span>Imported</span></div>
-                        </li>
+                        
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Engine Capacity</div>
-                            <div class="col-md-6 col-xs-6"><span>1800 cc</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.EngineCapacity</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Body Type</div>
-                            <div class="col-md-6 col-xs-6"><span>Mini Van</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Type</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Last Updated</div>
                             <div class="col-md-6 col-xs-6"><span>Aug 24, 2017</span></div>
                         </li>
+                        
                         <li class="row">
-                            <div class="col-md-6 col-xs-6">Ad Ref #</div>
-                            <div class="col-md-6 col-xs-6"><span>2043936</span></div>
-                        </li>
-                        <li class="row">
-                            <div class="col-md-6 col-xs-6">Model</div>
-                            <div class="col-md-6 col-xs-6"><span>2017</span></div>
+                            <div class="col-md-6 col-xs-6">Year</div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Year</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Millage</div>
-                            <div class="col-md-6 col-xs-6"><span>165,000 km</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Millage km</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Fuel</div>
-                            <div class="col-md-6 col-xs-6"><span>Petrol</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Fuel</span></div>
                         </li>
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Transmission</div>
-                            <div class="col-md-6 col-xs-6"><span>Automatic</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.Transmission</span></div>
                         </li>
                     </ul>
                 </div>
