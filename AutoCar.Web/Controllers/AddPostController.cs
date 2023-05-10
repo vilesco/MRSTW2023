@@ -58,7 +58,7 @@ namespace AutoCar.Web.Controllers
                     var response = _post.AddPostAction(newPost);
                     if (response.Status)
                     {
-                        return RedirectToAction("Detail", "Detail", newPost);
+                        return RedirectToAction("Detail", "Detail", new {PostID = newPost.Id});
                     }
                     else
                     {
