@@ -56,6 +56,8 @@ namespace AutoCar.Web.Controllers
                     };
 
                     _post.Update(newPost);
+                    _post.Save();
+                    return RedirectToAction("Detail", "Detail");
                 }
             }
             
