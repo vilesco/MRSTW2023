@@ -13,6 +13,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         ServiceResponse AddPostAction(PDbModel model);
         PDbModel GetById(int PostID);
         IEnumerable<PDbModel> GetAll();
+        IEnumerable<PostMinimal> GetBySearchWrapData(PSearchWrapData searchWrapData);
         void Update(PDbModel model);
         void Delete(int PostID);
         void Save();

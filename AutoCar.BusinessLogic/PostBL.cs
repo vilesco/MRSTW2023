@@ -37,6 +37,40 @@ namespace AutoCar.BusinessLogic
         {
             return _context.Posts.ToList();
         }
+        public IEnumerable<PostMinimal> GetBySearchWrapData(PSearchWrapData searchWrapData)
+        {
+            var results = _context.Posts.Where(i => i.Make.Contains(searchWrapData.MakeOrModel) || i.Model.Contains(searchWrapData.MakeOrModel));
+            if (!string.IsNullOrEmpty(searchWrapData.PriceRange))
+            {
+                var range = searchWrapData.PriceRange.Split('-');
+                int minPrice = int.Parse(range[0]);
+                int maxPrice = range.Length > 1 ? int.Parse(range[1]) : int.MaxValue;
+                results = results.Where(i => i.Price >= minPrice && i.Price < maxPrice);
+            }
+            if (!string.IsNullOrEmpty(searchWrapData.Location))
+            {
+                results = results.Where(i => i.Location.Contains(searchWrapData.Location));
+            }
+            //var postMinimal = new PostMinimal();
+            List<PostMinimal> list = new List<PostMinimal>();
+            foreach(var item in results)
+            {
+                var postMinimal = new PostMinimal();
+                postMinimal.Id = item.Id;
+                postMinimal.Transmission = item.Transmission;
+                postMinimal.Location = item.Location;
+                postMinimal.Price = item.Price;
+                postMinimal.Year = item.Year;
+                postMinimal.DateAdded = item.DateAdded;
+                postMinimal.EngineCapacity = item.EngineCapacity;
+                postMinimal.Fuel = item.Fuel;
+                postMinimal.Make = item.Make;
+                postMinimal.Model = item.Model;
+                postMinimal.Millage = item.Millage;
+                list.Add(postMinimal);
+            }
+            return list.ToList();
+        }
 
         public void Update(PDbModel model)
         {

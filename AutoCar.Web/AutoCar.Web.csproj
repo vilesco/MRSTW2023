@@ -649,7 +649,10 @@
     </Compile>
     <Compile Include="Models\LoginData.cs" />
     <Compile Include="Models\PostData.cs" />
+    <Compile Include="Models\PostListingData.cs" />
     <Compile Include="Models\RegisterData.cs" />
+    <Compile Include="Models\SearchWrapData.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
