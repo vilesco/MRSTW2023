@@ -9,9 +9,13 @@ namespace AutoCar.BusinessLogic
 {
     public class BusinessLogic
     {
-          public ISession GetSessionBL()
-          {
-               return new SessionBL();
-          }
+        public ISession GetSessionBL()
+        {
+            return new SessionBL();
+        }
+        public IPost GetPostBL()
+        {
+            return new PostBL();
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace AutoCar.Domain.Entities.Post
         [Required(ErrorMessage = "Please enter car model.")]
         [StringLength(50, ErrorMessage = "Model too long.")]
         public string Model { get; set; }
-        public bool Type { get; set; }
+        public string Type { get; set; }
 
         [Required(ErrorMessage = "Please enter car make.")]
         [StringLength(50)]
@@ -35,8 +35,10 @@ namespace AutoCar.Domain.Entities.Post
         [Required(ErrorMessage = "Please enter millage.")]
         public int Millage { get; set; }
 
+        public string Transmission { get; set; }
+
         [Required(ErrorMessage = "Please select fuel type.")]
-        public bool Fuel { get; set; }
+        public string Fuel { get; set; }
         public bool ABS { get; set; }
         public bool AC { get; set; }
         public bool CruiseControl { get; set; }
@@ -50,9 +52,10 @@ namespace AutoCar.Domain.Entities.Post
         [Required(ErrorMessage = "Please enter location.")]
         public string Location { get; set; } 
         public string Comment { get; set; } 
-        public byte[] Image { get; set; } 
-        public DateTime ExpireDate { get; set; }
-        public int UserID { get; set; }
-        public UserMinimal Author { get; set; }
+        public string ImagePath { get; set; } 
+        [Required]
+        public DateTime DateAdded { get; set; }
+        [Required]
+        public string Author { get; set; }
     }
 }

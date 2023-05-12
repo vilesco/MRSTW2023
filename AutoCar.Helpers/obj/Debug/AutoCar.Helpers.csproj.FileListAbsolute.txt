@@ -22,3 +22,27 @@ D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.Cor
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CopyComplete
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
 D:\UTM\Sem4\MRSTW\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb
+D:\AutoCar\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll.config
+D:\AutoCar\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll
+D:\AutoCar\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.pdb
+D:\AutoCar\AutoCar.Helpers\bin\Debug\EntityFramework.dll
+D:\AutoCar\AutoCar.Helpers\bin\Debug\EntityFramework.SqlServer.dll
+D:\AutoCar\AutoCar.Helpers\bin\Debug\EntityFramework.xml
+D:\AutoCar\AutoCar.Helpers\bin\Debug\EntityFramework.SqlServer.xml
+D:\AutoCar\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.AssemblyReference.cache
+D:\AutoCar\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CoreCompileInputs.cache
+D:\AutoCar\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CopyComplete
+D:\AutoCar\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
+D:\AutoCar\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll.config
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.dll
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\AutoCar.Helpers.pdb
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\EntityFramework.dll
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\EntityFramework.xml
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.AssemblyReference.cache
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CoreCompileInputs.cache
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.csproj.CopyComplete
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.dll
+C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.Helpers\obj\Debug\AutoCar.Helpers.pdb

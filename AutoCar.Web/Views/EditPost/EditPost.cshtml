@@ -1,13 +1,11 @@
-﻿@{
+﻿
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "AddPost";
+    ViewBag.Title = "EditPost";
+    @model AutoCar.Web.Models.PostData
 }
-@model AutoCar.Web.Models.PostData
 
-@if (Model == null)
-{
-    var model = new AutoCar.Web.Models.PostData(); 
-}
+
 
 <!-- Page Title start -->
 <div class="pageTitle">
@@ -21,8 +19,7 @@
 </div>
 <!-- Page Title End -->
 
-@using (Html.BeginForm("AddPost", "AddPost", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+
     <div class="listpgWraper">
         <div class="container">
             <div class="row">
@@ -34,13 +31,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Model, new { @class = "form-control", placeholder = "Model" })
+                                        @Html.EditorFor(a=> Model.Model)
                                         @Html.ValidationMessageFor(a => a.Model)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Make, new { @class = "form-control", placeholder = "Make" })
+                                        @Html.EditorFor(a => Model.Make)
                                         @Html.ValidationMessageFor(a => a.Make)
                                     </div>
                                 </div>
@@ -55,7 +52,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Year, new { @class = "form-control", placeholder = "Year" })
+                                        @Html.EditorFor(a => Model.Year)
                                         @Html.ValidationMessageFor(a => a.Year)
                                     </div>
                                 </div>
@@ -84,13 +81,13 @@
 
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.EngineCapacity, new { @class = "form-control", placeholder = "Engine Capacity" })
+                                        @Html.EditorFor(a => Model.EngineCapacity)
                                         @Html.ValidationMessageFor(a => a.EngineCapacity)
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Millage, new { @class = "form-control", placeholder = "Millage" })
+                                        @Html.EditorFor(a => Model.Millage)
                                         @Html.ValidationMessageFor(a => a.EngineCapacity)
                                     </div>
                                 </div>
@@ -127,10 +124,9 @@
                                             <p>It must be a head-shot photo</p>
                                             <label class="uploadBox">
                                                 Click here to Upload
-                                                <input type="file" name="Image" id="Image">
+                                                <input type="file" name="upload">
                                             </label>
                                         </div>
-                                        <!--
                                         <div class="fileattached">
                                             <img src="images/ads/01.jpg" alt=""> <span>file-name-here.jpg</span> <i class="fa fa-check-circle" aria-hidden="true"></i>
                                             <div class="clearfix"></div>
@@ -139,18 +135,17 @@
                                             <img src="images/ads/02.jpg" alt=""> <span>file-name-here.jpg</span> <i class="fa fa-check-circle" aria-hidden="true"></i>
                                             <div class="clearfix"></div>
                                         </div>
-                                         -->
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Price, new { @class = "form-control", placeholder = "Price" })
+                                        @Html.EditorFor(a => Model.Price)
                                         @Html.ValidationMessageFor(a => a.Price)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Location, new { @class = "form-control", placeholder = "Location" })
+                                        @Html.EditorFor(a => Model.Location)
                                         @Html.ValidationMessageFor(a => a.Location)
                                     </div>
                                 </div>
@@ -161,11 +156,10 @@
                                 </div>
                             </div>
                             <br>
-                            <input type="submit" class="btn" value="Post">
+                            <input type="submit" class="btn" value="Save">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-}

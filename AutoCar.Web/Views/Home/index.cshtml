@@ -3,43 +3,51 @@
     ViewBag.Title = "Home";
 }
 
-<div class="container" style="background.image=url('/Content/images/pexels-forest-photography-12088774.jpg')">
-    <h3>Find Used Cars In Moldova</h3>
-    <p>Search from over 99,00,000 Active ads &amp; Post free unlimited classifieds ads!</p>
-    <div class="searchbar">
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Car Make or Model" />
-            </div>
-            <div class="col-md-2">
-                <select class="form-control">
-                    <option>Price</option>
-                    <option>$500 - $999</option>
-                    <option>$1000 - $1099</option>
-                    <option>$2000 - $2499</option>
-                    <option>$2500 - $2999</option>
-                    <option>$3000 - $3499</option>
-                    <option>$3500 - $3999</option>
-                    <option>About $4000</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control">
-                    <option>City</option>
-                    <option>Chișinău</option>
-                    <option>Bălți</option>
-                    <option>Soroca</option>
-                    <option>Orhei</option>
-                    <option>Cahul</option>
-                    <option>Comrat</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <input type="submit" class="btn" value="Search">
+@model AutoCar.Web.Models.SearchWrapData
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="searchwrap">
+        <div class="container">
+            <h3>Find Used Cars In Moldova</h3>
+            <p>Search from over 99,00,000 Active ads &amp; Post free unlimited classifieds ads!</p>
+            <div class="searchbar">
+                <div class="row">
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(a => a.MakeOrModel, new { @class = "form-control", placeholder = "Car Make or Model" })
+                        @Html.ValidationMessageFor(a => a.MakeOrModel)
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" name="PriceRange">
+                            <option value="">Any Price</option>
+                            <option value="500-999">$500 - $999</option>
+                            <option value="1000-1999">$1000 - $1999</option>
+                            <option value="2000-2499">$2000 - $2499</option>
+                            <option value="2500-2999">$2500 - $2999</option>
+                            <option value="3000-3499">$3000 - $3499</option>
+                            <option value="3500-3999">$3500 - $3999</option>
+                            <option value="4000-@Int32.MaxValue">About $4000</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-control" name="Location">
+                            <option value="">Any City</option>
+                            <option value="Chisinau">Chișinău</option>
+                            <option value="Balti">Bălți</option>
+                            <option value="Soroca">Soroca</option>
+                            <option value="Orhei">Orhei</option>
+                            <option value="Cahul">Cahul</option>
+                            <option value="Comrat">Comrat</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn" value="Search">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
 <!-- Featured Cars start -->
 <div class="section">
     <div class="container">
@@ -98,9 +106,8 @@
                 </div>
                 <div class="innerad"> <a href="detail.html" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
             </li>
-
-
-</div>
+        </ul>
+    </div>
 </div>
 <!-- Featured Cars end -->
 <!-- About start -->

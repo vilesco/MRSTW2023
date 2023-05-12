@@ -629,6 +629,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ActiveAdsController.cs" />
+    <Compile Include="Controllers\EditPostController.cs" />
     <Compile Include="Controllers\AddPostController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
@@ -648,7 +649,10 @@
     </Compile>
     <Compile Include="Models\LoginData.cs" />
     <Compile Include="Models\PostData.cs" />
+    <Compile Include="Models\PostListingData.cs" />
     <Compile Include="Models\RegisterData.cs" />
+    <Compile Include="Models\SearchWrapData.cs" />
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -692,6 +696,9 @@
     <Content Include="Views\ContactUs\ContactUs.cshtml" />
     <Content Include="Views\Faqs\Faqs.cshtml" />
     <Content Include="Views\AboutUs\AboutUs.cshtml" />
+    <Content Include="Views\EditPost\EditPost.cshtml" />
+    <Content Include="Views\Listing\ListingSearch.cshtml" />
+    <Content Include="Views\Listing\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -701,6 +708,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\PostsImages\" />
     <Folder Include="Views\BundleConfig\" />
   </ItemGroup>
   <ItemGroup>
