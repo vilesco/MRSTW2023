@@ -50,7 +50,7 @@ namespace AutoCar.Web.Controllers
                         Price = postData.Price,
                         Location = postData.Location,
                         Comment = postData.Comment,
-                        Image = postData.Image,
+                        ImagePath = postData.ImagePath,
                         DateAdded = DateTime.Now,
                         Author = user.Username
                     };

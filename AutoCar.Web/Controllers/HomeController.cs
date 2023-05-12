@@ -30,7 +30,7 @@ namespace AutoCar.Web.Controllers
         [HttpGet]
         public ActionResult Index(SearchWrapData searchWrapData)
         {
-            if (searchWrapData.MakeOrModel != null )
+            if (searchWrapData.MakeOrModel != null)
             {
                 PSearchWrapData data = new PSearchWrapData
                 {
@@ -39,8 +39,11 @@ namespace AutoCar.Web.Controllers
                     Location = searchWrapData.Location
                 };
                 var results = _post.GetBySearchWrapData(data);
-                TempData["modelList"] = results;
-                return RedirectToAction("Listing", "Listing");
+                if (results.Count() > 0)
+                {
+                    TempData["modelList"] = results;
+                }
+                return RedirectToAction("ListingSearch", "Listing");
             }
             else
             {
