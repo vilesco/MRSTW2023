@@ -43,8 +43,8 @@ namespace AutoCar.Web.Controllers
                 Price = data.Price,
                 Location = data.Location,
                 Comment = data.Comment,
-                Image = data.Image,
-                //DateAdded = data.DateAdded,
+                ImagePath = data.ImagePath,
+                DateAdded = data.DateAdded,
                 //Author = data.Author
             };
             return View(model);

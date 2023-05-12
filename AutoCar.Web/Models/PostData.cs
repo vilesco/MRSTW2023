@@ -26,6 +26,8 @@ namespace AutoCar.Web.Models
         public int Price { get; set; }
         public string Location { get; set; }
         public string Comment { get; set; }
-        public byte[] Image { get; set; }
+        public HttpPostedFileBase Image { get; set; }
+        public string ImagePath { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

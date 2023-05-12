@@ -52,7 +52,7 @@ namespace AutoCar.Domain.Entities.Post
         [Required(ErrorMessage = "Please enter location.")]
         public string Location { get; set; } 
         public string Comment { get; set; } 
-        public byte[] Image { get; set; } 
+        public string ImagePath { get; set; } 
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]

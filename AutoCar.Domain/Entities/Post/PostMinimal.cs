@@ -19,5 +19,6 @@ namespace AutoCar.Domain.Entities.Post
         public string Transmission { get; set; }
         public int Price { get; set; }
         public DateTime DateAdded { get; set; }
+        public string ImagePath { get; set; }
     }
 }
