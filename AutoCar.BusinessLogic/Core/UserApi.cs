@@ -136,7 +136,8 @@ namespace AutoCar.BusinessLogic.Core
 
             return new CookieResponse
             {
-                Cookie = apiCookie, Data = DateTime.Now
+                Cookie = apiCookie,
+                Data = DateTime.Now
             };
         }
         internal UserMinimal UserCookie(string cookie)
@@ -174,6 +175,40 @@ namespace AutoCar.BusinessLogic.Core
             };
             return userMinimal;
         }
+
+        public ServiceResponse ReturnEditedProfile(UEditProfileData existingUser)
+        {
+            var response = new ServiceResponse();
+            using (var db = new UserContext())
+            {
+                try
+                {
+
+                    var userToEdit = db.Users.Find(existingUser.Id);
+                    if (userToEdit != null)
+                    {
+                        userToEdit.UserName = existingUser.UserName;
+                        userToEdit.PhoneNumber = existingUser.PhoneNumber;
+                        userToEdit.Email = existingUser.Email;
+                        userToEdit.FullName = existingUser.FullName;
+                        db.SaveChanges();
+                        response.Status = true;
+                        response.StatusMessage = "User Profile was edited successfully!";
+                    }
+                    else
+                    {
+                        response.Status = false;
+                        response.StatusMessage = "An error occured!";
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    response.Status = false;
+                    response.StatusMessage = "An error occured!";
+                }
+            }
+            return response;
+        }
     }
-    
 }
