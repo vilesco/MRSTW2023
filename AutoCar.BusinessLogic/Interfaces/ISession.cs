@@ -16,6 +16,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         ServiceResponse ValidateUserRegister(URegisterData newUser);
         CookieResponse GenCookie(string username);
         UserMinimal GetUserByCookie(string apiCookieValue);
+        ServiceResponse EditProfileAction(UEditProfileData existingUser);
     }
 
 }
