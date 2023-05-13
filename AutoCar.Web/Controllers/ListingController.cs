@@ -1,5 +1,6 @@
 ﻿using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Post;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,7 @@ namespace AutoCar.Web.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             _post = bl.GetPostBL();
         }
-        // GET: Listing
-        public ActionResult ListingSearch()
+        public ActionResult ListingSearchWrap()
         {
             if (TempData["modelList"] is List<PostMinimal> modelList)
             {
@@ -27,6 +27,29 @@ namespace AutoCar.Web.Controllers
             {
                 return RedirectToAction("NotFound");
             }
+        }
+        [HttpGet]
+        public ActionResult ListingSearch(string Make, string Location)
+        {
+            if (Make != null)
+            {
+                var data = _post.GetPostsByMakeOrLocation(Make);
+                if (data != null)
+                {
+                    return View(data);
+                }
+                else return RedirectToAction("NotFound");
+            }
+            if (Location != null)
+            {
+                var data = _post.GetPostsByMakeOrLocation(Location);
+                if (data != null)
+                {
+                    return View(data);
+                }
+                else return RedirectToAction("NotFound");
+            }
+            return View();
         }
 
         [HttpGet]

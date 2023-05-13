@@ -62,13 +62,13 @@
             {
                 <li class="item">
                     <div class="innerad">
-                        <h3><a href="detail.html">@post.Make @post.Model @post.Year</a></h3>
+                        <h3><a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})">@post.Make @post.Model @post.Year</a></h3>
                         <div class="price">$@post.Price</div>
                         <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> @post.Location</div>
                     </div>
                     <div class="adimg">
                         <div class="ribbon_3 popular"><span>Featured</span></div>
-                        <a href="detail.html"><img src="@Url.Content(post.ImagePath)" alt=""></a>
+                        <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})"><img src="@Url.Content(post.ImagePath)" alt=""></a>
                     </div>
                     <div class="innerad"> <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
                 </li>
@@ -153,24 +153,24 @@
         <!-- title end -->
         <div class="topsearchwrap">
             <ul class="row makelist">
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/audi-512x512-202945.png" alt="" /> <strong>Audi</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/mercedes-512x512-202855.png" alt="" /> <strong>Mercedes-Benz</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/bmw-512x512-202750.png" alt="" /> <strong>BMW</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/porsche-512x512-202887.png" alt="" /> <strong>Porsche</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/volkswagen-512x512-202925.png" alt="" /> <strong>Volkswagen</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/toyota-512x512-202914.png" alt="" /> <strong>Toyota</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/subaru-512x512-202908.png" alt="" /> <strong>Subaru</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/mini-512x512-202737.png" alt="" /> <strong>Mini</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/ford-512x512-202767.png" alt="" /> <strong>Ford</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/chevrolet-512x512-202745.png" alt="" /> <strong>Chevrolet</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/alfa-512x512-202944.png" alt="" /> <strong>Alfa Romeo</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/volvo-512x512-202923.png" alt="" /> <strong>Volvo</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/mitsubishi-512x512-202852.png" alt="" /> <strong>Mitsubishi</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/nissan-512x512-202859.png" alt="" /> <strong>Nissan</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/land-512x512-202834.png" alt="" /> <strong>Land Rover</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/skoda-512x512-202902.png" alt="" /> <strong>Skoda</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/tesla-512x512-202912.png" alt="" /> <strong>Tesla</strong></a></li>
-                <li class="col-md-2 col-sm-3 col-xs-6"><a href="listing.html"><img src="~/Content/images/CarsLogo/honda-512x512-202798.png" alt="" /> <strong>Honda</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Audi"})"><img src="~/Content/images/CarsLogo/audi-512x512-202945.png" alt="" /> <strong>Audi</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Mercedes"})"><img src="~/Content/images/CarsLogo/mercedes-512x512-202855.png" alt="" /> <strong>Mercedes-Benz</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "BMW"})"><img src="~/Content/images/CarsLogo/bmw-512x512-202750.png" alt="" /> <strong>BMW</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Porsche"})"><img src="~/Content/images/CarsLogo/porsche-512x512-202887.png" alt="" /> <strong>Porsche</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Volkswagen"})"><img src="~/Content/images/CarsLogo/volkswagen-512x512-202925.png" alt="" /> <strong>Volkswagen</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Toyota"})"><img src="~/Content/images/CarsLogo/toyota-512x512-202914.png" alt="" /> <strong>Toyota</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Subaru"})"><img src="~/Content/images/CarsLogo/subaru-512x512-202908.png" alt="" /> <strong>Subaru</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Mini"})"><img src="~/Content/images/CarsLogo/mini-512x512-202737.png" alt="" /> <strong>Mini</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Ford"})"><img src="~/Content/images/CarsLogo/ford-512x512-202767.png" alt="" /> <strong>Ford</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Chevrolet"})"><img src="~/Content/images/CarsLogo/chevrolet-512x512-202745.png" alt="" /> <strong>Chevrolet</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Alfa"})"><img src="~/Content/images/CarsLogo/alfa-512x512-202944.png" alt="" /> <strong>Alfa Romeo</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Volvo"})"><img src="~/Content/images/CarsLogo/volvo-512x512-202923.png" alt="" /> <strong>Volvo</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Mitsubishi"})"><img src="~/Content/images/CarsLogo/mitsubishi-512x512-202852.png" alt="" /> <strong>Mitsubishi</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Nissan"})"><img src="~/Content/images/CarsLogo/nissan-512x512-202859.png" alt="" /> <strong>Nissan</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Land Rover"})"><img src="~/Content/images/CarsLogo/land-512x512-202834.png" alt="" /> <strong>Land Rover</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Skoda"})"><img src="~/Content/images/CarsLogo/skoda-512x512-202902.png" alt="" /> <strong>Skoda</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Tesla"})"><img src="~/Content/images/CarsLogo/tesla-512x512-202912.png" alt="" /> <strong>Tesla</strong></a></li>
+                <li class="col-md-2 col-sm-3 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Make = "Honda"})"><img src="~/Content/images/CarsLogo/honda-512x512-202798.png" alt="" /> <strong>Honda</strong></a></li>
             </ul>
         </div>
     </div>
@@ -186,30 +186,30 @@
         <!-- title end -->
         <div class="topsearchwrap">
             <ul class="row catelist">
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Chișinău <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Orhei <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Bălți <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Cahul <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Anenii Noi <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Criuleni <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Cantemir <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Comrat <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Hâncești <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Nisporeni <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Glodeni <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Strășeni <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Șoldănești <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Basarabeasca <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Ștefan-Vodă <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Vulcănești <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Taraclia <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Bender <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Soroca <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Sângerei <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Drochia <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Edineț <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Telenești <span>(96)</span></a></li>
-                <li class="col-md-3 col-sm-6 col-xs-6"><a href="#">Cimișlia <span>(96)</span></a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Chisinau"})">Chișinău</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Orhei"})">Orhei</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Balti"})">Bălți</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Cahul"})">Cahul</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Anenii Noi"})">Anenii Noi</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Criuleini"})">Criuleni</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Cantemir"})">Cantemir</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Comrat"})">Comrat</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Hancesti"})">Hâncești</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Nisporeni"})">Nisporeni</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Glodeni"})">Glodeni</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Straseni"})">Strășeni</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Soldanesti"})">Șoldănești</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Basarabeasca"})">Basarabeasca</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Stefan"})">Ștefan-Vodă</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Vulcanesti"})">Vulcănești</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Taraclia"})">Taraclia</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Bender"})">Bender</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Soroca"})">Soroca</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Sangerei"})">Sângerei</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Drochia"})">Drochia</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Edinet"})">Edineț</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Telenesti"})">Telenești</a></li>
+                <li class="col-md-3 col-sm-6 col-xs-6"><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Cimislia"})">Cimișlia</a></li>
             </ul>
         </div>
     </div>

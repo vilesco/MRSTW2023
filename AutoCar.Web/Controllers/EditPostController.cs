@@ -40,6 +40,7 @@ namespace AutoCar.Web.Controllers
                 {
                     PDbModel newPost = new PDbModel
                     {
+
                         Model = postData.Model,
                         Type = postData.Type,
                         Make = postData.Make,
@@ -64,7 +65,7 @@ namespace AutoCar.Web.Controllers
                     };
 
                     _post.Update(newPost);
-                    return RedirectToAction("Detail", "Detail");
+                    return RedirectToAction("Detail", "Detail", new {PostId = postData.Id});
                 }
             }
             return View();

@@ -42,6 +42,11 @@ namespace AutoCar.BusinessLogic
             return ReturnPostsBySearchWrapData(searchWrapData);
         }
 
+        public IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string Make)
+        {
+            return ReturnPostsByMakeOrLocation(Make);
+        }
+
         public void Update(PDbModel model)
         {
             _context.Entry(model).State = EntityState.Modified;
@@ -57,7 +62,6 @@ namespace AutoCar.BusinessLogic
         public IEnumerable<PostMinimal> GetLatestPosts()
         {
             return ReturnLatestPosts();
-            //return (IEnumerable<PostMinimal>)_context.Posts.OrderByDescending(x => x.DateAdded).Take(4).ToList();
         }
         public void Save()
         {

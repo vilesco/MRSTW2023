@@ -103,5 +103,34 @@ namespace AutoCar.BusinessLogic.Core
             }
             return list.ToList();
         }
+
+        public IEnumerable<PostMinimal> ReturnPostsByMakeOrLocation(string MakeOrLocation)
+        {
+            List<PostMinimal> list = new List<PostMinimal>();
+            using (var db = new PostContext())
+            {
+                var results = db.Posts.Where(i => i.Make.Contains(MakeOrLocation) || i.Location.Contains(MakeOrLocation));
+                foreach (var item in results)
+                {
+                    var postMinimal = new PostMinimal
+                    {
+                        Id = item.Id,
+                        Transmission = item.Transmission,
+                        Location = item.Location,
+                        Price = item.Price,
+                        Year = item.Year,
+                        DateAdded = item.DateAdded,
+                        EngineCapacity = item.EngineCapacity,
+                        Fuel = item.Fuel,
+                        Make = item.Make,
+                        Model = item.Model,
+                        Millage = item.Millage,
+                        ImagePath = item.ImagePath
+                    };
+                    list.Add(postMinimal);
+                }
+            }
+            return list.ToList();
+        }
     }
 }

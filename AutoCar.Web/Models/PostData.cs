@@ -8,6 +8,7 @@ namespace AutoCar.Web.Models
 {
     public class PostData
     {
+        public int Id { get; set; }
         public string Model { get; set; }
         public string Type { get; set; }
         public string Make { get; set; }
@@ -29,5 +30,7 @@ namespace AutoCar.Web.Models
         public HttpPostedFileBase Image { get; set; }
         public string ImagePath { get; set; }
         public DateTime DateAdded { get; set; }
+        public string Author { get; set; }
+        public string AuthorPhoneNumber { get; set; }
     }
 }

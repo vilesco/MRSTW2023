@@ -43,7 +43,7 @@ namespace AutoCar.Web.Controllers
                 {
                     TempData["modelList"] = results;
                 }
-                return RedirectToAction("ListingSearch", "Listing");
+                return RedirectToAction("ListingSearchWrap", "Listing");
             }
             else
             {
