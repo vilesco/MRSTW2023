@@ -69,109 +69,89 @@
                         <h3>Car Inspection is Important Before buy a Used Car</h3>
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque massa vel lorem fermentum fringilla. Pellentesque id est et neque blandit ornare malesuada a mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, quam a fringilla congue, turpis turpis molestie ligula, ut laoreet elit arcu sed nulla.</p>
+                                <p>A car inspection is particularly important before buying a used car for several reasons. A thorough inspection can reveal any hidden mechanical issues or defects that may not be apparent during a test drive. This includes things like engine problems, transmission issues, or brake malfunctions that can compromise the vehicle's safety and performance. If you are considering purchasing a used car, it is crucial to have the vehicle inspected by a professional mechanic or conduct a thorough inspection yourself. Even if the car appears to be in good condition, it is essential to ensure that all of its components and systems are in working order to avoid any potential safety risks or costly repairs in the future.</p>
                             </div>
-                            <div class="col-md-6"><img src="~/Content/images/car-inspection.jpg" alt="" /></div>
+                            <div class="col-md-6"><img src="~/Content/images/carInspection.jpg" alt="" /></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- related jobs start -->
                 <div class="relatedJobs">
-                    <h3>Related Ads</h3>
+                    @if (ViewBag.RelatedPosts.Count > 0)
+                    {
+                        <h3>Related Posts</h3>
+                    }
+                    else
+                    {
+                        <h3>No Related Posts</h3>
+                    }
                     <ul class="searchList">
                         <!-- ad start -->
-                        <li>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="adimg"><img src="~/Content/images/cars/04.jpg" alt="Ad Name"></div>
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <div class="jobinfo">
-                                        <div class="row">
-                                            <div class="col-md-8 col-sm-7">
-                                                <h3><a href="#.">Sue gate F 1.0 for Sale</a></h3>
-                                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@Model.Year</span></div>
-                                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@Model.Millage</span></div>
-                                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@Model.Location</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="vinfo"><span>@Model.Fuel</span></div>
-                                                <div class="vinfo"><span>@Model.EngineCapacity</span></div>
-                                                <div class="vinfo"><span>@Model.Transmission</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="date">Last Updated: 1 day ago</div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 text-right">
-                                                <div class="adprice">$@Model.Price</div>
-                                                <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                        @foreach (var post in ViewBag.RelatedPosts)
+                        {
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-4">
+                                        <div class="adimg"><img src="@Url.Content(post.ImagePath)" alt="Ad Name"></div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-8">
+                                        <div class="jobinfo">
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-7">
+                                                    <h3><a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})">@post.Make @post.Model</a></h3>
+                                                    <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>@post.Year</span></div>
+                                                    <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>@post.Millage</span></div>
+                                                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>@post.Location</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="vinfo"><span>@post.Fuel</span></div>
+                                                    <div class="vinfo"><span>@post.EngineCapacity</span></div>
+                                                    <div class="vinfo"><span>@post.Transmission</span></div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="date">Date Added: @post.DateAdded.ToString("dd.MM.yyyy")</div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-5 text-right">
+                                                    <div class="adprice">$@post.Price</div>
+                                                    <div class="listbtn"><a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        }
                         <!-- ad end -->
-                        <!-- ad start -->
-                        <li>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="adimg"><img src="images/cars/05.jpg" alt="Ad Name"></div>
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <div class="jobinfo">
-                                        <div class="row">
-                                            <div class="col-md-8 col-sm-7">
-                                                <h3><a href="#.">Sue gate F 1.0 for Sale</a></h3>
-                                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>2014</span></div>
-                                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>38,000 km</span></div>
-                                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="vinfo"><span>Petrol</span></div>
-                                                <div class="vinfo"><span>1300 cc</span></div>
-                                                <div class="vinfo"><span>Automatic</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="date">Last Updated: 1 day ago</div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 text-right">
-                                                <div class="adprice">$456.00</div>
-                                                <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!--
+        <li>
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <div class="adimg"><img src="images/cars/05.jpg" alt="Ad Name"></div>
+                </div>
+                <div class="col-md-9 col-sm-8">
+                    <div class="jobinfo">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-7">
+                                <h3><a href="#.">Sue gate F 1.0 for Sale</a></h3>
+                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>2014</span></div>
+                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>38,000 km</span></div>
+                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>
+                                <div class="clearfix"></div>
+                                <div class="vinfo"><span>Petrol</span></div>
+                                <div class="vinfo"><span>1300 cc</span></div>
+                                <div class="vinfo"><span>Automatic</span></div>
+                                <div class="clearfix"></div>
+                                <div class="date">Last Updated: 1 day ago</div>
                             </div>
-                        </li>
-                        <!-- ad end -->
-                        <!-- ad start -->
-                        <li>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="adimg"><img src="images/cars/06.jpg" alt="Ad Name"></div>
-                                </div>
-                                <div class="col-md-9 col-sm-8">
-                                    <div class="jobinfo">
-                                        <div class="row">
-                                            <div class="col-md-8 col-sm-7">
-                                                <h3><a href="#.">Sue gate F 1.0 for Sale</a></h3>
-                                                <div class="location"><i class="fa fa-calendar" aria-hidden="true"></i> <span>2014</span></div>
-                                                <div class="location"><i class="fa fa-tachometer" aria-hidden="true"></i> <span>38,000 km</span></div>
-                                                <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>New York</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="vinfo"><span>Petrol</span></div>
-                                                <div class="vinfo"><span>1300 cc</span></div>
-                                                <div class="vinfo"><span>Automatic</span></div>
-                                                <div class="clearfix"></div>
-                                                <div class="date">Last Updated: 1 day ago</div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-5 text-right">
-                                                <div class="adprice">$456.00</div>
-                                                <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-md-4 col-sm-5 text-right">
+                                <div class="adprice">$456.00</div>
+                                <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
                             </div>
-                        </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+            -->
                         <!-- ad end -->
                     </ul>
                 </div>
@@ -203,10 +183,10 @@
 
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Engine Capacity</div>
-                            <div class="col-md-6 col-xs-6"><span>@Model.EngineCapacity</span></div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.EngineCapacity cc</span></div>
                         </li>
                         <li class="row">
-                            <div class="col-md-6 col-xs-6">Body Type</div>
+                            <div class="col-md-6 col-xs-6">Car Type</div>
                             <div class="col-md-6 col-xs-6"><span>@Model.Type</span></div>
                         </li>
                         <li class="row">
@@ -232,30 +212,6 @@
                         </li>
                     </ul>
                 </div>
-
-                <!-- Contact user start -->
-                <div class="jbside">
-                    <h3>Contact This Seller</h3>
-                    <div class="formpanel">
-                        <div class="formrow">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="formrow">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="formrow">
-                            <input type="text" class="form-control" placeholder="Phone">
-                        </div>
-                        <div class="formrow">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="formrow">
-                            <textarea class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <input type="submit" class="btn" value="Submit">
-                    </div>
-                </div>
-
                 <!-- Safety start -->
                 <div class="jbside">
                     <h3>Stay Safe</h3>
@@ -265,10 +221,11 @@
                             <li>Deal with people in your area by meeting face to face to see the item.</li>
                             <li>Never provide your personal or banking information.</li>
                             <li>See our Safety tips regarding vehicle buying and selling.</li>
-                            <li>How to spot scam ads?</li>
-                            <li>How to protect yourself?</li>
+                            <li><a href="@Url.Action("Faqs", "Faqs")">How to spot scam ads?</a></li>
+                            <li><a href="@Url.Action("Faqs", "Faqs")">How to protect yourself?</a></li>
+                            
                         </ul>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

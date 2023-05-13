@@ -362,6 +362,7 @@
     <Content Include="Content\images\cars\NissanQashqai.jpg" />
     <Content Include="Content\images\cars\ToyotaC-HR.jpg" />
     <Content Include="Content\images\cars\VWGolf.jpg" />
+    <Content Include="Content\images\carInspection.jpg" />
     <Content Include="Content\images\coment-avatar-1.jpg" />
     <Content Include="Content\images\coment-avatar-2.jpg" />
     <Content Include="Content\images\coment-avatar-3.jpg" />
@@ -648,7 +649,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\HomePagePostData.cs" />
     <Compile Include="Models\LoginData.cs" />
     <Compile Include="Models\PostData.cs" />
     <Compile Include="Models\PostListingData.cs" />
@@ -701,6 +701,7 @@
     <Content Include="Views\EditPost\EditPost.cshtml" />
     <Content Include="Views\Listing\ListingSearch.cshtml" />
     <Content Include="Views\Listing\NotFound.cshtml" />
+    <Content Include="Views\Listing\ListingSearchWrap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

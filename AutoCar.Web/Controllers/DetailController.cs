@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace AutoCar.Web.Controllers
@@ -26,6 +27,7 @@ namespace AutoCar.Web.Controllers
             var data = _post.GetById(PostID);
             var model = new PostData
             {
+                Id = data.Id,
                 Model = data.Model,
                 Type = data.Type,
                 Make = data.Make,
@@ -46,8 +48,12 @@ namespace AutoCar.Web.Controllers
                 Comment = data.Comment,
                 ImagePath = data.ImagePath,
                 DateAdded = data.DateAdded,
-                //Author = data.Author
+                Author = data.Author
             };
+            var relatedPosts = _post.GetPostsByMakeOrLocation(model.Make).Concat(_post.GetPostsByMakeOrLocation(model.Location)).ToList();
+            var posts = relatedPosts.Where(x => x.Id != model.Id).ToList();
+            //relatedPosts = relatedPosts.Where(x => x.Id != model.Id).ToList();
+            ViewBag.RelatedPosts = posts;
             return View(model);
         }
     }
