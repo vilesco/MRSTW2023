@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 
 namespace AutoCar.BusinessLogic.Interfaces
 {
-    public interface ISession
-    {
+     public interface ISession
+     {
 
-        ServiceResponse ValidateUserCredential(ULoginData user);
-        ServiceResponse ValidateNewPassword(UChangePasswordData password);
-        ServiceResponse ValidateUserRegister(URegisterData newUser);
-        CookieResponse GenCookie(string username);
-        UserMinimal GetUserByCookie(string apiCookieValue);
-    }
+          ServiceResponse ValidateUserCredential(ULoginData user);
+          ServiceResponse ValidateNewPassword(UChangePasswordData password);
+          ServiceResponse ValidateUserRegister(URegisterData newUser);
+          CookieResponse GenCookie(string username);
+          UserMinimal GetUserByCookie(string apiCookieValue);
+
+          ServiceResponse EditProfileAction(UEditProfileData existingUser);
+     }
 
 }

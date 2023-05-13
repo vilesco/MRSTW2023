@@ -27,8 +27,6 @@ namespace AutoCar.Web.Controllers
             return View();
         }
 
-        
-
         [HttpPost]
         public ActionResult Index(RegisterData data)
         {

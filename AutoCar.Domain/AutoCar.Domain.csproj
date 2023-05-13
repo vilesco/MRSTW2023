@@ -56,6 +56,7 @@
     <Compile Include="Entities\Response\CookieResponse.cs" />
     <Compile Include="Entities\Response\ServiceResponse.cs" />
     <Compile Include="Entities\Session\SDbModel.cs" />
+    <Compile Include="Entities\User\UEditProfileData.cs" />
     <Compile Include="Entities\User\UChangePasswordData.cs" />
     <Compile Include="Entities\User\UCookieData.cs" />
     <Compile Include="Entities\User\UDbModel.cs" />

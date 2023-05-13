@@ -37,5 +37,10 @@ namespace AutoCar.BusinessLogic
         {
             return UserCookie(apiCookieValue);
         }
+
+          public ServiceResponse EditProfileAction(UEditProfileData existingUser)
+          {
+               return ReturnEditedProfile(existingUser);
+          }
     }
 }
