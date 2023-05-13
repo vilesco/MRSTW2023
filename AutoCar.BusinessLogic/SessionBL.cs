@@ -13,29 +13,34 @@ using System.Threading.Tasks;
 
 namespace AutoCar.BusinessLogic
 {
-    public class SessionBL : UserApi, ISession
-    {
-        public ServiceResponse ValidateUserCredential(ULoginData data)
-        {
-            return ReturnCredentialStatus(data);
-        }
-        public ServiceResponse ValidateNewPassword(UChangePasswordData password)
-        {
-            return ReturnPasswordStatus(password);
-        }
+     public class SessionBL : UserApi, ISession
+     {
+          public ServiceResponse ValidateUserCredential(ULoginData data)
+          {
+               return ReturnCredentialStatus(data);
+          }
+          public ServiceResponse ValidateNewPassword(UChangePasswordData password)
+          {
+               return ReturnPasswordStatus(password);
+          }
 
-        public ServiceResponse ValidateUserRegister(URegisterData newUser)
-        {
-            return ReturnRegisterStatus(newUser);
-        }
-        public CookieResponse GenCookie(string username)
-        {
-            return CookieGeneratorAction(username);
-        }
+          public ServiceResponse ValidateUserRegister(URegisterData newUser)
+          {
+               return ReturnRegisterStatus(newUser);
+          }
+          public CookieResponse GenCookie(string username)
+          {
+               return CookieGeneratorAction(username);
+          }
 
-        public UserMinimal GetUserByCookie(string apiCookieValue)
-        {
-            return UserCookie(apiCookieValue);
-        }
-    }
+          public UserMinimal GetUserByCookie(string apiCookieValue)
+          {
+               return UserCookie(apiCookieValue);
+          }
+
+          public ServiceResponse EditProfileAction(UEditProfileData existingUser)
+          {
+               return ReturnEditedProfile(existingUser);
+          }
+     }
 }
