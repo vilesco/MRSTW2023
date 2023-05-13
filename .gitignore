@@ -4,8 +4,3 @@ MRSTW2023/.vs
 *.pdb
 bin/
 obj/
-<<<<<<< HEAD
-AutoCar.Web/Web.config
-=======
-Web.config
->>>>>>> a60800971debc182f1c37f64cd900f07a1118c72
