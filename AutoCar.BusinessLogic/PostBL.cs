@@ -56,7 +56,8 @@ namespace AutoCar.BusinessLogic
         }
         public IEnumerable<PostMinimal> GetLatestPosts()
         {
-            return (IEnumerable<PostMinimal>)_context.Posts.OrderByDescending(x => x.DateAdded).Take(4).ToList();
+            return ReturnLatestPosts();
+            //return (IEnumerable<PostMinimal>)_context.Posts.OrderByDescending(x => x.DateAdded).Take(4).ToList();
         }
         public void Save()
         {
