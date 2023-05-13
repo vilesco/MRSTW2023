@@ -26,7 +26,7 @@ namespace AutoCar.Web.Controllers
         {
             return View();
         }
-
+        [LatestPosts]
         [HttpGet]
         public ActionResult Index(SearchWrapData searchWrapData)
         {
