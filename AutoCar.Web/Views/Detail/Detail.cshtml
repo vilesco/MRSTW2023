@@ -11,9 +11,6 @@
             <div class="col-md-7 col-sm-6">
                 <h1 class="page-heading">@Model.Make @Model.Model @Model.Year</h1>
             </div>
-            <div class="col-md-5 col-sm-6">
-                <div class="breadCrumb"><a href="#.">Home</a> / <span>Ad Name</span></div>
-            </div>
         </div>
     </div>
 </div>
@@ -28,48 +25,41 @@
                 <!-- ad Description start -->
                 <div class="advert-header">
                     <div class="contentbox">
-                        <div class="adimages">
-                            <div id="adslider" class="flexslider">
-                                <ul class="slides">
-                                    <li> <img src="images/cars/01.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/02.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/03.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/04.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/05.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/06.jpg" alt="" /> </li>
-                                </ul>
-                            </div>
-                            <div id="carousel" class="flexslider">
-                                <ul class="slides">
-                                    <li> <img src="images/cars/01.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/02.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/03.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/04.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/05.jpg" alt="" /> </li>
-                                    <li> <img src="images/cars/06.jpg" alt="" /> </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="adimg"><img src="@Url.Content(Model.ImagePath)" alt="Ad Name" /></div>
+                        <h3>  </h3>
                         <h3>Car Features</h3>
+                        @if (!Model.ABS && !Model.AirBags && !Model.AC && !Model.CruiseControl && !Model.KeylessEntry && !Model.PowerWindows)
+                        {
+                            <h2>No Features specified!</h2>
+                        }
                         <ul class="row carfeature">
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/disc-brake.png" alt="" /> ABS</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/radio.png" alt="" /> AM/FM Radio</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/air-bags.png" alt="" /> Air Bags</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/minisplit.png" alt="" /> Air Conditioning</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/rim.png" alt="" /> Alloy Rims</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/cd-player.png" alt="" /> CD Player</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/cassette.png" alt="" /> Cassette Player</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/cruise.png" alt="" /> Cruise Control</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/dvd-player.png" alt="" /> DVD Player</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/key.png" alt="" /> Immobilizer Key</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/key-less.png" alt="" /> Keyless Entry</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/power-lock.png" alt="" /> Power Locks</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/mirror.png" alt="" /> Power Mirrors</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/steering.png"> Power Steering</span></li>
-                            <li class="col-md-4 col-sm-6"><span class="feat"><img src="images/icons/power-window.png" alt="" /> Power Windows</span></li>
+                            @if (Model.ABS)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/disc-brake.png" alt="" /> ABS</span></li>
+                            }
+                            @if (Model.AirBags)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/air-bags.png" alt="" /> Air Bags</span></li>
+                            }
+                            @if (Model.AC)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/minisplit.png" alt="" /> Air Conditioning</span></li>
+                            }
+                            @if (Model.CruiseControl)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/cruise.png" alt="" /> Cruise Control</span></li>
+                            }
+                            @if (Model.KeylessEntry)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/key-less.png" alt="" /> Keyless Entry</span></li>
+                            }
+                            @if (Model.PowerWindows)
+                            {
+                                <li class="col-md-4 col-sm-6"><span class="feat"><img src="~/Content/images/icons/power-window.png" alt="" /> Power Windows</span></li>
+                            }
                         </ul>
                         <h3>Seller Comments</h3>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque massa vel lorem fermentum fringilla. Pellentesque id est et neque blandit ornare malesuada a mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, quam a fringilla congue, turpis turpis molestie ligula, ut laoreet elit arcu sed nulla. Sed at quam commodo, egestas turpis eget, fringilla dui. Etiam sit amet nulla metus. Etiam iaculis lobortis ultricies. <strong>Maecenas maximus magna a metus consectetur, vel fermentum nisl ultrices</strong>. Quisque eget ante id dui posuere ullamcorper ut molestie eros. Aliquam ultrices lacinia risus, at lacinia ante vehicula id. Nulla in lectus dignissim, egestas purus sit amet, mattis libero. Maecenas ullamcorper rutrum porta. </p>
+                        <p>@Model.Comment</p>
                     </div>
                 </div>
                 <!-- Job Description end -->
@@ -81,7 +71,7 @@
                             <div class="col-md-6">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque massa vel lorem fermentum fringilla. Pellentesque id est et neque blandit ornare malesuada a mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis, quam a fringilla congue, turpis turpis molestie ligula, ut laoreet elit arcu sed nulla.</p>
                             </div>
-                            <div class="col-md-6"><img src="images/car-inspection.jpg" alt="" /></div>
+                            <div class="col-md-6"><img src="~/Content/images/car-inspection.jpg" alt="" /></div>
                         </div>
                     </div>
                 </div>
@@ -94,7 +84,7 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-3 col-sm-4">
-                                    <div class="adimg"><img src="images/cars/04.jpg" alt="Ad Name"></div>
+                                    <div class="adimg"><img src="~/Content/images/cars/04.jpg" alt="Ad Name"></div>
                                 </div>
                                 <div class="col-md-9 col-sm-8">
                                     <div class="jobinfo">
@@ -192,8 +182,8 @@
                 <!-- Ad Header start -->
                 <div class="jbside">
                     <div class="adsalary">Price <strong>$@Model.Price</strong></div>
-                    <div class="ptext"><i class="fa fa-clock-o" aria-hidden="true"></i> 7 Jan, 16 10:10 pm</div>
-                    <div class="ptext"><i class="fa fa-map-marker" aria-hidden="true"></i> New York, USA</div>
+                    <div class="ptext"><i class="fa fa-clock-o" aria-hidden="true"></i>Date Added: @Model.DateAdded.ToString("dd.MM.yyyy")</div>
+                    <div class="ptext"><i class="fa fa-map-marker" aria-hidden="true"></i>Location: @Model.Location</div>
                     <div class="clearfix"></div>
                     <div class="adButtons"> <a href="#." class="btn apply"><i class="fa fa-phone" aria-hidden="true"></i> 555 456 46679</a> <a href="#." class="btn"><i class="fa fa-envelope" aria-hidden="true"></i> Send A Message</a> <a href="#." class="btn"><i class="fa fa-print" aria-hidden="true"></i> Print this Ad</a> <a href="#." class="btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save This Ad</a> <a href="#." class="btn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report Abuse</a> </div>
                 </div>
@@ -210,7 +200,7 @@
                             <div class="col-md-6 col-xs-6">Color</div>
                             <div class="col-md-6 col-xs-6"><span>@Model.Color</span></div>
                         </li>
-                        
+
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Engine Capacity</div>
                             <div class="col-md-6 col-xs-6"><span>@Model.EngineCapacity</span></div>
@@ -220,10 +210,10 @@
                             <div class="col-md-6 col-xs-6"><span>@Model.Type</span></div>
                         </li>
                         <li class="row">
-                            <div class="col-md-6 col-xs-6">Last Updated</div>
-                            <div class="col-md-6 col-xs-6"><span>Aug 24, 2017</span></div>
+                            <div class="col-md-6 col-xs-6">Date Added</div>
+                            <div class="col-md-6 col-xs-6"><span>@Model.DateAdded.ToString("dd.MM.yyyy") @Model.DateAdded.ToString("HH.mm")</span></div>
                         </li>
-                        
+
                         <li class="row">
                             <div class="col-md-6 col-xs-6">Year</div>
                             <div class="col-md-6 col-xs-6"><span>@Model.Year</span></div>

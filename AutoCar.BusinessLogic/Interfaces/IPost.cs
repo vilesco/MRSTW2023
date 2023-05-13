@@ -14,6 +14,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         PDbModel GetById(int PostID);
         IEnumerable<PDbModel> GetAll();
         IEnumerable<PostMinimal> GetBySearchWrapData(PSearchWrapData searchWrapData);
+        IEnumerable<PostMinimal> GetLatestPosts();
         void Update(PDbModel model);
         void Delete(int PostID);
         void Save();

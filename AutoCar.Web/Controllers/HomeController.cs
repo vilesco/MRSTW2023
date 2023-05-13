@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using AutoCar.BusinessLogic.Interfaces;
 using AutoCar.Domain.Entities.Post;
 using AutoCar.Web.Extensions;
+using AutoCar.Web.Filters;
 using AutoCar.Web.Models;
 
 namespace AutoCar.Web.Controllers
@@ -19,11 +20,10 @@ namespace AutoCar.Web.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             _post = bl.GetPostBL();
         }
-        // GET: Home
+        [LatestPosts]
+        [HttpPost]
         public ActionResult Index()
         {
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
-            ViewBag.User = user;
             return View();
         }
 
