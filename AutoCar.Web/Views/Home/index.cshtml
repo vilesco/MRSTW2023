@@ -58,18 +58,22 @@
         <!-- title end -->
 
         <ul class="gridlist itemgrid owl-carousel owl-theme owl-loaded owl-responsive-768">
-            <li class="item">
-                <div class="innerad">
-                    <h3><a href="detail.html">BMW 7 Series</a></h3>
-                    <div class="price">50 900€</div>
-                    <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> Cahul</div>
-                </div>
-                <div class="adimg">
-                    <div class="ribbon_3 popular"><span>Featured</span></div>
-                    <a href="detail.html"><img src="~/Content/images/cars/BMW7series.jpg" alt=""></a>
-                </div>
-                <div class="innerad"> <a href="detail.html" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
-            </li>
+            @foreach (var post in ViewBag.LatestRecords)
+            {
+                <li class="item">
+                    <div class="innerad">
+                        <h3><a href="detail.html">@post.Make @post.Model @post.Year</a></h3>
+                        <div class="price">$@post.Price</div>
+                        <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> @post.Location</div>
+                    </div>
+                    <div class="adimg">
+                        <div class="ribbon_3 popular"><span>Featured</span></div>
+                        <a href="detail.html"><img src="@Url.Content(post.ImagePath)" alt=""></a>
+                    </div>
+                    <div class="innerad"> <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
+                </li>
+            }
+            <!--
             <li class="item">
                 <div class="innerad">
                     <h3><a href="detail.html">Ford Mustang 2017</a></h3>
@@ -106,9 +110,11 @@
                 </div>
                 <div class="innerad"> <a href="detail.html" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
             </li>
+            -->
         </ul>
     </div>
 </div>
+}
 <!-- Featured Cars end -->
 <!-- About start -->
 <div class="about-wrap">

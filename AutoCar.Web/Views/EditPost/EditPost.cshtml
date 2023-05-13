@@ -12,14 +12,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <h1 class="page-heading">Post A Car</h1>
+                <h1 class="page-heading">Edit the Post</h1>
             </div>
         </div>
     </div>
 </div>
 <!-- Page Title End -->
 
-
+@using (Html.BeginForm("AddPost", "AddPost", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     <div class="listpgWraper">
         <div class="container">
             <div class="row">
@@ -27,11 +28,11 @@
                     <div class="userccount">
                         <div class="formpanel">
                             <!-- Ad Information -->
-                            <h5>Car Information</h5>
+                            <h5>Update car's Information</h5>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.EditorFor(a=> Model.Model)
+                                        @Html.EditorFor(a => Model.Model)
                                         @Html.ValidationMessageFor(a => a.Model)
                                     </div>
                                 </div>
@@ -120,10 +121,10 @@
                                     <div class="formrow">
                                         <div class="uploadphotobx">
                                             <i class="fa fa-upload" aria-hidden="true"></i>
-                                            <h4>Upload your car's photo</h4>
+                                            <h4>Udate your car's photo</h4>
                                             <p>It must be a head-shot photo</p>
                                             <label class="uploadBox">
-                                                Click here to Upload
+                                                Click here to Upload another photo
                                                 <input type="file" name="upload">
                                             </label>
                                         </div>
@@ -156,10 +157,11 @@
                                 </div>
                             </div>
                             <br>
-                            <input type="submit" class="btn" value="Save">
+                            <input type="submit" class="btn" value="Update">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+}

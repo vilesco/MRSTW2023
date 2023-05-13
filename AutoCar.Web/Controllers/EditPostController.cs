@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Management;
 using System.Web.Mvc;
 
 namespace AutoCar.Web.Controllers
@@ -21,8 +22,15 @@ namespace AutoCar.Web.Controllers
             _post = bl.GetPostBL();
         }
 
-        [AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
-        public ActionResult Update(PostData postData)
+        [HttpGet]
+        public ActionResult EditPost(int PostId)
+        {
+            var model = _post.GetById(PostId);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditPost(PostData postData)
         {
             SessionStatus();
             var user = System.Web.HttpContext.Current.GetMySessionObject();
@@ -56,13 +64,10 @@ namespace AutoCar.Web.Controllers
                     };
 
                     _post.Update(newPost);
-                    _post.Save();
                     return RedirectToAction("Detail", "Detail");
                 }
             }
-            
             return View();
-
         }
     }
 }

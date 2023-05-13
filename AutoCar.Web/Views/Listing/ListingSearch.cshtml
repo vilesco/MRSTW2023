@@ -13,9 +13,6 @@
             <div class="col-md-6 col-sm-6">
                 <h1 class="page-heading">Listing</h1>
             </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="breadCrumb"><a href="#.">Home</a> / <a href="#.">Search</a> / <span>Search Result</span></div>
-            </div>
         </div>
     </div>
 </div>
@@ -325,7 +322,7 @@
                                                 </div>
                                                 <div class="col-md-4 col-sm-5 text-right">
                                                     <div class="adprice">$@item.Price</div>
-                                                    <div class="listbtn"><a href="detail.html">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
+                                                    <div class="listbtn"><a href="@Url.Action("Detail", "Detail", new {PostId = item.Id})">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></div>
                                                 </div>
                                             </div>
                                         </div>

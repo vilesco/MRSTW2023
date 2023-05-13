@@ -13,6 +13,7 @@ namespace AutoCar.Web.Controllers
         // GET: Detail
 
         private readonly IPost _post;
+        private readonly ISession _session;
         public DetailController()
         {
             var bl = new BusinessLogic.BusinessLogic();
