@@ -68,7 +68,7 @@
                     </div>
                     <div class="adimg">
                         <div class="ribbon_3 popular"><span>Featured</span></div>
-                        <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})"><img src="@Url.Content(post.ImagePath)" alt=""></a>
+                        <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})"><img src="@Url.Content(post.ImagePath ?? "Content/images/NoImage.jpg")" alt=""></a>
                     </div>
                     <div class="innerad"> <a href="@Url.Action("Detail", "Detail", new {PostId = post.Id})" class="readmore">View Details <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a> </div>
                 </li>

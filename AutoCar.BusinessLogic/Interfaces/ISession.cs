@@ -17,6 +17,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         CookieResponse GenCookie(string username);
         UserMinimal GetUserByCookie(string apiCookieValue);
         ServiceResponse EditProfileAction(UEditProfileData existingUser);
+        UEditProfileData GetUserById(int userId);
     }
 
 }

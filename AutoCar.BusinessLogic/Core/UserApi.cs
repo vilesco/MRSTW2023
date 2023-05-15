@@ -187,7 +187,7 @@ namespace AutoCar.BusinessLogic.Core
                     var userToEdit = db.Users.Find(existingUser.Id);
                     if (userToEdit != null)
                     {
-                        userToEdit.UserName = existingUser.UserName;
+                        //userToEdit.UserName = existingUser.UserName;
                         userToEdit.PhoneNumber = existingUser.PhoneNumber;
                         userToEdit.Email = existingUser.Email;
                         userToEdit.FullName = existingUser.FullName;
@@ -198,17 +198,42 @@ namespace AutoCar.BusinessLogic.Core
                     else
                     {
                         response.Status = false;
-                        response.StatusMessage = "An error occured!";
+                        response.StatusMessage = "An error occurred!";
                     }
 
                 }
                 catch (Exception ex)
                 {
                     response.Status = false;
-                    response.StatusMessage = "An error occured!";
+                    response.StatusMessage = "An error occurred!";
                 }
             }
             return response;
+        }
+
+        public UEditProfileData ReturnUserById(int userId)
+        {
+            using (var db = new UserContext())
+            {
+                var user = db.Users.Find(userId);
+                if (user != null)
+                {
+                    var foundUser = new UEditProfileData()
+                    {
+                        UserName = user.UserName,
+                        PhoneNumber = user.PhoneNumber,
+                        Email = user.Email,
+                        FullName = user.FullName,
+                        Id = userId
+                    };
+                    return foundUser;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
         }
     }
 }

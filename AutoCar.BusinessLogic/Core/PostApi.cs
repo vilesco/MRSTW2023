@@ -1,6 +1,7 @@
 ﻿using AutoCar.BusinessLogic.DBModel;
 using AutoCar.Domain.Entities.Post;
 using AutoCar.Domain.Entities.Response;
+using AutoCar.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,6 +111,34 @@ namespace AutoCar.BusinessLogic.Core
             using (var db = new PostContext())
             {
                 var results = db.Posts.Where(i => i.Make.Contains(MakeOrLocation) || i.Location.Contains(MakeOrLocation));
+                foreach (var item in results)
+                {
+                    var postMinimal = new PostMinimal
+                    {
+                        Id = item.Id,
+                        Transmission = item.Transmission,
+                        Location = item.Location,
+                        Price = item.Price,
+                        Year = item.Year,
+                        DateAdded = item.DateAdded,
+                        EngineCapacity = item.EngineCapacity,
+                        Fuel = item.Fuel,
+                        Make = item.Make,
+                        Model = item.Model,
+                        Millage = item.Millage,
+                        ImagePath = item.ImagePath
+                    };
+                    list.Add(postMinimal);
+                }
+            }
+            return list.ToList();
+        }
+        public IEnumerable<PostMinimal> ReturnPostsByAuthor(string author)
+        {
+            List<PostMinimal> list = new List<PostMinimal>();
+            using (var db = new PostContext())
+            {
+                var results = db.Posts.Where(a => a.Author.Contains(author));
                 foreach (var item in results)
                 {
                     var postMinimal = new PostMinimal
