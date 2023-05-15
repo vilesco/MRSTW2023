@@ -63,6 +63,10 @@ namespace AutoCar.BusinessLogic
         {
             return ReturnLatestPosts();
         }
+        public IEnumerable<PostMinimal> GetPostsByAuthor(string author)
+        {
+            return ReturnPostsByAuthor(author);
+        }
         public void Save()
         {
             _context.SaveChanges();

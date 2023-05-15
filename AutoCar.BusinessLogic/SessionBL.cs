@@ -42,5 +42,10 @@ namespace AutoCar.BusinessLogic
         {
             return ReturnEditedProfile(existingUser);
         }
+
+        public UEditProfileData GetUserById (int userId)
+        {
+            return ReturnUserById(userId);
+        }
     }
 }

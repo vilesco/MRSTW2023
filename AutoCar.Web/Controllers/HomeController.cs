@@ -20,15 +20,20 @@ namespace AutoCar.Web.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             _post = bl.GetPostBL();
         }
+        //[AuthorizedMod]
         [LatestPosts]
         [HttpPost]
         public ActionResult Index()
         {
             return View();
         }
+        //[AuthorizedMod]
         [LatestPosts]
+        //[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)] 
         [HttpGet]
         public ActionResult Index(SearchWrapData searchWrapData)
+        
+        
         {
             if (searchWrapData.MakeOrModel != null)
             {
@@ -42,8 +47,12 @@ namespace AutoCar.Web.Controllers
                 if (results.Count() > 0)
                 {
                     TempData["modelList"] = results;
+                    return RedirectToAction("ListingSearchWrap", "Listing");
                 }
-                return RedirectToAction("ListingSearchWrap", "Listing");
+                else
+                {
+                    return RedirectToAction("NotFound", "Listing");
+                }
             }
             else
             {

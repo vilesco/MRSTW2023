@@ -17,11 +17,13 @@ namespace AutoCar.Web.Controllers
             var bl = new BusinessLogic.BusinessLogic();
             _post = bl.GetPostBL();
         }
+        //[HttpPost]
         public ActionResult ListingSearchWrap()
         {
-            if (TempData["modelList"] is List<PostMinimal> modelList)
+            var posts = (List<PostMinimal>)TempData["modelList"];
+            if (posts.Count() > 0)
             {
-                return View(modelList);
+                return View(posts);
             }
             else
             {

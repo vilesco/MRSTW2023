@@ -23,11 +23,13 @@ namespace AutoCar.Web.Controllers
         [HttpGet]
         public ActionResult EditProfile()
         {
+            SessionStatus();
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(EditProfileData data)
+        public ActionResult EditProfile(EditProfileData data)
         {
             SessionStatus();
             var user = System.Web.HttpContext.Current.GetMySessionObject();
@@ -47,7 +49,7 @@ namespace AutoCar.Web.Controllers
                     var response = _session.EditProfileAction(existingUser);
                     if (response.Status)
                     {
-                        return RedirectToAction("Dashboard", "Dashboard");
+                        return RedirectToAction("Dashboard", "Dashboard", existingUser);
                     }
                     else
                     {

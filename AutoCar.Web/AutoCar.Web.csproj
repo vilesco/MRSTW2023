@@ -406,6 +406,7 @@
     <Content Include="Content\images\make\16.jpg" />
     <Content Include="Content\images\make\17.jpg" />
     <Content Include="Content\images\make\18.jpg" />
+    <Content Include="Content\images\NoImage.jpg" />
     <Content Include="Content\images\page-title-bg.jpg" />
     <Content Include="Content\images\pexels-aleksandar-pasaric-4512439.jpg" />
     <Content Include="Content\images\pexels-charles-kettor-1005162.jpg" />
@@ -631,7 +632,7 @@
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ActiveAdsController.cs" />
     <Compile Include="Controllers\EditPostController.cs" />
-    <Compile Include="Controllers\AddPostController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -645,6 +646,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Extensions\HttpContextExtensions.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
+    <Compile Include="Filters\AuthorizedMod.cs" />
     <Compile Include="Filters\LatestPosts.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -703,6 +705,12 @@
     <Content Include="Views\Listing\ListingSearch.cshtml" />
     <Content Include="Views\Listing\NotFound.cshtml" />
     <Content Include="Views\Listing\ListingSearchWrap.cshtml" />
+    <Content Include="Views\Dashboard\EditProfile.cshtml" />
+    <Content Include="Views\Dashboard\ActivePosts.cshtml" />
+    <Content Include="Views\Dashboard\ChangePassword.cshtml" />
+    <Content Include="Views\Post\AddPost.cshtml" />
+    <Content Include="Views\Post\EditPost.cshtml" />
+    <Content Include="Views\Post\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
