@@ -1,0 +1,178 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "EditPost";
+    @model AutoCar.Web.Models.PostData
+}
+@{ 
+    string originalModel = ViewBag.OriginalModel ?? Model.Model;
+    string originalMake = ViewBag.OriginalMake ?? Model.Make;
+    string originalType = ViewBag.OriginalType ?? Model.Type;
+    int originalYear = ViewBag.OriginalYear ?? Model.Year;
+    string originalTransmission = ViewBag.OriginalTransmission ?? Model.Transmission;
+    string originalColor = ViewBag.OriginalColor ?? Model.Color;
+    string originalFule = ViewBag.OriginalFuel ?? Model.Fuel;
+    int originalEngineCapacity = ViewBag.OriginalEngineCapacity ?? Model.EngineCapacity;
+    int originalPrice = ViewBag.OriginalPrice ?? Model.Price;
+    int originalMillage = ViewBag.OriginalMillage ?? Model.Millage;
+    string originalLocation = ViewBag.OriginalLocation ?? Model.Location;
+}
+
+
+<!-- Page Title start -->
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Edit the Post</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Title End -->
+
+@using (Html.BeginForm("EditPost", "Post", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="listpgWraper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="userccount">
+                        <div class="formpanel">
+                            <!-- Ad Information -->
+                            <h5>Update car's Information</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Model)
+                                        @Html.TextBoxFor(a => Model.Model, new { @class = "form-control", Value = originalModel})
+                                        @Html.ValidationMessageFor(a => a.Model)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Make)
+                                        @Html.TextBoxFor(a => Model.Make, new { @class = "form-control", Value = originalMake })
+                                        @Html.ValidationMessageFor(a => a.Make)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="Type">
+                                            <option value="Not specified">Car type</option>
+                                            <option value="New">New</option>
+                                            <option value="Used">Used</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Year)
+                                        @Html.TextBoxFor(a => Model.Year, new { @class = "form-control", Value = originalYear })
+                                        @Html.ValidationMessageFor(a => a.Year)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="Transmission">
+                                            <option value="Not specified">Transmission</option>
+                                            <option value="Automatic">Automatic</option>
+                                            <option value="Manual">Manual</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="Color">
+                                            <option value="Not specified">Color</option>
+                                            <option value="White">White</option>
+                                            <option value="Black">Black</option>
+                                            <option value="Red">Red</option>
+                                            <option value="Blue">Blue</option>
+                                            <option value="Silver">Sliver</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.EngineCapacity)
+                                        @Html.TextBoxFor(a => Model.EngineCapacity, new { @class = "form-control", Value = originalEngineCapacity })
+                                        @Html.ValidationMessageFor(a => a.EngineCapacity)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Millage)
+                                        @Html.TextBoxFor(a => Model.Millage, new { @class = "form-control", Value = originalMillage })
+                                        @Html.ValidationMessageFor(a => a.Millage)
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="formrow">
+                                        <select class="form-control" name="Fuel">
+                                            <option value="Not specified">Fuel</option>
+                                            <option value="Gasoline">Gasoline</option>
+                                            <option value="Diesel">Diesel</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <ul class="row featchoose">
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="ABS"> ABS</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="AirBags"> Air Bags</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="AC"> Air Conditioning</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="CruiseControl"> Cruise Control</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="KeylessEntry"> Keyless Entry</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="PowerWindows"> Power Windows</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <div class="uploadphotobx">
+                                            <i class="fa fa-upload" aria-hidden="true"></i>
+                                            <h4>Update your car's photo</h4>
+                                            <p>It must be a head-shot photo</p>
+                                            <label class="uploadBox">
+                                                Click here to Upload another photo
+                                                <input type="file" name="Image" id="Image">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Price)
+                                        @Html.TextBoxFor(a => Model.Price, new { @class = "form-control", Value = originalPrice })
+                                        @Html.ValidationMessageFor(a => a.Price)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="formrow">
+                                        @Html.LabelFor(a => a.Location)
+                                        @Html.TextBoxFor(a => Model.Location, new { @class = "form-control", Value = originalLocation })
+                                        @Html.ValidationMessageFor(a => a.Location)
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="formrow">
+                                        <textarea class="form-control" name="Comment" placeholder="Seller Comments"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            @Html.HiddenFor(a => a.Id)
+                            @Html.HiddenFor(a => a.Author)
+                            @Html.HiddenFor(a => a.AuthorPhoneNumber)
+                            <input type="submit" class="btn" value="Update">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
