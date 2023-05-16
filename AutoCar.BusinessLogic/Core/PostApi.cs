@@ -17,7 +17,7 @@ namespace AutoCar.BusinessLogic.Core
         {
             var response = new ServiceResponse();
             try
-            {   
+            {
                 using (var db = new PostContext())
                 {
                     db.Posts.Add(newPost);
@@ -52,7 +52,7 @@ namespace AutoCar.BusinessLogic.Core
                     results = results.Where(i => i.Location.Contains(searchWrapData.Location));
                 }
                 //var postMinimal = new PostMinimal();
-                
+
                 foreach (var item in results)
                 {
                     var postMinimal = new PostMinimal
@@ -75,34 +75,41 @@ namespace AutoCar.BusinessLogic.Core
             }
             return list.ToList();
         }
-        
+
         public IEnumerable<PostMinimal> ReturnLatestPosts()
         {
             List<PostMinimal> list = new List<PostMinimal>();
-            using (var db = new PostContext())
+            try
             {
-                var results = db.Posts.OrderByDescending(x => x.DateAdded).Take(4).ToList();
-                foreach(var item in results)
+                using (var db = new PostContext())
                 {
-                    var postMinimal = new PostMinimal
+                    var results = db.Posts.OrderByDescending(x => x.DateAdded).Take(4).ToList();
+                    foreach (var item in results)
                     {
-                        Id = item.Id,
-                        Transmission = item.Transmission,
-                        Location = item.Location,
-                        Price = item.Price,
-                        Year = item.Year,
-                        DateAdded = item.DateAdded,
-                        EngineCapacity = item.EngineCapacity,
-                        Fuel = item.Fuel,
-                        Make = item.Make,
-                        Model = item.Model,
-                        Millage = item.Millage,
-                        ImagePath = item.ImagePath
-                    };
-                    list.Add(postMinimal);
+                        var postMinimal = new PostMinimal
+                        {
+                            Id = item.Id,
+                            Transmission = item.Transmission,
+                            Location = item.Location,
+                            Price = item.Price,
+                            Year = item.Year,
+                            DateAdded = item.DateAdded,
+                            EngineCapacity = item.EngineCapacity,
+                            Fuel = item.Fuel,
+                            Make = item.Make,
+                            Model = item.Model,
+                            Millage = item.Millage,
+                            ImagePath = item.ImagePath
+                        };
+                        list.Add(postMinimal);
+                    }
                 }
+                return list.ToList();
             }
-            return list.ToList();
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<PostMinimal> ReturnPostsByMakeOrLocation(string MakeOrLocation)
