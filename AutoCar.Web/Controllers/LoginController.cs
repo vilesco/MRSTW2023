@@ -14,7 +14,7 @@ using AutoCar.Web.Models;
 namespace AutoCar.Web.Controllers
 {
 
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
 
         private readonly ISession _session;

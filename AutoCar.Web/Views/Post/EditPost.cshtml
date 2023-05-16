@@ -1,23 +1,8 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "EditPost";
     @model AutoCar.Web.Models.PostData
 }
-@{ 
-    string originalModel = ViewBag.OriginalModel ?? Model.Model;
-    string originalMake = ViewBag.OriginalMake ?? Model.Make;
-    string originalType = ViewBag.OriginalType ?? Model.Type;
-    int originalYear = ViewBag.OriginalYear ?? Model.Year;
-    string originalTransmission = ViewBag.OriginalTransmission ?? Model.Transmission;
-    string originalColor = ViewBag.OriginalColor ?? Model.Color;
-    string originalFule = ViewBag.OriginalFuel ?? Model.Fuel;
-    int originalEngineCapacity = ViewBag.OriginalEngineCapacity ?? Model.EngineCapacity;
-    int originalPrice = ViewBag.OriginalPrice ?? Model.Price;
-    int originalMillage = ViewBag.OriginalMillage ?? Model.Millage;
-    string originalLocation = ViewBag.OriginalLocation ?? Model.Location;
-}
-
 
 <!-- Page Title start -->
 <div class="pageTitle">
@@ -45,14 +30,14 @@
                                 <div class="col-md-6">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Model)
-                                        @Html.TextBoxFor(a => Model.Model, new { @class = "form-control", Value = originalModel})
+                                        @Html.TextBoxFor(a => Model.Model, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Model)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Make)
-                                        @Html.TextBoxFor(a => Model.Make, new { @class = "form-control", Value = originalMake })
+                                        @Html.TextBoxFor(a => Model.Make, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Make)
                                     </div>
                                 </div>
@@ -68,7 +53,7 @@
                                 <div class="col-md-4">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Year)
-                                        @Html.TextBoxFor(a => Model.Year, new { @class = "form-control", Value = originalYear })
+                                        @Html.TextBoxFor(a => Model.Year, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Year)
                                     </div>
                                 </div>
@@ -98,14 +83,14 @@
                                 <div class="col-md-4">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.EngineCapacity)
-                                        @Html.TextBoxFor(a => Model.EngineCapacity, new { @class = "form-control", Value = originalEngineCapacity })
+                                        @Html.TextBoxFor(a => Model.EngineCapacity, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.EngineCapacity)
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Millage)
-                                        @Html.TextBoxFor(a => Model.Millage, new { @class = "form-control", Value = originalMillage })
+                                        @Html.TextBoxFor(a => Model.Millage, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Millage)
                                     </div>
                                 </div>
@@ -147,14 +132,14 @@
                                 <div class="col-md-6">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Price)
-                                        @Html.TextBoxFor(a => Model.Price, new { @class = "form-control", Value = originalPrice })
+                                        @Html.TextBoxFor(a => Model.Price, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Price)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="formrow">
                                         @Html.LabelFor(a => a.Location)
-                                        @Html.TextBoxFor(a => Model.Location, new { @class = "form-control", Value = originalLocation })
+                                        @Html.TextBoxFor(a => Model.Location, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Location)
                                     </div>
                                 </div>

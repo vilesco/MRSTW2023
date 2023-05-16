@@ -19,9 +19,9 @@ namespace AutoCar.BusinessLogic
         {
             return ReturnCredentialStatus(data);
         }
-        public ServiceResponse ValidateNewPassword(UChangePasswordData password)
+        public ServiceResponse ChangePassword(UChangePasswordData password)
         {
-            return ReturnPasswordStatus(password);
+            return ReturnChangedPassword(password);
         }
 
         public ServiceResponse ValidateUserRegister(URegisterData newUser)

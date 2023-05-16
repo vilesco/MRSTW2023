@@ -646,6 +646,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Extensions\HttpContextExtensions.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
+    <Compile Include="Filters\AuthenticationStatus.cs" />
     <Compile Include="Filters\AuthorizedMod.cs" />
     <Compile Include="Filters\LatestPosts.cs" />
     <Compile Include="Global.asax.cs">
@@ -711,6 +712,7 @@
     <Content Include="Views\Post\AddPost.cshtml" />
     <Content Include="Views\Post\EditPost.cshtml" />
     <Content Include="Views\Post\Detail.cshtml" />
+    <Content Include="Views\Listing\_Sidebar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

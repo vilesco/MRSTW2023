@@ -179,7 +179,7 @@
                     <div class="ptext"><i class="fa fa-clock-o" aria-hidden="true"></i>Date Added: @Model.DateAdded.ToString("dd.MM.yyyy")</div>
                     <div class="ptext"><i class="fa fa-map-marker" aria-hidden="true"></i>Location: @Model.Location</div>
                     <div class="clearfix"></div>
-                    <div class="adButtons"> <a href="#." class="btn apply"><i class="fa fa-phone" aria-hidden="true"></i> 555 456 46679</a> <a href="#." class="btn"><i class="fa fa-envelope" aria-hidden="true"></i> Send A Message</a> <a href="#." class="btn"><i class="fa fa-print" aria-hidden="true"></i> Print this Ad</a> <a href="#." class="btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save This Ad</a> <a href="#." class="btn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report Abuse</a> </div>
+                    <div class="adButtons"> <a class="btn apply"><i class="fa fa-phone" aria-hidden="true"></i> @Model.AuthorPhoneNumber</a> <a href="#." class="btn"><i class="fa fa-envelope" aria-hidden="true"></i> @Model.Author</a> <a href="#." class="btn"><i class="fa fa-print" aria-hidden="true"></i> Print this Ad</a> <a href="#." class="btn"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save This Ad</a> <a href="#." class="btn"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Report Abuse</a> </div>
                 </div>
 
                 <!-- Job Detail start -->
@@ -237,7 +237,6 @@
                             <li>See our Safety tips regarding vehicle buying and selling.</li>
                             <li><a href="@Url.Action("Faqs", "Faqs")">How to spot scam ads?</a></li>
                             <li><a href="@Url.Action("Faqs", "Faqs")">How to protect yourself?</a></li>
-
                         </ul>
                     </div>
                 </div>

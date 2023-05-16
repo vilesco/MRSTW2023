@@ -27,6 +27,7 @@ namespace AutoCar.Web.Controllers
             _session = bl.GetSessionBL();
             _post = bl.GetPostBL();
         }
+        [AuthorizedMod]
         public ActionResult AddPost()
         {
             return View();
@@ -34,10 +35,12 @@ namespace AutoCar.Web.Controllers
 
         //[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
         [HttpPost]
+        [AuthorizedMod]
         public ActionResult AddPost(PostData postData)
         {
             SessionStatus();
             var user = System.Web.HttpContext.Current.GetMySessionObject();
+            var author = _session.GetUserById(user.Id);
             if (user != null)
             {
                 if (ModelState.IsValid)
@@ -70,9 +73,8 @@ namespace AutoCar.Web.Controllers
                         Comment = postData.Comment,
                         ImagePath = postData.ImagePath,
                         DateAdded = DateTime.Now,
-                        Author = user.Username
+                        Author = author.UserName
                     };
-
                     var response = _post.AddPostAction(newPost);
                     if (response.Status)
                     {
@@ -88,18 +90,19 @@ namespace AutoCar.Web.Controllers
 
             return View();
         }
+        [AuthorizedMod]
         public ActionResult EditPost()
         {
-            var post = new PostData();
-            return View(post);
+            return View();
         }
         [HttpGet]
+        [AuthorizedMod]
         public ActionResult EditPost(int? postId)
         {
             var postToEdit = _post.GetById((int)postId);
             SessionStatus();
             var user = System.Web.HttpContext.Current.GetMySessionObject();
-            if (user != null)
+            if (user != null && user.Username == postToEdit.Author)
             {
                 if (ModelState.IsValid)
                 {
@@ -128,15 +131,18 @@ namespace AutoCar.Web.Controllers
                         DateAdded = DateTime.Now,
                         Author = user.Username
                     };
-                    //_post.Update(newPost);
                     return View(postModel);
                 }
             }
             return View();
         }
+        [AuthorizedMod]
         [HttpPost]
         public ActionResult EditPost(PostData postToEdit)
         {
+            SessionStatus();
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
+            if (user == null && user.Username != postToEdit.Author) return HttpNotFound();
             if (ModelState.IsValid)
             {
                 using (var db = new PostContext())
@@ -185,43 +191,50 @@ namespace AutoCar.Web.Controllers
         public ActionResult Detail(int postID)
         {
             var data = _post.GetById(postID);
-            var model = new PostData
+            using (var db = new UserContext())
             {
-                Id = data.Id,
-                Model = data.Model,
-                Type = data.Type,
-                Make = data.Make,
-                Year = data.Year,
-                Transmission = data.Transmission,
-                Color = data.Color,
-                EngineCapacity = data.EngineCapacity,
-                Millage = data.Millage,
-                Fuel = data.Fuel,
-                ABS = data.ABS,
-                AC = data.AC,
-                CruiseControl = data.CruiseControl,
-                KeylessEntry = data.KeylessEntry,
-                AirBags = data.AirBags,
-                PowerWindows = data.PowerWindows,
-                Price = data.Price,
-                Location = data.Location,
-                Comment = data.Comment,
-                ImagePath = data.ImagePath,
-                DateAdded = data.DateAdded,
-                Author = data.Author
-            };
-            var relatedPosts = _post.GetPostsByMakeOrLocation(model.Make).Concat(_post.GetPostsByMakeOrLocation(model.Location)).ToList();
-            var posts = relatedPosts.Where(x => x.Id != model.Id).ToList();
-            //relatedPosts = relatedPosts.Where(x => x.Id != model.Id).ToList();
-            ViewBag.RelatedPosts = posts;
-            return View(model);
+                var author = db.Users.Where(a => a.UserName == data.Author).FirstOrDefault();
+
+                var model = new PostData
+                {
+                    Id = data.Id,
+                    Model = data.Model,
+                    Type = data.Type,
+                    Make = data.Make,
+                    Year = data.Year,
+                    Transmission = data.Transmission,
+                    Color = data.Color,
+                    EngineCapacity = data.EngineCapacity,
+                    Millage = data.Millage,
+                    Fuel = data.Fuel,
+                    ABS = data.ABS,
+                    AC = data.AC,
+                    CruiseControl = data.CruiseControl,
+                    KeylessEntry = data.KeylessEntry,
+                    AirBags = data.AirBags,
+                    PowerWindows = data.PowerWindows,
+                    Price = data.Price,
+                    Location = data.Location,
+                    Comment = data.Comment,
+                    ImagePath = data.ImagePath,
+                    DateAdded = data.DateAdded,
+                    Author = author.UserName,
+                    AuthorPhoneNumber = author.PhoneNumber
+                };
+                var relatedPosts = _post.GetPostsByMakeOrLocation(model.Make).Concat(_post.GetPostsByMakeOrLocation(model.Location)).ToList();
+                var posts = relatedPosts.Where(x => x.Id != model.Id).ToList();
+                ViewBag.RelatedPosts = posts;
+                return View(model);
+            }
         }
         //[HttpPost]
         [AuthorizedMod]
         public ActionResult Delete(int? postId)
         {
+            SessionStatus();
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
             var postToDelete = _post.GetById((int)postId);
-            if (postToDelete == null)
+            if (postToDelete == null && user.Username == postToDelete.Author)
             {
                 return HttpNotFound();
             }
