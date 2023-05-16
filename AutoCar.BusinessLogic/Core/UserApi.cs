@@ -34,9 +34,23 @@ namespace AutoCar.BusinessLogic.Core
         }
 
 
-        public ServiceResponse ReturnPasswordStatus(UChangePasswordData password)
+        public ServiceResponse ReturnChangedPassword(UChangePasswordData password)
         {
-            return new ServiceResponse { Status = true, StatusMessage = "Password has been changed succesfully!" };
+            using(var db = new UserContext())
+            {
+                try
+                {
+                    var user = db.Users.Find(password.Id);
+                    if (user == null) return new ServiceResponse { Status = false, StatusMessage = "An error occurred!" };
+                    user.Password = LoginHelper.HashGen(password.NewPassword);
+                    db.SaveChanges();
+                    return new ServiceResponse() { Status = true, StatusMessage = "Password has been changed successfully!" };
+                }
+                catch
+                {
+                    return new ServiceResponse { Status = false, StatusMessage = "An error occurred!" };
+                }
+            }
         }
 
         public ServiceResponse ReturnRegisterStatus(URegisterData newUser)

@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutoCar.Web.Extensions;
+using AutoCar.Web.Filters;
 
 namespace AutoCar.Web.Controllers
 {
+    [AuthenticationStatus]
     public class BaseController : Controller
     {
         private readonly ISession _session;
@@ -49,9 +51,20 @@ namespace AutoCar.Web.Controllers
                 System.Web.HttpContext.Current.Session["LoginStatus"] = "logout";
             }
         }
-        public const string SESSION_COOKIE_NAME = "SessionToken";
+        public void Logout()
+        {
+            System.Web.HttpContext.Current.Session.Clear();
 
-        public HttpStatusCodeResult HttpNoPermission() => new HttpStatusCodeResult(403);
-
+            if (ControllerContext.HttpContext.Request.Cookies.AllKeys.Contains("X-KEY"))
+            {
+                var cookie = ControllerContext.HttpContext.Request.Cookies["X-KEY"];
+                if (cookie != null)
+                {
+                    cookie.Expires = DateTime.Now.AddDays(-1);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
+                }
+            }
+            System.Web.HttpContext.Current.Session["LoginStatus"] = "logout";
+        }
     }
 }

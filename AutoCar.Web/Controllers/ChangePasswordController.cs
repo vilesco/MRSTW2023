@@ -27,7 +27,7 @@ namespace AutoCar.Web.Controllers
                if (password.NewPassword == password.ConfirmedPassword)
                {
                     var upassword = new ServiceResponse { Status = true, StatusMessage = "Password was changed succesfully!" };
-                    ServiceResponse passwordsession = _session.ValidateNewPassword(password);
+                    ServiceResponse passwordsession = _session.ChangePassword(password);
                }
 
                return View();

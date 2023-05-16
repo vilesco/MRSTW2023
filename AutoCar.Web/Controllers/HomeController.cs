@@ -32,8 +32,6 @@ namespace AutoCar.Web.Controllers
         //[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)] 
         [HttpGet]
         public ActionResult Index(SearchWrapData searchWrapData)
-        
-        
         {
             if (searchWrapData.MakeOrModel != null)
             {

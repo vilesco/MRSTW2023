@@ -11,7 +11,7 @@ using AutoCar.Domain.Entities.Response;
 
 namespace AutoCar.Web.Controllers
 {
-    public class RegisterController : Controller
+    public class RegisterController : BaseController
     {
         private readonly ISession _session;
 

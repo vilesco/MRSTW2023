@@ -15,19 +15,23 @@ namespace AutoCar.Web.Controllers
     {
         public readonly ISession _session;
         public readonly IPost _post;
+        private readonly UserMinimal userAuthenticated;
+
         public DashboardController()
         {
             var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
             _post = bl.GetPostBL();
+            //SessionStatus();
+            userAuthenticated = System.Web.HttpContext.Current.GetMySessionObject();
         }
         [AuthorizedMod]
         public ActionResult Dashboard()
         {
-            SessionStatus();
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
-            var userData = _session.GetUserById(user.Id);
-            if (user != null)
+            //SessionStatus();
+            //var user = System.Web.HttpContext.Current.GetMySessionObject();
+            var userData = _session.GetUserById(userAuthenticated.Id);
+            if (userAuthenticated != null)
             {
                 var userModel = new UserData()
                 {
@@ -35,7 +39,7 @@ namespace AutoCar.Web.Controllers
                     PhoneNumber = userData.PhoneNumber,
                     Username = userData.UserName,
                     FullName = userData.FullName,
-                    Email = user.Email
+                    Email = userAuthenticated.Email
                 };
                 return View(userModel);
             }
@@ -45,9 +49,10 @@ namespace AutoCar.Web.Controllers
             }
         }
         [AuthorizedMod]
-        [HttpGet]
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult EditProfile(int? userId)
         {
+            if ((int)userId != userAuthenticated.Id) return View();
             var userData = _session.GetUserById((int)userId);
             if (userData != null)
             {
@@ -70,15 +75,15 @@ namespace AutoCar.Web.Controllers
         [HttpPost]
         public ActionResult EditProfile(UserData data)
         {
-            SessionStatus();
-            var user = System.Web.HttpContext.Current.GetMySessionObject();
-            if (user != null)
+            //SessionStatus();
+            //var user = System.Web.HttpContext.Current.GetMySessionObject();
+            if (userAuthenticated != null && data.Id == userAuthenticated.Id)
             {
                 if (ModelState.IsValid)
                 {
                     UEditProfileData existingUser = new UEditProfileData
                     {
-                        Id = user.Id,
+                        Id = userAuthenticated.Id,
                         Email = data.Email,
                         //UserName = data.Username,
                         PhoneNumber = data.PhoneNumber,
@@ -103,7 +108,7 @@ namespace AutoCar.Web.Controllers
         [HttpGet]
         public ActionResult ActivePosts(int? userId)
         {
-            if (_session.GetUserById((int)userId) != null)
+            if (userAuthenticated.Id == (int)userId && userId != null)
             {
                 var posts = _post.GetPostsByAuthor(_session.GetUserById((int)userId).UserName);
                 if (posts.Count() > 0)
@@ -115,10 +120,53 @@ namespace AutoCar.Web.Controllers
             return View();
         }
         [AuthorizedMod]
-        [HttpPost]
         public ActionResult ChangePassword()
         {
             return View();
+        }
+        [AuthorizedMod]
+        [HttpGet]
+        //[ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(int? userId)
+        {
+            if(userId == null) return View();
+            var model = new UChangePasswordData()
+            {
+                Id = (int)userId
+            };
+            return View(model);
+        }
+        [AuthorizedMod]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(UChangePasswordData password)
+        {
+            var model = new UChangePasswordData();
+            if (ModelState.IsValid)
+            {
+                if (password.NewPassword == password.ConfirmedPassword && userAuthenticated.Id == password.Id)
+                {
+                    var response = _session.ChangePassword(password);
+                    if (response.Status)
+                    {
+                        ViewBag.ConfirmationMessage = response.StatusMessage;
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Confirmation failed! Try again";
+                }
+            }
+            return View(model);
+        }
+        [ValidateAntiForgeryToken]
+        [AuthorizedMod]
+        [HttpPost]
+        public ActionResult UserLogout()
+        {
+            Logout();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
