@@ -3,9 +3,7 @@
 AutoCar is an ASP.NET MVC web application that allows users to post ads for new and used cars. It provides a platform for users to advertise their cars for sale or search for cars they want to purchase.
 
 ## Demo
-
-![Group 5home1](https://github.com/vilesco/MRSTW2023/assets/12670083/cbe1c125-cc13-4d19-bb96-7b6ffdcf894b)
-
+![Group 6home2](https://github.com/vilesco/MRSTW2023/assets/12670083/1708b763-d868-4581-a62c-9b34b426cd27)
 
 ![RegistrationForm](https://github.com/vilesco/MRSTW2023/assets/12670083/c520fa40-a27c-4211-a37f-02972164bd3e)
 
