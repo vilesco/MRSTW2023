@@ -110,8 +110,13 @@ namespace AutoCar.Web.Controllers
             }
             return View();
         }
+        public ActionResult ActivePosts()
+        {
+            var userModel = new UserData();
+            return View(userModel);
+        }
         [AuthorizedMod]
-        [HttpGet]
+        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult ActivePosts(int? userId)
         {
             if (userAuthenticated.Id == (int)userId && userId != null)
@@ -163,9 +168,10 @@ namespace AutoCar.Web.Controllers
                 else
                 {
                     ViewBag.ErrorMessage = "Confirmation failed! Try again";
+                    return View(model);
                 }
             }
-            return View(model);
+            return View();
         }
         //[ValidateAntiForgeryToken]
         [AuthorizedMod]

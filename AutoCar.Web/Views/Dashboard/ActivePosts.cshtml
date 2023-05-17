@@ -31,7 +31,7 @@
                 <div class="myads">
                     @if (ViewBag.ActivePosts != null)
                     {
-                    <h3>My Active Posts</h3>
+                        <h3>My Active Posts</h3>
                         foreach (var item in ViewBag.ActivePosts)
                         {
                             <ul class="searchList">
@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="col-md-4 col-sm-5 text-right">
                                                         <div class="adprice">$@item.Price</div>
-                                                        <div class="listbtn"><a href="@Url.Action("EditPost", "Post", new {postId = item.Id})" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>@Html.ActionLink("Delete", "Delete", "Post", new {postId = item.Id}, null)<i aria-hidden="true"></i></div>
+                                                        <div class="listbtn"><a href="@Url.Action("EditPost", "Post", new {postId = item.Id})" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>@Html.ActionLink("Delete", "Delete", "Post", new { postId = item.Id }, null)<i aria-hidden="true"></i></div>
                                                     </div>
                                                 </div>
                                             </div>
