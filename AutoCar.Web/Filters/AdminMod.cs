@@ -9,10 +9,10 @@ using System.Web.Routing;
 
 namespace AutoCar.Web.Filters
 {
-    public class AuthorizedMod : ActionFilterAttribute
+    public class AdminMod : ActionFilterAttribute
     {
         private readonly ISession _session;
-        public AuthorizedMod()
+        public AdminMod()
         {
             var bl = new BusinessLogic.BusinessLogic();
             _session = bl.GetSessionBL();
@@ -23,7 +23,7 @@ namespace AutoCar.Web.Filters
             if (apiCookie != null)
             {
                 var user = _session.GetUserByCookie(apiCookie.Value);
-                if (user != null && (user.Level == Domain.Enum.URole.USER || user.Level == Domain.Enum.URole.ADMINISTRATOR))
+                if (user != null && user.Level == Domain.Enum.URole.ADMINISTRATOR)
                 {
                     HttpContext.Current.SetMySessionObject(user);
                     filterContext.Controller.ViewBag.AuthorizedUser = user;
