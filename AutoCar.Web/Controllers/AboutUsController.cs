@@ -19,7 +19,8 @@ namespace AutoCar.Web.Controllers
         }
 
         // GET: AboutUs
-        [AdminMod]
+        //[AdminMod]
+        [AuthorizedMod]
         public ActionResult AboutUs()
         {
             var admin = System.Web.HttpContext.Current.GetMySessionObject();
