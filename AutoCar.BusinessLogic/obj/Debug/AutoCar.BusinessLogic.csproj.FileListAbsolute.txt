@@ -52,21 +52,3 @@ D:\AutoCar\AutoCar.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
 D:\AutoCar\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.CopyComplete
 D:\AutoCar\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.dll
 D:\AutoCar\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.BusinessLogic.dll.config
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.BusinessLogic.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.BusinessLogic.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Domain.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Helpers.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\EntityFramework.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Domain.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Domain.dll.config
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Helpers.pdb
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\AutoCar.Helpers.dll.config
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\EntityFramework.xml
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.AssemblyReference.cache
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.CoreCompileInputs.cache
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.csproj.CopyComplete
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.dll
-C:\Users\viles\OneDrive\Desktop\UTM\proiect semestru\MRSTW2023\AutoCar.BusinessLogic\obj\Debug\AutoCar.BusinessLogic.pdb
