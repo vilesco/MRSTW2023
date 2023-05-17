@@ -49,6 +49,12 @@ namespace AutoCar.Web.Controllers
             }
         }
         [AuthorizedMod]
+        public ActionResult EditProfile()
+        {
+            var userModel = new UserData();
+            return View(userModel);
+        }
+        [AuthorizedMod]
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult EditProfile(int? userId)
         {

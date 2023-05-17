@@ -647,6 +647,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Extensions\HttpContextExtensions.cs" />
     <Compile Include="Extensions\SessionExtensions.cs" />
+    <Compile Include="Filters\AdminMod.cs" />
     <Compile Include="Filters\AuthenticationStatus.cs" />
     <Compile Include="Filters\AuthorizedMod.cs" />
     <Compile Include="Filters\LatestPosts.cs" />
