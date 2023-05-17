@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dashboard";
+}
+@model AutoCar.Web.Models.UserData
+<!-- Page Title start -->
+<div class="pageTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h1 class="page-heading">Admin Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Title End -->
+@Html.AntiForgeryToken()
+<div class="inner-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <ul class="usernavdash">
+                    <li class="active"><a href="@Url.Action("Dashboard", "Admin")"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+                    <li><a href="@Url.Action("Users", "Admin", new {userId = Model.Id})"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
+                    <li><a href="@Url.Action("Posts", "Admin", new {userId = Model.Id})"><i class="fa fa-laptop" aria-hidden="true"></i> Posts</a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Admin", new {userId = Model.Id})"><i class="fa fa-lock" aria-hidden="true"></i> Password Settings</a></li>
+                    <li><a href="@Url.Action("UserLogout", "Dashboard")"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="userccount">
+                    <div class="formpanel">
+                        <!-- Personal Information -->
+                        <h5>Personal Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.Username)
+                                    @Html.TextBoxFor(a => a.Username, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.FullName)
+                                    @Html.TextBoxFor(a => a.FullName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.PhoneNumber)
+                                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="formrow">
+                                    @Html.LabelFor(a => a.Email)
+                                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="logoutForm" action="@Url.Action("Logout", "Dashboard")" method="post">
+    @Html.AntiForgeryToken()
+</form>

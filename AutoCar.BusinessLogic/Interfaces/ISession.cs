@@ -1,4 +1,5 @@
-﻿using AutoCar.Domain.Entities.Response;
+﻿using AutoCar.Domain.Entities.Post;
+using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace AutoCar.BusinessLogic.Interfaces
 {
     public interface ISession
     {
-
+        IEnumerable<UDbModel> GetAll();
         ServiceResponse ValidateUserCredential(ULoginData user);
         ServiceResponse ChangePassword(UChangePasswordData password);
         ServiceResponse ValidateUserRegister(URegisterData newUser);

@@ -1,6 +1,7 @@
 ﻿using AutoCar.BusinessLogic.Core;
 using AutoCar.BusinessLogic.DBModel;
 using AutoCar.BusinessLogic.Interfaces;
+using AutoCar.Domain.Entities.Post;
 using AutoCar.Domain.Entities.Response;
 using AutoCar.Domain.Entities.User;
 using AutoCar.Helpers;
@@ -15,6 +16,19 @@ namespace AutoCar.BusinessLogic
 {
     public class SessionBL : UserApi, ISession
     {
+        private readonly UserContext _context;
+        public SessionBL()
+        {
+            _context = new UserContext();
+        }
+        public SessionBL(UserContext context)
+        {
+            _context = context;
+        }
+        public IEnumerable<UDbModel> GetAll()
+        {
+            return _context.Users.ToList();
+        }
         public ServiceResponse ValidateUserCredential(ULoginData data)
         {
             return ReturnCredentialStatus(data);
