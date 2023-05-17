@@ -122,7 +122,8 @@ namespace AutoCar.Web.Controllers
         [AuthorizedMod]
         public ActionResult ChangePassword()
         {
-            return View();
+            var model = new UChangePasswordData();
+            return View(model);
         }
         [AuthorizedMod]
         [HttpGet]
@@ -160,9 +161,9 @@ namespace AutoCar.Web.Controllers
             }
             return View(model);
         }
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [AuthorizedMod]
-        [HttpPost]
+        //[HttpPost]
         public ActionResult UserLogout()
         {
             Logout();

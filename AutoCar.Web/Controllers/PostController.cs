@@ -187,6 +187,7 @@ namespace AutoCar.Web.Controllers
             }
             return View();
         }
+        [AuthorizedMod]
         [HttpGet]
         public ActionResult Detail(int postID)
         {
@@ -242,7 +243,7 @@ namespace AutoCar.Web.Controllers
             {
                 _post.Delete((int)postId);
                 _post.Save();
-                return RedirectToAction("Dashboard", "Dashboard");
+                return RedirectToAction("ActivePosts", "Dashboard");
             }
         }
     }
