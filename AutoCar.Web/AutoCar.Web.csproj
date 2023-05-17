@@ -631,6 +631,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ActiveAdsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\EditPostController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\BaseController.cs" />

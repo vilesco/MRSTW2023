@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace AutoCar.Web.Controllers
 {
-    public class ContactUsController : Controller
+    public class ContactUsController : BaseController
     {
-        // GET: contact_us
+        // GET: ContactUs
         public ActionResult ContactUs()
         {
             return View();
