@@ -3,10 +3,9 @@
     ViewBag.Title = "AddPost";
 }
 @model AutoCar.Web.Models.PostData
-
 @if (Model == null)
 {
-    var model = new AutoCar.Web.Models.PostData(); 
+    var model = new AutoCar.Web.Models.PostData();
 }
 
 <!-- Page Title start -->
@@ -116,32 +115,17 @@
                                         </ul>
                                     </div>
                                 </div>
-
-
-
-                                <div class="col-md-12">
-                                    <div class="formrow">
-                                        <div class="uploadphotobx">
-                                            <i class="fa fa-upload" aria-hidden="true"></i>
-                                            <h4>Upload your car's photo</h4>
-                                            <p>It must be a head-shot photo</p>
-                                            <label class="uploadBox">
-                                                Click here to Upload
-                                                <input type="file" name="Image" id="Image">
-                                            </label>
-                                        </div>
-                                        <!--
-                                        <div class="fileattached">
-                                            <img src="images/ads/01.jpg" alt=""> <span>file-name-here.jpg</span> <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="fileattached">
-                                            <img src="images/ads/02.jpg" alt=""> <span>file-name-here.jpg</span> <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                         -->
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div style="text-align: center;" class="formrow">
+                                        <h4>Upload your car's photo</h4>
+                                        <p>It must be a head-shot photo</p>
+                                        <label class="uploadBox">
+                                            <input type="file" name="Image" id="Image">
+                                        </label>
                                     </div>
                                 </div>
+                                <div class="col-md-4"></div>
                                 <div class="col-md-6">
                                     <div class="formrow">
                                         @Html.TextBoxFor(a => a.Price, new { @class = "form-control", placeholder = "Price" })
@@ -167,5 +151,16 @@
                 </div>
             </div>
         </div>
+    </div>
+}
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
     </div>
 }

@@ -42,11 +42,14 @@ namespace AutoCar.BusinessLogic
             return ReturnPostsBySearchWrapData(searchWrapData);
         }
 
-        public IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string Make)
+        public IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string make)
         {
-            return ReturnPostsByMakeOrLocation(Make);
+            return ReturnPostsByMakeOrLocation(make);
         }
-
+        public IEnumerable<PostMinimal> GetPostsByType(string type)
+        {
+            return ReturnPostsByType(type);
+        }
         public void Update(PDbModel model)
         {
             _context.Entry(model).State = EntityState.Modified;
