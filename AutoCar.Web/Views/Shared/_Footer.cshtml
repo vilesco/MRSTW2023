@@ -7,15 +7,15 @@
                 <h5>Cars By Make</h5>
                 <!--Quick Links menu Start-->
                 <ul class="quicklinks">
-                    <li><a href="#.">Dacia Cars for Sale</a></li>
-                    <li><a href="#.">Honda Cars for Sale</a></li>
-                    <li><a href="#.">Hyundai Cars for Sale</a></li>
-                    <li><a href="#.">Mitsubishi Cars for Sale</a></li>
-                    <li><a href="#.">Suzuki Cars for Sale</a></li>
-                    <li><a href="#.">Toyota Cars for Sale</a></li>
-                    <li><a href="#.">BMW Cars for Sale</a></li>
-                    <li><a href="#.">Nissan Cars for Sale</a></li>
-                    <li><a href="#.">Mercedes Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Dacia"})">Dacia Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Honda"})">Honda Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Hyundai"})">Hyundai Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Mitsubishi"})">Mitsubishi Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Suzuki"})">Suzuki Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Toyota"})">Toyota Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "BMW"})">BMW Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Nissan"})">Nissan Cars for Sale</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {make = "Mercedes"})">Mercedes Cars for Sale</a></li>
                 </ul>
             </div>
             <!--About us End-->
@@ -24,15 +24,15 @@
                 <h5>Cars By City</h5>
                 <!--Quick Links menu Start-->
                 <ul class="quicklinks">
-                    <li><a href="#.">Cars in Chișinău</a></li>
-                    <li><a href="#.">Cars in Bălți</a></li>
-                    <li><a href="#.">Cars in Orhei</a></li>
-                    <li><a href="#.">Cars in Cahul</a></li>
-                    <li><a href="#.">Cars in Comrat</a></li>
-                    <li><a href="#.">Cars in Cantemir</a></li>
-                    <li><a href="#.">Cars in Ceadîr-Lunga</a></li>
-                    <li><a href="#.">Cars in Hîncești</a></li>
-                    <li><a href="#.">Cars in Ștefan-Vodă</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Chisinau"})">Cars in Chișinău</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Balti"})">Cars in Bălți</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Orhei"})">Cars in Orhei</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Cahul"})">Cars in Cahul</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Comrat"})">Cars in Comrat</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Cantemir"})">Cars in Cantemir</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Soroca"})">Cars in Soroca</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Hincesti"})">Cars in Hîncești</a></li>
+                    <li><a href="@Url.Action("ListingSearch", "Listing", new {Location = "Nisporeni"})">Cars in Nisporeni</a></li>
                 </ul>
             </div>
             <!--About us End-->
@@ -41,8 +41,8 @@
                 <h5>Explore Us</h5>
                 <!--Quick Links menu Start-->
                 <ul class="quicklinks">
-                     <li><a href="@Url.Action("Listing", "Listing")">Used Cars</a></li>
-                     <li><a href="@Url.Action("Listing", "Listing")">New Cars</a></li>
+                     <li><a href="@Url.Action("Listing", "Listing", new {type = "Used"})">Used Cars</a></li>
+                     <li><a href="@Url.Action("Listing", "Listing", new {type = "New"})">New Cars</a></li>
                      <li><a href="@Url.Action("Dashboard", "Dashboard")">Sitemap</a></li>  <!--De bagat aici dashboard-->
                 </ul>
             </div>
@@ -53,9 +53,9 @@
                 <!--Quick Links menu Start-->
                 <ul class="quicklinks">
                     <li><a href="@Url.Action("AboutUs", "AboutUs")">About Us </a></li>
-                    <li><a href="@Url.Action("Contact_us", "Contact_us")">Contact Us</a></li>
-                    <li><a href="@Url.Action("AddPost", "AddPost")">Post an Ad</a></li>
-                    <li><a href="@Url.Action("Faqs", "Faqs")">FAQs</a></li>
+                    <li><a href="@Url.Action("ContactUs", "AboutUs")">Contact Us</a></li>
+                    <li><a href="@Url.Action("AddPost", "Post")">Post an Ad</a></li>
+                    <li><a href="@Url.Action("FAQs", "AboutUs")">FAQs</a></li>
                 </ul>
             </div>
             <!--Quick Links menu end-->
@@ -64,8 +64,8 @@
                 <h5>Help Center</h5>
                 <!--Industry menu Start-->
                 <ul class="quicklinks">
-                     <li><a href="@Url.Action("Faqs", "Faqs")">FAQs</a></li>
-                     <li><a href="@Url.Action("EditProfile", "EditProfile")">Account Issue</a></li>  
+                     <li><a href="@Url.Action("FAQs", "AboutUs")">FAQs</a></li>
+                     <li><a href="@Url.Action("EditProfile", "Dashboard")">Account Issue</a></li>  
                      <li><a href="@Url.Action("AboutUs", "AboutUs")">History</a></li>
                 </ul>
                 <!--Industry menu End-->
@@ -80,6 +80,6 @@
 <!--Copyright-->
 <div class="copyright">
     <div class="container">
-        <div class="bttxt"><a>Copyright &copy; 2023 Group TI-211, FCIM. All Rights Reserved. </a></div>
+        <div class="bttxt"><a>Copyright &copy; 2023 TI-211 Group, FCIM. All Rights Reserved. </a></div>
     </div>
 </div>

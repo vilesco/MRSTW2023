@@ -36,12 +36,12 @@ namespace AutoCar.BusinessLogic.Core
 
         public ServiceResponse ReturnChangedPassword(UChangePasswordData password)
         {
-            using(var db = new UserContext())
+            using (var db = new UserContext())
             {
                 try
                 {
                     var user = db.Users.Find(password.Id);
-                    if (user == null) return new ServiceResponse { Status = false, StatusMessage = "An error occurred!" };
+                    if (user == null || user.Password != LoginHelper.HashGen(password.OldPassword)) return new ServiceResponse { Status = false, StatusMessage = "An error occurred!" };
                     user.Password = LoginHelper.HashGen(password.NewPassword);
                     db.SaveChanges();
                     return new ServiceResponse() { Status = true, StatusMessage = "Password has been changed successfully!" };

@@ -1,9 +1,12 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Dashboard";
 }
 @model AutoCar.Web.Models.UserData
+@if (Model == null)
+{
+    var model = new AutoCar.Web.Models.UserData();
+}
 <!-- Page Title start -->
 <div class="pageTitle">
     <div class="container">
@@ -37,25 +40,29 @@
                             <div class="col-md-6">
                                 <div class="formrow">
                                     @Html.LabelFor(a => a.Username)
-                                    @Html.TextBoxFor(a => a.Username, new { @class = "form-control" })
+                                    <h3></h3>
+                                    <h4>@Model.Username</h4>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="formrow">
                                     @Html.LabelFor(a => a.FullName)
-                                    @Html.TextBoxFor(a => a.FullName, new { @class = "form-control" })
+                                    <h3></h3>
+                                    <h4>@Model.FullName</h4>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="formrow">
                                     @Html.LabelFor(a => a.PhoneNumber)
-                                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+                                    <h3></h3>
+                                    <h4>@Model.PhoneNumber</h4>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="formrow">
                                     @Html.LabelFor(a => a.Email)
-                                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+                                    <h3></h3>
+                                    <h4>@Model.Email</h4>
                                 </div>
                             </div>
                         </div>

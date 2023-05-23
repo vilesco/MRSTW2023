@@ -44,8 +44,8 @@ namespace AutoCar.Web.Controllers
                 var results = _post.GetBySearchWrapData(data);
                 if (results.Count() > 0)
                 {
-                    TempData["modelList"] = results;
-                    return RedirectToAction("ListingSearchWrap", "Listing");
+                    TempData["foundPosts"] = results;
+                    return RedirectToAction("Listing", "Listing");
                 }
                 else
                 {

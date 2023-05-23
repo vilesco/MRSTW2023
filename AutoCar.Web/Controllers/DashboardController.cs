@@ -1,4 +1,5 @@
 ﻿using AutoCar.BusinessLogic.Interfaces;
+using AutoCar.Domain.Entities.Post;
 using AutoCar.Domain.Entities.User;
 using AutoCar.Web.Extensions;
 using AutoCar.Web.Filters;
@@ -6,6 +7,7 @@ using AutoCar.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 
@@ -55,10 +57,13 @@ namespace AutoCar.Web.Controllers
             return View(userModel);
         }
         [AuthorizedMod]
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [HttpGet]
         public ActionResult EditProfile(int? userId)
         {
-            if ((int)userId != userAuthenticated.Id) return View();
+            if (userId == null)
+            {
+                userId = userAuthenticated.Id;
+            }
             var userData = _session.GetUserById((int)userId);
             if (userData != null)
             {
@@ -119,21 +124,25 @@ namespace AutoCar.Web.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult ActivePosts(int? userId)
         {
-            if (userAuthenticated.Id == (int)userId && userId != null)
+            if (userId == null)
             {
-                var posts = _post.GetPostsByAuthor(_session.GetUserById((int)userId).UserName);
-                if (posts.Count() > 0)
-                {
-                    ViewBag.ActivePosts = posts;
-                    return View();
-                }
+                userId = userAuthenticated.Id;
             }
-            return View();
+            
+            var posts = _post.GetPostsByAuthor(_session.GetUserById((int)userId).UserName);
+            if (posts.Count() > 0)
+            {
+                return View(posts);
+            }
+            return HttpNotFound();
         }
         [AuthorizedMod]
         public ActionResult ChangePassword()
         {
-            var model = new UChangePasswordData();
+            var model = new UChangePasswordData()
+            {
+                Id = userAuthenticated.Id
+            };
             return View(model);
         }
         [AuthorizedMod]
@@ -141,12 +150,19 @@ namespace AutoCar.Web.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult ChangePassword(int? userId)
         {
-            if(userId == null) return View();
-            var model = new UChangePasswordData()
+            if (userId == null)
             {
-                Id = (int)userId
-            };
-            return View(model);
+                userId = userAuthenticated.Id;
+            }
+            if (userId != null)
+            {
+                var model = new UChangePasswordData()
+                {
+                    Id = (int)userId
+                };
+                return View(model);
+            }
+            return View(new UChangePasswordData());
         }
         [AuthorizedMod]
         [HttpPost]

@@ -11,12 +11,13 @@ namespace AutoCar.BusinessLogic.Interfaces
     public interface IPost
     {
         ServiceResponse AddPostAction(PDbModel model);
-        PDbModel GetById(int PostID);
+        PDbModel GetById(int postID);
         IEnumerable<PDbModel> GetAll();
         IEnumerable<PostMinimal> GetBySearchWrapData(PSearchWrapData searchWrapData);
-        IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string Make);
-        IEnumerable<PostMinimal> GetPostsByAuthor(string Author);
+        IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string make);
+        IEnumerable<PostMinimal> GetPostsByAuthor(string author);
         IEnumerable<PostMinimal> GetLatestPosts();
+        IEnumerable<PostMinimal> GetPostsByType(string type);
         void Update(PDbModel model);
         void Delete(int PostID);
         void Save();

@@ -11,6 +11,10 @@ namespace AutoCar.Domain.Entities.User
     {
         [Required]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter the old password.")]
+        [DataType(DataType.Password)]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "Password too short.")]
+        public string OldPassword { get; set; }
         [Required(ErrorMessage = "Please enter the new password.")]
         [DataType(DataType.Password)]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Password too short.")]

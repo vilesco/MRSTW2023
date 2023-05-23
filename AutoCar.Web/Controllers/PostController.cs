@@ -90,12 +90,8 @@ namespace AutoCar.Web.Controllers
 
             return View();
         }
-        [AuthorizedMod]
-        public ActionResult EditPost()
-        {
-            return View();
-        }
-        [HttpGet]
+        
+        //[HttpPost]
         [AuthorizedMod]
         public ActionResult EditPost(int? postId)
         {

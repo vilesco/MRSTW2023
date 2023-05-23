@@ -23,6 +23,7 @@ namespace AutoCar.Web.Controllers
             var posts = (List<PostMinimal>)TempData["modelList"];
             if (posts.Count() > 0)
             {
+
                 return View(posts);
             }
             else
@@ -36,47 +37,87 @@ namespace AutoCar.Web.Controllers
             if (Make != null)
             {
                 var data = _post.GetPostsByMakeOrLocation(Make);
-                if (data != null)
+                if (data.Count() > 0)
                 {
-                    return View(data);
+                    TempData["postsByMake"] = data;
+                    return RedirectToAction("Listing");
                 }
                 else return RedirectToAction("NotFound");
             }
             if (Location != null)
             {
                 var data = _post.GetPostsByMakeOrLocation(Location);
-                if (data != null)
+                if (data.Count() > 0)
                 {
-                    return View(data);
+                    TempData["postsByLocation"] = data;
+                    return RedirectToAction("Listing");
                 }
                 else return RedirectToAction("NotFound");
             }
-            return View();
+            return RedirectToAction("Listing");
         }
 
         [HttpGet]
         public ActionResult Listing()
         {
+            var postsBySearchWrap = TempData["foundPosts"] as List<PostMinimal>;
+            if (postsBySearchWrap != null && postsBySearchWrap.Count() > 0) { return View(postsBySearchWrap); }
+            var postsByType = TempData["postsListByType"] as List<PostMinimal>;
+            if (postsByType != null && postsByType.Count() > 0) { return View(postsByType); }
+            var postsByMake = TempData["postsByMake"] as List<PostMinimal>;
+            if (postsByType != null && postsByMake.Count() > 0) { return View(postsByMake); }
+            var postsByLocation = TempData["postsByLocation"] as List<PostMinimal>;
+            if (postsByLocation != null && postsByLocation.Count() > 0) { return View(postsByLocation); }
             var data = _post.GetAll();
             List<PostMinimal> allPosts = new List<PostMinimal>();
             foreach (var post in data)
             {
-                var postMinimal = new PostMinimal();
-                postMinimal.Id = post.Id;
-                postMinimal.Fuel = post.Fuel;
-                postMinimal.Year = post.Year;
-                postMinimal.Transmission = post.Transmission;
-                postMinimal.Price = post.Price;
-                postMinimal.DateAdded = post.DateAdded;
-                postMinimal.Millage = post.Millage;
-                postMinimal.Model = post.Model;
-                postMinimal.Make = post.Make;
-                postMinimal.Location = post.Location;
-                postMinimal.ImagePath = post.ImagePath;
-                postMinimal.EngineCapacity = post.EngineCapacity;
+                var postMinimal = new PostMinimal
+                {
+                    Id = post.Id,
+                    Fuel = post.Fuel,
+                    Year = post.Year,
+                    Transmission = post.Transmission,
+                    Price = post.Price,
+                    DateAdded = post.DateAdded,
+                    Millage = post.Millage,
+                    Model = post.Model,
+                    Make = post.Make,
+                    Location = post.Location,
+                    ImagePath = post.ImagePath,
+                    EngineCapacity = post.EngineCapacity
+                };
                 allPosts.Add(postMinimal);
             }
             return View(allPosts);
+        }
+
+        [HttpGet]
+        public ActionResult ListingByType(string type)
+        {
+            var data = _post.GetPostsByType(type);
+            List<PostMinimal> posts = new List<PostMinimal>();
+            foreach (var post in data)
+            {
+                var postMinimal = new PostMinimal
+                {
+                    Id = post.Id,
+                    Fuel = post.Fuel,
+                    Year = post.Year,
+                    Transmission = post.Transmission,
+                    Price = post.Price,
+                    DateAdded = post.DateAdded,
+                    Millage = post.Millage,
+                    Model = post.Model,
+                    Make = post.Make,
+                    Location = post.Location,
+                    ImagePath = post.ImagePath,
+                    EngineCapacity = post.EngineCapacity
+                };
+                posts.Add(postMinimal);
+            }
+            TempData["postsListByType"] = posts;
+            return RedirectToAction("Listing");
         }
 
         public ActionResult NotFound()
