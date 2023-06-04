@@ -47,7 +47,7 @@ namespace AutoCar.Web.Controllers
                 var response = _session.ValidateUserRegister(newUser);
                 if (response.Status)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Login");
                 }
                 else 
                 {

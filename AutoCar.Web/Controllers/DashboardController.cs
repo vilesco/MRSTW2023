@@ -96,7 +96,6 @@ namespace AutoCar.Web.Controllers
                     {
                         Id = userAuthenticated.Id,
                         Email = data.Email,
-                        //UserName = data.Username,
                         PhoneNumber = data.PhoneNumber,
                         FullName = data.FullName
 

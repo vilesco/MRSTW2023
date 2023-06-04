@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace AutoCar.Web.Controllers
 {
-    public class ListingController : Controller
+    public class ListingController : BaseController
     {
         private readonly IPost _post;
         public ListingController()
@@ -60,14 +60,10 @@ namespace AutoCar.Web.Controllers
         [HttpGet]
         public ActionResult Listing()
         {
-            var postsBySearchWrap = TempData["foundPosts"] as List<PostMinimal>;
-            if (postsBySearchWrap != null && postsBySearchWrap.Count() > 0) { return View(postsBySearchWrap); }
-            var postsByType = TempData["postsListByType"] as List<PostMinimal>;
-            if (postsByType != null && postsByType.Count() > 0) { return View(postsByType); }
-            var postsByMake = TempData["postsByMake"] as List<PostMinimal>;
-            if (postsByType != null && postsByMake.Count() > 0) { return View(postsByMake); }
-            var postsByLocation = TempData["postsByLocation"] as List<PostMinimal>;
-            if (postsByLocation != null && postsByLocation.Count() > 0) { return View(postsByLocation); }
+            if (TempData["foundPosts"] is List<PostMinimal> postsBySearchWrap && postsBySearchWrap.Any()) { return View(postsBySearchWrap); }
+            if (TempData["postsListByType"] is List<PostMinimal> postsByType && postsByType.Any()) { return View(postsByType); }
+            if (TempData["postsByMake"] is List<PostMinimal> postsByMake && postsByMake.Any()) { return View(postsByMake); }
+            if (TempData["postsByLocation"] is List<PostMinimal> postsByLocation && postsByLocation.Any()) { return View(postsByLocation); }
             var data = _post.GetAll();
             List<PostMinimal> allPosts = new List<PostMinimal>();
             foreach (var post in data)
