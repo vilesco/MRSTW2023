@@ -100,9 +100,9 @@
                             <li>
                                 <div class="row">
                                     <div class="col-md-3 col-sm-4">
-                                        @if (Model.ImagePath != null)
+                                        @if (post.ImagePath != null)
                                         {
-                                            <div class="adimg"><img src="@Url.Content(Model.ImagePath)" alt="Ad Name" /></div>
+                                            <div class="adimg"><img src="@Url.Content(post.ImagePath)" alt="Ad Name" /></div>
                                         }
                                         else
                                         {

@@ -35,6 +35,7 @@
                 <div class="userccount">
                     @using (Html.BeginForm("EditProfile", "Dashboard", FormMethod.Post))
                     {
+                        @Html.HiddenFor(a => a.Id)
                         <div class="formpanel">
                             <!-- Personal Information -->
                             <h5>Edit Your Personal Information</h5>
