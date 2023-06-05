@@ -83,14 +83,14 @@
 
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.EngineCapacity, new { @class = "form-control", placeholder = "Engine Capacity" })
+                                        @Html.TextBoxFor(a => a.EngineCapacity, new { @class = "form-control", placeholder = "Engine Capacity (cc)" })
                                         @Html.ValidationMessageFor(a => a.EngineCapacity)
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Millage, new { @class = "form-control", placeholder = "Millage" })
-                                        @Html.ValidationMessageFor(a => a.EngineCapacity)
+                                        @Html.TextBoxFor(a => a.Millage, new { @class = "form-control", placeholder = "Millage (km)" })
+                                        @Html.ValidationMessageFor(a => a.Millage)
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -128,7 +128,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.TextBoxFor(a => a.Price, new { @class = "form-control", placeholder = "Price" })
+                                        @Html.TextBoxFor(a => a.Price, new { @class = "form-control", placeholder = "Price $" })
                                         @Html.ValidationMessageFor(a => a.Price)
                                     </div>
                                 </div>

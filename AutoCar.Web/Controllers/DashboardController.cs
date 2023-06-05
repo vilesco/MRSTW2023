@@ -133,7 +133,7 @@ namespace AutoCar.Web.Controllers
             {
                 return View(posts);
             }
-            return HttpNotFound();
+            return View();
         }
         [AuthorizedMod]
         public ActionResult ChangePassword()

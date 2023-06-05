@@ -70,6 +70,10 @@ namespace AutoCar.BusinessLogic
         {
             return ReturnPostsByAuthor(author);
         }
+        public IEnumerable<PostMinimal> GetPostsByListingFilter(PListingFilterData data)
+        {
+            return ReturnPostsByListingFilter(data);
+        }
         public void Save()
         {
             _context.SaveChanges();

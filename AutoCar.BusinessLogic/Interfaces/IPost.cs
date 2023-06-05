@@ -17,6 +17,7 @@ namespace AutoCar.BusinessLogic.Interfaces
         IEnumerable<PostMinimal> GetPostsByMakeOrLocation(string make);
         IEnumerable<PostMinimal> GetPostsByAuthor(string author);
         IEnumerable<PostMinimal> GetLatestPosts();
+        IEnumerable<PostMinimal> GetPostsByListingFilter(PListingFilterData data);
         IEnumerable<PostMinimal> GetPostsByType(string type);
         void Update(PDbModel model);
         void Delete(int PostID);

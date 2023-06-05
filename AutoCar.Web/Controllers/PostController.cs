@@ -32,8 +32,6 @@ namespace AutoCar.Web.Controllers
         {
             return View();
         }
-
-        //[AcceptVerbs(HttpVerbs.Post | HttpVerbs.Get)]
         [HttpPost]
         [AuthorizedMod]
         public ActionResult AddPost(PostData postData)
@@ -90,8 +88,6 @@ namespace AutoCar.Web.Controllers
 
             return View();
         }
-        
-        //[HttpPost]
         [AuthorizedMod]
         public ActionResult EditPost(int? postId)
         {
@@ -143,16 +139,9 @@ namespace AutoCar.Web.Controllers
             {
                 using (var db = new PostContext())
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(postToEdit.Image.FileName);
-                    string extension = Path.GetExtension(postToEdit.Image.FileName);
-                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    postToEdit.ImagePath = "~/Content/PostsImages/" + fileName;
-                    fileName = Path.Combine(Server.MapPath("~/Content/PostsImages/"), fileName);
-                    postToEdit.Image.SaveAs(fileName);
                     var post = db.Posts.Find(postToEdit.Id);
                     if (post != null)
                     {
-                        post.Id = postToEdit.Id;
                         post.Model = postToEdit.Model;
                         post.Type = postToEdit.Type;
                         post.Make = postToEdit.Make;
@@ -171,19 +160,23 @@ namespace AutoCar.Web.Controllers
                         post.Price = postToEdit.Price;
                         post.Location = postToEdit.Location;
                         post.Comment = postToEdit.Comment;
-                        post.ImagePath = postToEdit.ImagePath;
-                        post.DateAdded = DateTime.Now;
-                        post.Author = postToEdit.Author;
-                        //db.SaveChanges();
                     }
-                    //_post.Update(post);
+                    if (postToEdit.Image != null)
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(postToEdit.Image.FileName);
+                        string extension = Path.GetExtension(postToEdit.Image.FileName);
+                        fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                        postToEdit.ImagePath = "~/Content/PostsImages/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("~/Content/PostsImages/"), fileName);
+                        postToEdit.Image.SaveAs(fileName);
+                        post.ImagePath = postToEdit.ImagePath;
+                    }
                     db.SaveChanges();
                     return RedirectToAction("Detail", new { postId = post.Id });
                 }
             }
             return View();
         }
-        [AuthorizedMod]
         [HttpGet]
         public ActionResult Detail(int postID)
         {
@@ -218,20 +211,25 @@ namespace AutoCar.Web.Controllers
                     Author = author.UserName,
                     AuthorPhoneNumber = author.PhoneNumber
                 };
-                var relatedPosts = _post.GetPostsByMakeOrLocation(model.Make).Concat(_post.GetPostsByMakeOrLocation(model.Location)).ToList();
-                var posts = relatedPosts.Where(x => x.Id != model.Id).ToList();
+                var relatedPosts = _post.GetPostsByMakeOrLocation(model.Make)
+                    .Concat(_post.GetPostsByMakeOrLocation(model.Location))
+                    .Distinct()
+                    .ToList();
+                var posts = relatedPosts.GroupBy(a => a.Id)
+                    .Select(a => a.First())
+                    .Where(a => a.Id != model.Id)
+                    .ToList();
                 ViewBag.RelatedPosts = posts;
                 return View(model);
             }
         }
-        //[HttpPost]
         [AuthorizedMod]
         public ActionResult Delete(int? postId)
         {
             SessionStatus();
             var user = System.Web.HttpContext.Current.GetMySessionObject();
             var postToDelete = _post.GetById((int)postId);
-            if (postToDelete == null && user.Username == postToDelete.Author)
+            if (postToDelete == null || user.Username != postToDelete.Author)
             {
                 return HttpNotFound();
             }

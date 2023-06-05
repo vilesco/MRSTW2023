@@ -196,5 +196,76 @@ namespace AutoCar.BusinessLogic.Core
             }
             return list.ToList();
         }
+        public IEnumerable<PostMinimal> ReturnPostsByListingFilter(PListingFilterData filter)
+        {
+            List<PostMinimal> list = new List<PostMinimal>();
+            using (var db = new PostContext())
+            {
+                var query = db.Posts.AsQueryable();
+
+                if (!string.IsNullOrEmpty(filter.KeyWord))
+                {
+                    query = query.Where(c => c.Make.Contains(filter.KeyWord) || c.Model.Contains(filter.KeyWord));
+                }
+
+                if (filter.MinPrice > 0 || filter.MaxPrice > 0)
+                {
+                    query = query.Where(c => c.Price >= filter.MinPrice && c.Price <= filter.MaxPrice);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Location) && filter.Location != "Not specified")
+                {
+                    query = query.Where(c => c.Location.Equals(filter.Location));
+                }
+
+                if (filter.MinYear > 0 || filter.MaxYear > 0)
+                {
+                    query = query.Where(c => c.Year >= filter.MinYear && c.Year <= filter.MaxYear);
+                }
+
+                if (!string.IsNullOrEmpty(filter.Type) && filter.Type != "Not specified")
+                {
+                    query = query.Where(c => c.Type.Equals(filter.Type));
+                }
+
+                if (!string.IsNullOrEmpty(filter.Make) && filter.Make != "Not specified")
+                {
+                    query = query.Where(c => c.Make.Equals(filter.Make));
+                }
+
+                if (!string.IsNullOrEmpty(filter.Transmission) && filter.Transmission != "Not specified")
+                {
+                    query = query.Where(c => c.Transmission.Equals(filter.Transmission));
+                }
+
+                if (!string.IsNullOrEmpty(filter.Fuel) && filter.Fuel != "Not specified")
+                {
+                    query = query.Where(c => c.Fuel.Equals(filter.Fuel));
+                }
+
+                var results = query.ToList();
+
+                foreach (var item in results)
+                {
+                    var postMinimal = new PostMinimal
+                    {
+                        Id = item.Id,
+                        Transmission = item.Transmission,
+                        Location = item.Location,
+                        Price = item.Price,
+                        Year = item.Year,
+                        DateAdded = item.DateAdded,
+                        EngineCapacity = item.EngineCapacity,
+                        Fuel = item.Fuel,
+                        Make = item.Make,
+                        Model = item.Model,
+                        Millage = item.Millage,
+                        ImagePath = item.ImagePath
+                    };
+                    list.Add(postMinimal);
+                }
+            }
+            return list.ToList();
+        }
     }
 }
