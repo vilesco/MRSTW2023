@@ -1,158 +1,142 @@
-﻿
-<!-- Side Bar start -->
-<div class="sidebar">
-    <!-- By Keyword -->
-    <div class="widget">
-        <h4 class="widget-title">Search By Keyword</h4>
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Keyword">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
-            </span>
-        </div>
-    </div>
+﻿@model AutoCar.Web.Models.ListingPageData
 
-    <!-- Price -->
-    <div class="widget">
-        <h4 class="widget-title">Price Range</h4>
-        <div class="row">
-            <div class="col-md-6">
-                <select class="form-control">
-                    <option>From</option>
+@if (Model != null)
+{
+    using (Html.BeginForm("Sidebar", "Listing", FormMethod.Post))
+    {
+        <!-- Side Bar start -->
+        <div class="sidebar">
+            <!-- By Keyword -->
+            <div class="widget">
+                <h4 class="widget-title">Search By Keyword</h4>
+                <div class="input-group">
+                    @Html.TextBoxFor(a => a.SideBar.KeyWord, new { @class = "form-control", placeholder = "Keyword" })
+                </div>
+            </div>
+            <!-- Price -->
+            <div class="widget">
+                <h4 class="widget-title">Price Range $</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MinPrice">
+                            <option value="0">From</option>
+                            @foreach (var item in Model.SideBar.PriceRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MaxPrice">
+                            <option value="1000000">To</option>
+                            @foreach (var item in Model.SideBar.PriceRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Price end -->
+            <!-- Cars By City -->
+            <div class="widget">
+                <h4 class="widget-title">City</h4>
+                <select class="form-control" name="SideBar.Location">
+                    <option value="Not specified">Any City</option>
+                    @foreach (var item in Model.SideBar.LocationList)
+                    {
+                        <option value="@item">@item</option>
+                    }
                 </select>
             </div>
-            <div class="col-md-6">
-                <select class="form-control">
-                    <option>To</option>
+            <!-- Cars By City end-->
+            <!-- Year -->
+            <div class="widget">
+                <h4 class="widget-title">Year Range</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MinYear">
+                            <option value="">From</option>
+                            @foreach (var item in Model.SideBar.YearRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="SideBar.MaxYear">
+                            <option value="">To</option>
+                            @foreach (var item in Model.SideBar.YearRange)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Year end -->
+            <!-- type -->
+            <div class="widget">
+                <h4 class="widget-title">Type</h4>
+                <select class="form-control" name="SideBar.Type">
+                    <option value="Not specified">Type</option>
+                    <option value="New">New</option>
+                    <option value="Used">Used</option>
                 </select>
             </div>
-        </div>
-    </div>
-    <!-- Price end -->
-    <!-- Cars By City -->
-    <div class="widget">
-        <h4 class="widget-title">City</h4>
-        <ul class="optionlist">
-            <li>
-                <input type="checkbox" name="checkname" id="newyork" />
-                <label for="newyork"></label>
-                New York <span>12</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="losangles" />
-                <label for="losangles"></label>
-                Los Angeles <span>33</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="chicago" />
-                <label for="chicago"></label>
-                Chicago <span>33</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="houston" />
-                <label for="houston"></label>
-                Houston <span>12</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="sandiego" />
-                <label for="sandiego"></label>
-                San Diego <span>555</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="sanjose" />
-                <label for="sanjose"></label>
-                San Jose <span>44</span>
-            </li>
-        </ul>
-        <a href="#.">More Cities</a>
-    </div>
-    <!-- Cars By City end-->
-    <!-- Year -->
-    <div class="widget">
-        <h4 class="widget-title">Year Range</h4>
-        <div class="row">
-            <div class="col-md-6">
-                <select class="form-control">
-                    <option>From</option>
+            <!-- type end -->
+            <!-- Make -->
+            <div class="widget">
+                <h4 class="widget-title">Make</h4>
+                <select class="form-control" name="SideBar.Make">
+                    <option value="Not specified">Make</option>
+                    @foreach (var item in Model.SideBar.MakeList)
+                    {
+                        <option value="@item">@item</option>
+                    }
                 </select>
             </div>
-            <div class="col-md-6">
-                <select class="form-control">
-                    <option>To</option>
-                </select>
+            <!-- Make end -->
+            <!-- Transmission -->
+            <div class="widget">
+                <h4 class="widget-title">Transmission</h4>
+                <ul class="optionlist">
+                    <li>
+                        <input type="checkbox" name="SideBar.Transmission" value="Automatic" />
+                        <label for="auto"></label>
+                        Automatic
+                    </li>
+                    <li>
+                        <input type="checkbox" name="SideBar.Transmission" value="Manual" />
+                        <label for="Manual"></label>
+                        Manual
+                    </li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <!-- Year end -->
-    <!-- type -->
-    <div class="widget">
-        <h4 class="widget-title">Type</h4>
-        <select class="form-control">
-            <option>New</option>
-            <option>Used Car</option>
-        </select>
-    </div>
-    <!-- type end -->
-    <!-- Make -->
-    <div class="widget">
-        <h4 class="widget-title">Make</h4>
-        <select class="form-control">
-            <option>BMW</option>
-            <option>Honda</option>
-            <option>Toyota</option>
-            <option>Suzuki</option>
-        </select>
-    </div>
-    <!-- Make end -->
-    <!-- Model -->
-    <div class="widget">
-        <h4 class="widget-title">Model</h4>
-        <select class="form-control">
-            <option>Select Model</option>
-            <option>JIMNY DX MT</option>
-            <option>SUZUKI CIAZ GL AT</option>
-            <option>SWIFT AT</option>
-        </select>
-    </div>
-    <!-- Model end -->
-    <!-- Transmission -->
-    <div class="widget">
-        <h4 class="widget-title">Transmission</h4>
-        <ul class="optionlist">
-            <li>
-                <input type="checkbox" name="checkname" id="auto" />
-                <label for="auto"></label>
-                Auto <span>12</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="Manual" />
-                <label for="Manual"></label>
-                Manual <span>33</span>
-            </li>
-        </ul>
-    </div>
 
-    <!-- Engine -->
-    <div class="widget">
-        <h4 class="widget-title">Engine Type</h4>
-        <ul class="optionlist">
-            <li>
-                <input type="checkbox" name="checkname" id="Petrol" />
-                <label for="Petrol"></label>
-                Petrol <span>12</span>
-            </li>
-            <li>
-                <input type="checkbox" name="checkname" id="Diesel" />
-                <label for="Diesel"></label>
-                Diesel <span>33</span>
-            </li>
-        </ul>
-    </div>
+            <!-- Engine -->
+            <div class="widget">
+                <h4 class="widget-title">Fuel Type</h4>
+                <ul class="optionlist">
+                    <li>
+                        <input type="checkbox" name="SideBar.Fuel" id="fuelGasoline" value="Gasoline"/>
+                        <label for="fuelGasoline"></label>
+                        Gasoline
+                    </li>
+                    <li>
+                        <input type="checkbox" name="SideBar.Fuel" id="fuelDiesel" value="Diesel"/>
+                        <label for="fuelDiesel"></label>
+                        Diesel
+                    </li>
+                </ul>
+            </div>
 
-    <!-- button -->
-    <div class="searchnt">
-        <button class="btn"><i class="fa fa-search" aria-hidden="true"></i> Update Results</button>
-    </div>
-    <!-- button end-->
-</div>
-<!-- Side Bar end -->
+            <!-- button -->
+            <div class="searchnt">
+                <input type="submit" class="btn" value="Update Results">
+            </div>
+            <!-- button end-->
+        </div>
+        <!-- Side Bar end -->
+    }
+}

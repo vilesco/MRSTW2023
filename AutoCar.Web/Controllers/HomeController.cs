@@ -45,11 +45,11 @@ namespace AutoCar.Web.Controllers
                 if (results.Count() > 0)
                 {
                     TempData["foundPosts"] = results;
-                    return RedirectToAction("Listing", "Listing");
+                    return RedirectToAction("ListingParameters", "Listing");
                 }
                 else
                 {
-                    return RedirectToAction("NotFound", "Listing");
+                    return RedirectToAction("ListingParameters", "Listing");
                 }
             }
             else

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Post\PDbModel.cs" />
+    <Compile Include="Entities\Post\PListingFilterData.cs" />
     <Compile Include="Entities\Post\PostMinimal.cs" />
     <Compile Include="Entities\Post\PSearchWrapData.cs" />
     <Compile Include="Entities\Response\CookieResponse.cs" />

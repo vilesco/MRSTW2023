@@ -43,10 +43,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
+                                        <label for="Type">Car Type</label>
                                         <select class="form-control" name="Type">
-                                            <option value="Not specified">Car type</option>
-                                            <option value="New">New</option>
-                                            <option value="Used">Used</option>
+                                            <option value="Not specified" @(Model.Type == "Not specified" ? "selected" : "")>Car type</option>
+                                            <option value="New" @(Model.Type == "New" ? "selected" : "")>New</option>
+                                            <option value="Used" @(Model.Type == "Used" ? "selected" : "")>Used</option>
                                         </select>
                                     </div>
                                 </div>
@@ -59,30 +60,32 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
+                                        <label for="Transmission">Transmission</label>
                                         <select class="form-control" name="Transmission">
-                                            <option value="Not specified">Transmission</option>
-                                            <option value="Automatic">Automatic</option>
-                                            <option value="Manual">Manual</option>
+                                            <option value="Not specified" @(Model.Transmission == "Not specified" ? "selected" : "")>Transmission</option>
+                                            <option value="Automatic" @(Model.Transmission == "Automatic" ? "selected" : "")>Automatic</option>
+                                            <option value="Manual" @(Model.Transmission == "Manual" ? "selected" : "")>Manual</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
+                                        <label for="Color">Color</label>
                                         <select class="form-control" name="Color">
-                                            <option value="Not specified">Color</option>
-                                            <option value="White">White</option>
-                                            <option value="Black">Black</option>
-                                            <option value="Red">Red</option>
-                                            <option value="Blue">Blue</option>
-                                            <option value="Silver">Sliver</option>
-                                            <option value="Other">Other</option>
+                                            <option value="Not specified" @(Model.Color == "Not specified" ? "selected" : "")>Color</option>
+                                            <option value="White" @(Model.Color == "White" ? "selected" : "")>White</option>
+                                            <option value="Black" @(Model.Color == "Black" ? "selected" : "")>Black</option>
+                                            <option value="Red" @(Model.Color == "Red" ? "selected" : "")>Red</option>
+                                            <option value="Blue" @(Model.Color == "Blue" ? "selected" : "")>Blue</option>
+                                            <option value="Silver" @(Model.Color == "Silver" ? "selected" : "")>Silver</option>
+                                            <option value="Other" @(Model.Color == "Other" ? "selected" : "")>Other</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="formrow">
-                                        @Html.LabelFor(a => a.EngineCapacity)
+                                        <label for="EngineCapacity">Engine Capacity (cc)</label>
                                         @Html.TextBoxFor(a => Model.EngineCapacity, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.EngineCapacity)
                                     </div>
@@ -96,10 +99,11 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="formrow">
+                                        <label for="Fuel">Fuel</label>
                                         <select class="form-control" name="Fuel">
-                                            <option value="Not specified">Fuel</option>
-                                            <option value="Gasoline">Gasoline</option>
-                                            <option value="Diesel">Diesel</option>
+                                            <option value="Not specified" @(Model.Fuel == "Not specified" ? "selected" : "")>Fuel</option>
+                                            <option value="Gasoline" @(Model.Fuel == "Gasoline" ? "selected" : "")>Gasoline</option>
+                                            <option value="Diesel" @(Model.Fuel == "Diesel" ? "selected" : "")>Diesel</option>
                                         </select>
                                     </div>
                                 </div>
@@ -107,31 +111,29 @@
                                 <div class="col-md-12">
                                     <div class="formrow">
                                         <ul class="row featchoose">
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="ABS"> ABS</li>
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="AirBags"> Air Bags</li>
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="AC"> Air Conditioning</li>
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="CruiseControl"> Cruise Control</li>
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="KeylessEntry"> Keyless Entry</li>
-                                            <li class="col-md-4"><input type="checkbox" value="true" name="PowerWindows"> Power Windows</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="ABS" @(Model.ABS ? "checked" : "")> ABS</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="AirBags" @(Model.AirBags ? "checked" : "")> Air Bags</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="AC" @(Model.AC ? "checked" : "")> Air Conditioning</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="CruiseControl" @(Model.CruiseControl ? "checked" : "")> Cruise Control</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="KeylessEntry" @(Model.KeylessEntry ? "checked" : "")> Keyless Entry</li>
+                                            <li class="col-md-4"><input type="checkbox" value="true" name="PowerWindows" @(Model.PowerWindows ? "checked" : "")> Power Windows</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="formrow">
-                                        <div class="uploadphotobx">
-                                            <i class="fa fa-upload" aria-hidden="true"></i>
-                                            <h4>Update your car's photo</h4>
-                                            <p>It must be a head-shot photo</p>
-                                            <label class="uploadBox">
-                                                Click here to Upload another photo
-                                                <input type="file" name="Image" id="Image">
-                                            </label>
-                                        </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div style="text-align: center;" class="formrow">
+                                        <h4>Update your car's photo</h4>
+                                        <p>It must be a head-shot photo</p>
+                                        <label class="uploadBox">
+                                            <input type="file" name="Image" id="Image">
+                                        </label>
                                     </div>
                                 </div>
+                                <div class="col-md-4"></div>
                                 <div class="col-md-6">
                                     <div class="formrow">
-                                        @Html.LabelFor(a => a.Price)
+                                        <label for="Price">Price $</label>
                                         @Html.TextBoxFor(a => Model.Price, new { @class = "form-control" })
                                         @Html.ValidationMessageFor(a => a.Price)
                                     </div>

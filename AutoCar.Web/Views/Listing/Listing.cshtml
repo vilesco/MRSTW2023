@@ -3,7 +3,7 @@
     ViewBag.Title = "Listing";
 }
 
-@model System.Collections.Generic.List<AutoCar.Domain.Entities.Post.PostMinimal>
+@model AutoCar.Web.Models.ListingPageData
 
 <!-- Page Title start -->
 <div class="pageTitle">
@@ -19,26 +19,6 @@
 
 <div class="listpgWraper">
     <div class="container">
-
-        <!-- Sortby start -->
-        <div class="sortbybar">
-            <div class="row">
-                <div class="col-sm-4"> <a href="listing.html" data-toggle="tooltip" data-placement="top" title="" class="listby" data-original-title="Result by List View"><i class="fa fa-th-list" aria-hidden="true"></i></a> <a href="grid.html" data-toggle="tooltip" data-placement="top" title="" class="listby" data-original-title="Result by Gallery View"><i class="fa fa-th-large" aria-hidden="true"></i></a> </div>
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon3">Sort By</span>
-                        <select class="form-control">
-                            <option>Most recent</option>
-                            <option>Price: Rs Low to High</option>
-                            <option>Price: Rs High to Low</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="found"> 235 results for Mathematic Tutors <strong> Profile showing 1 to 10 out of 711 </strong> </div>
-                </div>
-            </div>
-        </div>
         <!-- Search Result and sidebar start -->
         <div class="row">
             <div class="col-md-3 col-sm-5">
@@ -46,12 +26,16 @@
             </div>
             <div class="col-md-9 col-sm-7">
                 <!-- Search List -->
-                <ul class="searchList">
-                    <!-- ad start -->
-                    @if (Model != null)
+                @if (Model == null || !Model.ListingItems.Any())
+                {
+                    <h3>No posts found!</h3>
+                }
+                @if (Model != null)
+                {
+                    foreach (var item in Model.ListingItems)
                     {
-                        foreach (var item in Model)
-                        {
+                        <ul class="searchList">
+                            <!-- ad start -->
                             <li>
                                 <div class="row">
                                     <div class="col-md-3 col-sm-4">
@@ -89,10 +73,10 @@
                                     </div>
                                 </div>
                             </li>
-                        }
+                            <!-- ad end -->
+                        </ul>
                     }
-                    <!-- ad end -->
-                </ul>
+                }
 
                 <!-- Pagination Start -->
                 <div class="pagiWrap">
